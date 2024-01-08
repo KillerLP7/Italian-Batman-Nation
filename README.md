@@ -14,8 +14,7 @@ Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
 
 # Antagonisten:
-Katzen, Greifvögel und Eulen als natürliche Gegner von Batman
-Bossfight?
+Katzen, Greifvögel und Eulen als natürliche Gegner von Batman, Bossfight?
 
 # Environment:
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum, Rom, Venedig usw.
@@ -24,6 +23,5 @@ Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Ko
 Pixelart (detailliert?), farbenfroh
 
 # Ziele:
-Italien von den biestigen/zerstörerischen Raubtieren befreien
-Den Boss besiegen
+Italien von den biestigen/zerstörerischen Raubtieren befreien, den Boss besiegen
 
