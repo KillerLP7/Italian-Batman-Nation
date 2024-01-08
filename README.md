@@ -9,9 +9,11 @@ Batman -> Protagonist = Player
 Warum ist Batman in Italien? Was ist sein Ziel? Wie kamen die Katzen dazu Batman zu helfen?
 
 # Gameplay: 
-Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen auf ihn zu kommen. Nach einer Welle kann man Batman oder verbündeten upgraden. Cats (Boden) & Bats (Luft) als verbündeten. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. Klassische 3 Leben oder 10? 9 Leben wegen Katze + Batman = 10? xD. 
+Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen auf ihn zu kommen. Nach einer Welle kann man Batman oder verbündeten upgraden. Bats (Luft) als verbündeten. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. Klassische 3 Leben oder 10? 9 Leben wegen Katze + Batman = 10? xD. 
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
+
+Batman macht Urlaub in Italien. Als er Ankommt bemerkt er das Katzen ganz Italien Übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu Handeln. Um allem ein Ende zu setzen will er den Katzen Boss stellen. Seine Basis ist im Kolusseum. Nun schlägt er sich durch Wellen von Katzen unm zu seinenm Ziel zu gelangen.
 
 # Antagonisten:
 Katzen, Greifvögel und Eulen als natürliche Gegner von Batman, Bossfight?
