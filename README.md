@@ -16,7 +16,7 @@ Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleib
 Batman macht Urlaub in Italien. Als er Ankommt bemerkt er das Katzen ganz Italien Übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu Handeln. Um allem ein Ende zu setzen will er den Katzen Boss stellen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinenm Ziel zu gelangen.
 
 # Antagonisten:
-Katzen, Greifvögel und Eulen als natürliche Gegner von Batman, Bossfight?
+Katzen mit Waffen (eine errichtete Diktatur über Italien)
 
 # Environment:
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum, Rom, Venedig usw.
