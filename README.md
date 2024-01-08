@@ -28,5 +28,5 @@ Pixelart, grob, cute und farbenfroh
 Italien von den biestigen/zerstörerischen Raubtieren befreien, den Boss besiegen
 
 # Items:
-Drops von Gegnern zur Regeneration von Leben
+Drops von Gegnern zur Regeneration von Leben, kosmetische Items (für Batman und Umgebung) 
 
