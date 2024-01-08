@@ -13,7 +13,7 @@ Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
 
-Batman macht Urlaub in Italien. Als er Ankommt bemerkt er das Katzen ganz Italien Übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu Handeln. Um allem ein Ende zu setzen will er den Katzen Boss stellen. Seine Basis ist im Kolusseum. Nun schlägt er sich durch Wellen von Katzen unm zu seinenm Ziel zu gelangen.
+Batman macht Urlaub in Italien. Als er Ankommt bemerkt er das Katzen ganz Italien Übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu Handeln. Um allem ein Ende zu setzen will er den Katzen Boss stellen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinenm Ziel zu gelangen.
 
 # Antagonisten:
 Katzen, Greifvögel und Eulen als natürliche Gegner von Batman, Bossfight?
