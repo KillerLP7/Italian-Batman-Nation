@@ -27,3 +27,6 @@ Pixelart (detailliert?), farbenfroh
 # Ziele:
 Italien von den biestigen/zerstörerischen Raubtieren befreien, den Boss besiegen
 
+# Items:
+Drops von Gegnern zur Regeneration von Leben
+
