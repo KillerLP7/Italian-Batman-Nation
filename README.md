@@ -17,5 +17,11 @@ Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleib
 Katzen, Greifvögel und Eulen als natürliche Gegner von Batman
 
 # Environment:
-Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe von Pisa, Kolloseum, Rom, Venedig usw.
+Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum, Rom, Venedig usw.
+
+# Artstyle:
+Pixelart (detailliert?), farbenfroh
+
+# Ziele:
+Italien von den biestigen/zerstörerischen Raubtieren befreien
 
