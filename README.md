@@ -16,6 +16,6 @@ Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleib
 # Antagonisten:
 Katzen, Greifvögel und Eulen als natürliche Gegner von Batman
 
-#E Environment
+# Environment
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe von Pisa, Kolloseum, Rom, Venedig usw.
 
