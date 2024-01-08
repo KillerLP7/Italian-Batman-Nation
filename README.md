@@ -12,3 +12,7 @@ Warum ist Batman in Italien? Was ist sein Ziel? Wie kamen die Katzen dazu Batman
 Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen auf ihn zu kommen. Nach einer Welle kann man Batman oder verbündeten upgraden. Cats (Boden) & Bats (Luft) als verbündeten. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. Klassische 3 Leben oder 10? 9 Leben wegen kazte + Batman = 10? xD. 
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
+
+# Antagonisten
+Katzen, Greifvögel und Eulen als natürliche Gegner von Batman
+
