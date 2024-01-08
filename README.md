@@ -13,6 +13,6 @@ Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
 
-# Antagonisten
+# Antagonisten:
 Katzen, Greifvögel und Eulen als natürliche Gegner von Batman
 
