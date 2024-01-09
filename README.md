@@ -22,7 +22,7 @@ Katzen mit Waffen (eine errichtete Diktatur über Italien)
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw.
 
 # Artstyle:
-Pixelart, grob, cute und farbenfroh
+Cartoon, grob, cute und farbenfroh
 
 # Ziele:
 Italien von den biestigen/zerstörerischen Raubtieren befreien, den Boss besiegen
