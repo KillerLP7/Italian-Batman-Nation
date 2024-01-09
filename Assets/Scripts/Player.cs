@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,25 +16,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.W))
         {
             rb.velocity = new Vector2(0, 1);
-            GameManager.Instance.PlayerPos(transform.position);
         }
         if (Input.GetKeyDown(KeyCode.A))
         {
             rb.velocity = new Vector2(-1, 0);
-            GameManager.Instance.PlayerPos(transform.position);
         }
         if (Input.GetKeyDown(KeyCode.S))
         {
             rb.velocity = new Vector2(0, -1);
-            GameManager.Instance.PlayerPos(transform.position);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
             rb.velocity = new Vector2(1, 0);
-            GameManager.Instance.PlayerPos(transform.position);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        GameManager.Instance.PlayerPos(transform.position);
     }
 }

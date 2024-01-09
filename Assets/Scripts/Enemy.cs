@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,8 +7,10 @@ public class Enemy : MonoBehaviour
 
     Rigidbody2D rb;
     private Vector3 targetPos;
+    private float counter;
 
-    private bool knowYourLocation;
+
+    private bool askForHelp = false;
     // Start is called before the first frame update
     void Awake()
     {
@@ -20,41 +20,36 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Vector2 nv = new Vector2();
+        Vector2 nv = new Vector2();
         
-        //rb.velocity = new Vector2(-1, 0);
-        targetPos = GameManager.Instance.Chase();
         if (targetPos.y > transform.position.y)
         {
-            //nv += new Vector2(0, 1);
-            rb.velocity = new Vector2(0, 1);
+            nv += new Vector2(0, 1);
         }
 
         if (targetPos.y < transform.position.y)
         {
-            //nv += new Vector2(0, -1);
-            rb.velocity = new Vector2(0, -1);
+            nv += new Vector2(0, -1);
         }
         
         if (Math.Abs(targetPos.y - transform.position.y) < 0.1f)
         {
             if (targetPos.x > transform.position.x)
             {
-                //nv += new Vector2(1, 0);
-                rb.velocity = new Vector2(1, 0);
+                nv += new Vector2(1, 0);
             }
             
             if (targetPos.x < transform.position.x)
             {
-                //nv += new Vector2(-1, 0);
-                rb.velocity = new Vector2(-1, 0);
+                nv += new Vector2(-1, 0);
             }
 
             
             
-            if (targetPos.x == transform.position.x)
+            if (Math.Abs(targetPos.x - transform.position.x) < 0.1f)
             {
-                print("GAME OVER");
+                askForHelp = true;
+                targetPos = GameManager.Instance.Chase(askForHelp);
             }
         }
         
@@ -63,6 +58,28 @@ public class Enemy : MonoBehaviour
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(4,0,0), Quaternion.identity);
         }
         
-        //rb.velocity = nv;
+        
+        if (counter > 5)
+        {
+            Ask();
+            counter = 0;
+        }
+
+        counter += Time.deltaTime;
+        rb.velocity = nv.normalized;
+    }
+
+    void Ask()
+    {
+        targetPos = GameManager.Instance.Chase(askForHelp);
+    }
+    
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            print("GAME OVER");
+        }
+        
     }
 }

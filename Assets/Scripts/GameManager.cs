@@ -35,8 +35,12 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public Vector3 Chase()
+    public Vector3 Chase(bool asked)
     {
+        if (asked)
+        {
+            return playerPos;
+        }
         return playerPos;
     }
 
