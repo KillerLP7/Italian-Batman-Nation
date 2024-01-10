@@ -4,12 +4,12 @@ using Random = System.Random;
 
 public class Enemy : MonoBehaviour
 {
-    public GameObject[] enemys = new GameObject[0];
+    [SerializeField] private GameObject[] enemys = new GameObject[0];
 
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
-    private int health;
+    private int health = 5;
 
 
     private bool askForHelp = false;
@@ -17,6 +17,10 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        for (int i = 0; i < enemys.Length; i++)
+        {
+            enemys[i] = GameManager.Instance.EnemyTypes();
+        }
         if (enemys[0])
         {
             health = 5;
@@ -58,11 +62,6 @@ public class Enemy : MonoBehaviour
                 targetPos = GameManager.Instance.Chase(askForHelp);
             }
         }
-        
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            GameObject newEnemy = Instantiate(enemys[0], new Vector3(4,0,0), Quaternion.identity);
-        }
 
         if (health <= 0)
         {
@@ -90,13 +89,17 @@ public class Enemy : MonoBehaviour
         {
             //Sprite attack
             //Player Health Bar drops
-            print("GAME OVER");
+            print("We got him!");
+            GameManager.Instance.PlayerGotHit();
         }
 
         if (collision.gameObject.CompareTag("Attack"))
         {
-            print("health");
-            health--;
+            if (Math.Abs(targetPos.y - transform.position.y) < 0.01f && Math.Abs(targetPos.y - transform.position.y) > -0.01f)
+            {
+                print("health");
+                health--;
+            }
         }
         
     }

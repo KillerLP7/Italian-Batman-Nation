@@ -15,9 +15,11 @@ public class Player : MonoBehaviour
     private bool canAttack = true;
     private float counter;
     private float cooldown;
+    private int hp;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        GameManager.Instance.HP(hp);
     }
 
     // Update is called once per frame
@@ -100,11 +102,14 @@ public class Player : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!player)
         {
-            print("Hit!");
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                print("Hit!");
+            }
         }
     }
 }
