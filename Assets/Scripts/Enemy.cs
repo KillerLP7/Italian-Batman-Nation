@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Random = System.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
+    private int health;
 
 
     private bool askForHelp = false;
@@ -15,6 +17,10 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        if (enemys[0])
+        {
+            health = 5;
+        }
     }
 
     // Update is called once per frame
@@ -57,7 +63,11 @@ public class Enemy : MonoBehaviour
         {
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(4,0,0), Quaternion.identity);
         }
-        
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
+        }
         
         if (counter > 5)
         {
@@ -78,7 +88,15 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            //Sprite attack
+            //Player Health Bar drops
             print("GAME OVER");
+        }
+
+        if (collision.gameObject.CompareTag("Attack"))
+        {
+            print("health");
+            health--;
         }
         
     }
