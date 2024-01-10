@@ -33,3 +33,6 @@ Drops von Gegnern zur Regeneration von Leben, kosmetische Items (für Batman und
 # Charakterdesign
 Anfangs hat Batman lediglich eine kurze Hose und Schlappen an. Nach seinem ersten Kampf, welchen er mit Fäusten antritt, erhält er seinen Bumerang. Nach seinem zweiten Kampf 
 
+# Reihenfolge d. Szenen und Kämpfe
+Batman kommt am Flughafen an und sieht Italien, wie es aus noch unbekannten Gründen von Katzen diktatiert wird. Dort trifft er auf zwei der Katzen und es kommt zu einem Faustkampf. Nachdem Batman diesen Faustkampf gewinnt, erlangt er einen Bumerang. Er macht sich weiter auf den Weg zum schiefen Turm von Pisa und auch dort trifft er auf biestige Katzen. Dieses Mal kann er auch dem Bumerang zum kämpfen nutzen. Nach diesem Kampf erlangt er seinen legendären Anzug. Danach macht er sich auf dem Weg zum Kollosseum, welches in Flammen und unter Gewahrsam der Katzen steht. Auch dort kämpf er gegen mehrere Katzen. Nach gewinnen dieses Kampfes 
+
