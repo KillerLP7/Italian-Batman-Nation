@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
     [SerializeField] private bool player;
     private Vector3 playerPos;
     private Vector3 attackArea;
-    private bool punch;
+    private bool canAttack = true;
     private float counter;
+    private float cooldown;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (player)
         {
             if (Input.GetKeyDown(KeyCode.W))
@@ -40,33 +42,43 @@ public class Player : MonoBehaviour
             {
                 rb.velocity = new Vector2(1, 0);
             }
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            attackArea = playerPos;
-            attackArea.x += 1f;
-            attackArea.y += 0.5f;
-            Instantiate(attack, attackArea, quaternion.identity);
-            punch = true;
-        }
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            attackArea = playerPos;
-            attackArea.x += 1f; 
-            attackArea.y += -0.5f;
-            Instantiate(attack, attackArea, quaternion.identity);
-            punch = false;
-        }
-
-        if (player)
-        {
+            
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                if (canAttack)
+                {
+                    canAttack = false;
+                    attackArea = playerPos;
+                    attackArea.x += 1f;
+                    attackArea.y += 0.5f;
+                    Instantiate(attack, attackArea, quaternion.identity);
+                
+                }
+            }
+            
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                if (canAttack)
+                {
+                    attackArea = playerPos;
+                    attackArea.x += 1f; 
+                    attackArea.y += -0.5f;
+                    Instantiate(attack, attackArea, quaternion.identity);
+                    canAttack = false;
+                }
+            }
+            
             playerPos = transform.position;
+            
+            if (!canAttack)
+            {
+                canAttack = true;
+            }
         }
 
         if (!player)
         {
-            if (counter > 0.05)
+            if (counter > 0.1)
             {
                 ExecuteAttack();
                 counter = 0;
@@ -85,8 +97,11 @@ public class Player : MonoBehaviour
 
     private void ExecuteAttack()
     {
-        
-        
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        print("Hit!");
     }
 }
