@@ -10,11 +10,10 @@ Warum ist Batman in Italien? Was ist sein Ziel? Wie kamen die Katzen dazu Batman
 
 # Gameplay: 
 Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen auf ihn zu kommen. Nach einer Welle kann man Batman oder verbündeten upgraden. Bats (Luft) als verbündeten. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. 
-10XP und pro hit eines Gegners bekommt Batman -1XP, bei besiegtem Gegner sammelt man +1XP.
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
 
-Batman macht Urlaub in Italien. Als er ankommt bemerkt er, das Katzen ganz Italien Übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu handeln. Um allem ein Ende zu setzen, will er sich den Katzenboss stellen, um ein Heilmittel zur Behandlung der Katzenkrankheit zu bekommen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinenm Ziel zu gelangen.
+Batman macht Urlaub in Italien. Als er ankommt bemerkt er, das Katzen ganz Italien übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu handeln. Um allem ein Ende zu setzen, will er sich den Katzenboss stellen, um ein Heilmittel zur Behandlung der Katzenkrankheit zu bekommen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinem Ziel zu gelangen.
 
 # Antagonisten:
 Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien)
@@ -30,4 +29,7 @@ Italien von den biestigen/zerstörerischen Katzen befreien, um den Menschen das 
 
 # Items und Kosmetik:
 Drops von Gegnern zur Regeneration von Leben, kosmetische Items (für Batman und Umgebung), im Verlaufe des Spiels wird aus dem urlaubmachendem Batman, der für Gerechtigkeit sorgende Batman und erhält nach und nach seine bekannte Kosmetik.
+
+# Charakterdesign
+Anfangs hat Batman lediglich eine kurze Hose und Schlappen an. Nach seinem ersten Kampf, welchen er mit Fäusten antritt, erhält er seinen Bumerang. Nach seinem zweiten Kampf 
 
