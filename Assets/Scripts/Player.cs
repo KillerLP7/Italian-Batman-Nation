@@ -1,13 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
-    public float speed = 100f;
-    // Start is called before the first frame update
+    private float speed = 100f;
+    [SerializeField] private GameObject attack;
+    [SerializeField] private bool player;
+    private Vector3 playerPos;
+    private Vector3 attackArea;
+    private bool punch;
+    private float counter;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -16,27 +22,71 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        if (Input.GetKeyDown(KeyCode.W))
+        if (player)
         {
-            rb.velocity = new Vector2(0, 1);
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                rb.velocity = new Vector2(0, 1);
+            }
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                rb.velocity = new Vector2(-1, 0);
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                rb.velocity = new Vector2(0, -1);
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                rb.velocity = new Vector2(1, 0);
+            }
         }
-        if (Input.GetKeyDown(KeyCode.A))
+
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            rb.velocity = new Vector2(-1, 0);
+            attackArea = playerPos;
+            attackArea.x += 1f;
+            attackArea.y += 0.5f;
+            Instantiate(attack, attackArea, quaternion.identity);
+            punch = true;
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            rb.velocity = new Vector2(0, -1);
+            attackArea = playerPos;
+            attackArea.x += 1f; 
+            attackArea.y += -0.5f;
+            Instantiate(attack, attackArea, quaternion.identity);
+            punch = false;
         }
-        if (Input.GetKeyDown(KeyCode.D))
+
+        if (player)
         {
-            rb.velocity = new Vector2(1, 0);
+            playerPos = transform.position;
+        }
+
+        if (!player)
+        {
+            if (counter > 0.05)
+            {
+                ExecuteAttack();
+                counter = 0;
+            }
+            counter += Time.deltaTime;
         }
     }
 
     private void FixedUpdate()
     {
-        GameManager.Instance.PlayerPos(transform.position);
+        if (player)
+        {
+            GameManager.Instance.PlayerPos(transform.position); 
+        }
+    }
+
+    private void ExecuteAttack()
+    {
+        
+        
+        Destroy(gameObject);
     }
 }
