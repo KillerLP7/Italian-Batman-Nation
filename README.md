@@ -25,8 +25,7 @@ Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Ko
 Cartoon, grob, cute und farbenfroh
 
 # Ziele:
-Italien von den biestigen/zerstörerischen Katzen befreien, den Boss besiegen
-
+Italien von den biestigen/zerstörerischen Katzen befreien, um den Menschen das Land zurückzuerobern und die Diktatur zu beenden. Außerdem braucht er das Gegenmittel zur Behandlung der Krankheit der Katzen, welches durch Besiegen des Bosses zu erlangen ist.
 # Items:
 Drops von Gegnern zur Regeneration von Leben, kosmetische Items (für Batman und Umgebung) 
 
