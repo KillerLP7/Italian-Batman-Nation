@@ -12,10 +12,12 @@ public class GameManager : MonoBehaviour
     private static GameManager _instance;
     public static GameManager Instance => _instance;
     public GameObject[] enemys = new GameObject[0];
+    public TextMeshProUGUI playerHealth;
+    public TextMeshProUGUI wave;
 
     private Vector3 playerPos;
-
-    private int hp;
+    private int waveNumber;
+    private int hp = 5;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
+        playerHealth.text = hp.ToString();
+        wave.text = waveNumber.ToString();
     }
 
     // Update is called once per frame
@@ -47,14 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Vector3 Chase(bool asked)
-    {
-        if (asked)
-        {
-            return playerPos;
-        }
-        return playerPos;
-    }
+    public Vector3 Chase(bool asked) => playerPos;
 
     public void PlayerPos(Vector3 pos)
     {

@@ -74,7 +74,12 @@ public class Player : MonoBehaviour
             
             if (!canAttack)
             {
-                canAttack = true;
+                if (counter > 1)
+                {
+                    canAttack = true;
+                    counter = 0;
+                }
+                counter += Time.deltaTime;
             }
         }
 
