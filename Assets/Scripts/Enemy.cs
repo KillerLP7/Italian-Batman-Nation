@@ -4,13 +4,13 @@ using Random = System.Random;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private GameObject[] enemys = new GameObject[0];
+    [SerializeField] private GameObject[] enemys;
 
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
     private int health = 5;
-    public static int activeEnemies;
+    //public static int activeEnemies;
     
     private bool askForHelp = false;
     // Start is called before the first frame update
@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         for (int i = 0; i < enemys.Length; i++)
         {
+            //print(i);
             enemys[i] = GameManager.Instance.EnemyTypes();
         }
         if (enemys[0])
@@ -26,7 +27,7 @@ public class Enemy : MonoBehaviour
             health = 5;
         }
 
-        activeEnemies++;
+        GameManager.Instance.ActiveEnemiesAdd();
     }
 
     // Update is called once per frame
@@ -70,7 +71,6 @@ public class Enemy : MonoBehaviour
             Ask();
             counter = 0;
         }
-        print(activeEnemies);
         counter += Time.deltaTime;
         rb.velocity = nv.normalized;
     }
@@ -98,7 +98,7 @@ public class Enemy : MonoBehaviour
                 health--;
                 if (health == 0)
                 {
-                    activeEnemies--;
+                    GameManager.Instance.ActiveEnemiesRemove();
                     Destroy(gameObject);
                 }
             }

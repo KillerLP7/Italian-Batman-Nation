@@ -11,13 +11,17 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager _instance;
     public static GameManager Instance => _instance;
-    public GameObject[] enemys = new GameObject[0];
+    public GameObject[] enemys;
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
 
     private Vector3 playerPos;
     private int waveNumber;
     private int hp;
+    private int activeEnemies;
+    private bool endOfWave;
+
+    private bool allowSpawn;
     // Start is called before the first frame update
     void Awake()
     {
@@ -43,10 +47,28 @@ public class GameManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
+        if (waveNumber == 1)
+        {
+            if (allowSpawn)
+            {
+                GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+                allowSpawn = false;
+            }
+        }
         
         playerHealth.text = hp.ToString();
         wave.text = waveNumber.ToString();
-        
+
+        if (activeEnemies == 0 && !endOfWave)
+        {
+            waveNumber++;
+            endOfWave = true;
+        }
+
+        if (activeEnemies > 0)
+        {
+            endOfWave = false;
+        }
         if (hp == 0)
         {
             print("GAME OVER");
@@ -77,5 +99,15 @@ public class GameManager : MonoBehaviour
     public void PlayerGotHit()
     {
         hp--;
+    }
+
+    public void ActiveEnemiesAdd()
+    {
+        activeEnemies++;
+    }
+    
+    public void ActiveEnemiesRemove()
+    {
+        activeEnemies--;
     }
 }
