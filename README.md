@@ -16,7 +16,7 @@ Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleib
 Batman macht Urlaub in Italien. Als er ankommt bemerkt er, das Katzen ganz Italien übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu handeln. Um allem ein Ende zu setzen, will er sich den Katzenboss stellen, um ein Heilmittel zur Behandlung der Katzenkrankheit zu bekommen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinem Ziel zu gelangen.
 
 # Antagonisten:
-Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien)
+Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien), der Boss ist ein großer, mutierter Kater, welcher beabsichtigt das Heilmittel gegen die Katzenkrankheit bei sich trägt. 
 
 # Environment:
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw.
