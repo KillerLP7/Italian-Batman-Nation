@@ -5,7 +5,8 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;using Update = UnityEngine.PlayerLoop.Update;
+using Random = UnityEngine.Random;
+using Update = UnityEngine.PlayerLoop.Update;
 
 public class GameManager : MonoBehaviour
 {
@@ -47,20 +48,24 @@ public class GameManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
-        if (waveNumber == 1)
+        for (int i = 0; i < waveNumber; i++)
         {
             if (allowSpawn)
             {
-                GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
-                allowSpawn = false;
+                print("try to spawn");
+                GameObject newEnemy = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
+                
             }
         }
+        allowSpawn = false;
         
+        print(activeEnemies);
         playerHealth.text = hp.ToString();
         wave.text = waveNumber.ToString();
 
         if (activeEnemies == 0 && !endOfWave)
         {
+            allowSpawn = true;
             waveNumber++;
             endOfWave = true;
         }
@@ -68,6 +73,10 @@ public class GameManager : MonoBehaviour
         if (activeEnemies > 0)
         {
             endOfWave = false;
+            if (waveNumber > 5)
+            {
+                
+            }
         }
         if (hp == 0)
         {

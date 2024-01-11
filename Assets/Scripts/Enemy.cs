@@ -94,7 +94,7 @@ public class Enemy : MonoBehaviour
         {
             if (Math.Abs(targetPos.y - transform.position.y) < 0.01f && Math.Abs(targetPos.y - transform.position.y) > -0.01f)
             {
-                print(health);
+                //print(health);
                 health--;
                 if (health == 0)
                 {

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     private float speed = 100f;
     [SerializeField] private GameObject attack;
     [SerializeField] private bool player;
+    private SpriteRenderer sr;
     private Vector3 playerPos;
     private Vector3 attackArea;
     private bool canAttack = true;
@@ -19,6 +21,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         GameManager.Instance.HP(hp);
     }
 
