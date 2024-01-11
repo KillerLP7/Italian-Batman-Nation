@@ -10,9 +10,8 @@ public class Enemy : MonoBehaviour
     private Vector3 targetPos;
     private float counter;
     private int health = 5;
-    private int activeEnemies = 0;
-
-
+    public static int activeEnemies;
+    
     private bool askForHelp = false;
     // Start is called before the first frame update
     void Awake()
