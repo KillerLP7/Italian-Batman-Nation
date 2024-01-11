@@ -9,7 +9,7 @@ Batman -> Protagonist = Player
 Warum ist Batman in Italien? Was ist sein Ziel? Wie kamen die Katzen dazu Batman zu helfen? Batman macht Urlaub in Italien. Als er ankommt, bemerkt er, dass macht-/rachsüchtige Katzen sich über das Land hermachen und für Chaos und Diktatur sorgen. Sofort fühlt sich Batman verantwortlich gegen die Katzen vorzugehen und den Menschen das Land zurückzugeben. 
 
 # Gameplay: 
-Man spielt Batman im Kolosseum/Schiefe Turm von Pisa, wo er mehrere Gegnerwellen auf ihn zu kommen. Nach einer Welle kann man Batman oder verbündeten upgraden. Bats (Luft) als verbündeten. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. 
+Man spielt Batman, wo mehrere Gegnerwellen auf ihn zu kommen. Batman kann schlagen (Hauptangriff) und ein Bumerang (mit Cooldown) schmeißen. 
 
 Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleiben wir dabei oder was ist eure Meinung? -u-"
 
