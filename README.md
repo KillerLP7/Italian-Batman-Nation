@@ -22,7 +22,7 @@ Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien), der Boss is
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw., man sieht deutlich, dass das Land aufgrund der Einnahme der Katzen leidet und förmlich nach Hilfe schreit. Es sind keine Menschen zu sehen, weil sie sich entweder verstecken oder geflohen sind. 
 
 # Artstyle:
-Cartoon, grob, cute und farbenfroh
+cartoon, grob 
 
 # Ziele:
 Italien von den biestigen/zerstörerischen Katzen befreien, um den Menschen das Land zurückzuerobern und die Diktatur zu beenden. Außerdem braucht er das Gegenmittel zur Behandlung der Krankheit der Katzen, welches durch Besiegen des Bosses zu erlangen ist.
