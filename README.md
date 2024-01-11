@@ -16,7 +16,7 @@ Habe die grobe Idee, die wir am Donnerstag hatten, nochmal aufgeschrieben, bleib
 Batman macht Urlaub in Italien. Als er ankommt bemerkt er, das Katzen ganz Italien übernommen haben. Menschen werden versklavt und Kinder werden als Haustiere gehalten. Batman ist gezwungen zu handeln. Um allem ein Ende zu setzen, will er sich den Katzenboss stellen, um ein Heilmittel zur Behandlung der Katzenkrankheit zu bekommen. Seine Basis ist im Kolosseum. Nun schlägt er sich durch Wellen von Katzen um zu seinem Ziel zu gelangen.
 
 # Antagonisten:
-Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien)
+Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien), der Boss ist ein großer, mutierter Kater, welcher beabsichtigt das Heilmittel gegen die Katzenkrankheit bei sich trägt. 
 
 # Environment:
 Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw.
@@ -31,7 +31,7 @@ Italien von den biestigen/zerstörerischen Katzen befreien, um den Menschen das 
 Drops von Gegnern zur Regeneration von Leben, kosmetische Items (für Batman und Umgebung), im Verlaufe des Spiels wird aus dem urlaubmachendem Batman, der für Gerechtigkeit sorgende Batman und erhält nach und nach seine bekannte Kosmetik.
 
 # Charakterdesign
-Anfangs hat Batman lediglich eine kurze Hose und Schlappen an. Nach seinem ersten Kampf, welchen er mit Fäusten antritt, erhält er seinen Bumerang. Nach seinem zweiten Kampf 
+Anfangs hat Batman lediglich eine kurze Hose und Schlappen an. Nach seinem ersten Kampf, welchen er mit Fäusten antritt, erhält er seinen Bumerang. Nach seinem zweiten Kampf erhält er seinen berühmten Anzug. Nach seinem dritten Kampf erhält er seine Maske/Mütze und kann somit den vierten und letzten Kampf antreten. Durch erlangen seines Anzuges/Maske ist er ein wenig stärker.
 
 # Reihenfolge d. Szenen und Kämpfe
 Batman kommt am Flughafen an und sieht Italien, wie es aus noch unbekannten Gründen von Katzen diktatiert wird. Dort trifft er auf zwei der Katzen und es kommt zu einem Faustkampf. Nachdem Batman diesen Faustkampf gewinnt, erlangt er einen Bumerang. Er macht sich weiter auf den Weg zum schiefen Turm von Pisa und auch dort trifft er auf biestige Katzen. Dieses Mal kann er auch dem Bumerang zum kämpfen nutzen. Nach diesem Kampf erlangt er seinen legendären Anzug. Danach macht er sich auf dem Weg zum Kollosseum, welches in Flammen und unter Gewahrsam der Katzen steht. Auch dort kämpf er gegen mehrere Katzen. Nach gewinnen dieses Kampfes 
