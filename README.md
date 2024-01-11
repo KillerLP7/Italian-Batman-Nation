@@ -19,7 +19,7 @@ Batman macht Urlaub in Italien. Als er ankommt bemerkt er, das Katzen ganz Itali
 Motierte Katzen mit Waffen (eine errichtete Diktatur über Italien), der Boss ist ein großer, mutierter Kater, welcher beabsichtigt das Heilmittel gegen die Katzenkrankheit bei sich trägt. 
 
 # Environment:
-Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw.
+Italienische Wahrzeichen/bekannte Städte wie z.B. der schiefe Turm von Pisa, Kolloseum (Base des Endgegners), Rom, Venedig usw., man sieht deutlich, dass das Land aufgrund der Einnahme der Katzen leidet und förmlich nach Hilfe schreit. Es sind keine Menschen zu sehen, weil sie sich entweder verstecken oder geflohen sind. 
 
 # Artstyle:
 Cartoon, grob, cute und farbenfroh
