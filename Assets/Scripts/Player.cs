@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     private bool canAttack = true;
     private float counter;
     private float cooldown;
-    private int hp;
+    private int hp = 5;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

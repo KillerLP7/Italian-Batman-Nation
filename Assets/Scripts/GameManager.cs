@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
 
     private Vector3 playerPos;
     private int waveNumber;
-    private int hp = 5;
+    private int hp;
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
-        playerHealth.text = hp.ToString();
-        wave.text = waveNumber.ToString();
     }
 
     // Update is called once per frame
@@ -42,9 +40,13 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             print("I");
-            GameObject newEnemy = Instantiate(enemys[0], new Vector3(7.5f,Random.Range(-5f, 1f),0), Quaternion.identity);
+            GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
+        
+        playerHealth.text = hp.ToString();
+        wave.text = waveNumber.ToString();
+        
         if (hp == 0)
         {
             print("GAME OVER");

@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Vector3 targetPos;
     private float counter;
     private int health = 5;
+    private int activeEnemies = 0;
 
 
     private bool askForHelp = false;
@@ -25,6 +26,8 @@ public class Enemy : MonoBehaviour
         {
             health = 5;
         }
+
+        activeEnemies++;
     }
 
     // Update is called once per frame
@@ -62,18 +65,13 @@ public class Enemy : MonoBehaviour
                 targetPos = GameManager.Instance.Chase(askForHelp);
             }
         }
-
-        if (health <= 0)
-        {
-            Destroy(gameObject);
-        }
         
         if (counter > 5)
         {
             Ask();
             counter = 0;
         }
-
+        print(activeEnemies);
         counter += Time.deltaTime;
         rb.velocity = nv.normalized;
     }
@@ -97,8 +95,13 @@ public class Enemy : MonoBehaviour
         {
             if (Math.Abs(targetPos.y - transform.position.y) < 0.01f && Math.Abs(targetPos.y - transform.position.y) > -0.01f)
             {
-                print("health");
+                print(health);
                 health--;
+                if (health == 0)
+                {
+                    activeEnemies--;
+                    Destroy(gameObject);
+                }
             }
         }
         

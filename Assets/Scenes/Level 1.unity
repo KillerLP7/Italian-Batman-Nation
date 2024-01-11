@@ -1174,17 +1174,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2156096090472349735, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 6747250295971308137, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.36730027
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6747250295971308137, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.7347207
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6747250295971308137, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.034844372
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6747250295971308137, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: m_LocalRotation.w
