@@ -63,19 +63,19 @@ public class GameManager : MonoBehaviour
 
             if (binary[1])
             {
-                GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                GameObject cat2 = Instantiate(enemys[1], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
                     Quaternion.identity);
             }
 
             if (binary[2])
             {
-                GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                GameObject cat4 = Instantiate(enemys[2], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
                     Quaternion.identity);
             }
 
             if (binary[3])
             {
-                GameObject cat8 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                GameObject cat8 = Instantiate(enemys[3], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
                     Quaternion.identity);
             }
             //GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
