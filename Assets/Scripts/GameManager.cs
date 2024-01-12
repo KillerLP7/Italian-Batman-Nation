@@ -1,12 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
-using Update = UnityEngine.PlayerLoop.Update;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +16,8 @@ public class GameManager : MonoBehaviour
     private int hp;
     private int activeEnemies;
     private bool endOfWave;
+    private bool[] binary = new bool[4];
+    private int lastWave;
 
     private bool allowSpawn;
     // Start is called before the first frame update
@@ -37,6 +34,11 @@ public class GameManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
+
+        for (int i = 0; i < binary.Length; i++)
+        {
+            binary[i] = false;
+        }
     }
 
     // Update is called once per frame
@@ -48,15 +50,42 @@ public class GameManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
-        for (int i = 0; i < waveNumber; i++)
+
+        if (allowSpawn)
         {
-            if (allowSpawn)
+            GetBinary();
+            print($"try to spawn with {string.Join(", ", binary)}");
+            if (binary[0])
             {
-                print("try to spawn");
-                GameObject newEnemy = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
-                
+                GameObject cat1 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                    Quaternion.identity);
             }
+
+            if (binary[1])
+            {
+                GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                    Quaternion.identity);
+            }
+
+            if (binary[2])
+            {
+                GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                    Quaternion.identity);
+            }
+
+            if (binary[3])
+            {
+                GameObject cat8 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0),
+                    Quaternion.identity);
+            }
+            //GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
+            //GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
+            //GameObject cat8 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
+            //GameObject catBoss = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
+
+
         }
+
         allowSpawn = false;
         
         print(activeEnemies);
@@ -66,17 +95,21 @@ public class GameManager : MonoBehaviour
         if (activeEnemies == 0 && !endOfWave)
         {
             allowSpawn = true;
-            waveNumber++;
+            if (waveNumber < 16)
+            {
+                lastWave = waveNumber;
+                waveNumber++;
+                print("Incerased Wave");
+            }
             endOfWave = true;
         }
-
+        if (waveNumber > 15)
+        {
+            wave.text = "BOSS";
+        }
         if (activeEnemies > 0)
         {
             endOfWave = false;
-            if (waveNumber > 5)
-            {
-                
-            }
         }
         if (hp == 0)
         {
@@ -123,5 +156,15 @@ public class GameManager : MonoBehaviour
     public int GetWaveNumber()
     {
         return waveNumber;
+    }
+    
+    private void GetBinary()
+    {
+        int tmp = waveNumber;
+        for (int i = 0; i < binary.Length; i++)
+        {
+            binary[i] = tmp % 2 == 1;
+            tmp >>= 1;
+        }
     }
 }

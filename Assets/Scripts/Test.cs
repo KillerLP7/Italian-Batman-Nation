@@ -5,7 +5,7 @@ namespace DefaultNamespace
         private static int level;
         private static bool[] enemyBool = new bool[4]; 
 
-        public static void ASest()
+        public static void GetBinary()
         {
             for (int i = 0; i < 4; i++)
             {
