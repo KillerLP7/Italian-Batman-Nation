@@ -119,4 +119,9 @@ public class GameManager : MonoBehaviour
     {
         activeEnemies--;
     }
+
+    public int GetWaveNumber()
+    {
+        return waveNumber;
+    }
 }
