@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
-    private int health = 1;
+    private int health;
     //public static int activeEnemies;
     
     private bool askForHelp = false;
@@ -23,6 +23,18 @@ public class Enemy : MonoBehaviour
             enemys[i] = GameManager.Instance.EnemyTypes();
         }
         if (enemys[0])
+        {
+            health = 1;
+        }
+        if (enemys[1])
+        {
+            health = 1;
+        }
+        if (enemys[2])
+        {
+            health = 1;
+        }
+        if (enemys[3])
         {
             health = 1;
         }
@@ -92,16 +104,16 @@ public class Enemy : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Attack"))
         {
-            if (Math.Abs(targetPos.y - transform.position.y) < 0.01f && Math.Abs(targetPos.y - transform.position.y) > -0.01f)
+            
+            
+            //print(health);
+            health--;
+            if (health == 0)
             {
-                //print(health);
-                health--;
-                if (health == 0)
-                {
-                    GameManager.Instance.ActiveEnemiesRemove();
-                    Destroy(gameObject);
-                }
+                GameManager.Instance.ActiveEnemiesRemove();
+                Destroy(gameObject);
             }
+            
         }
         
     }

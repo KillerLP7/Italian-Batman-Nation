@@ -130,7 +130,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.1, y: 0.3}
   m_EdgeRadius: 0
 --- !u!50 &5112543235638079410
 Rigidbody2D:
@@ -173,3 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemys:
   - {fileID: 1636633299321596787}
+  - {fileID: 4126959551537945538, guid: 14d1d9cd850c1ee4e9580be991027df5, type: 3}
+  - {fileID: 5694701434125156676, guid: 81d6ce207719a5642beca9d02f6f4493, type: 3}
+  - {fileID: 1913279440347985967, guid: 969ebc0786a71024aa6e571ca58ac6eb, type: 3}
