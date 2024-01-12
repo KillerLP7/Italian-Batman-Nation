@@ -4,6 +4,7 @@ public class RoomChange : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]private bool block;
+    private int currentWave;
 
     private void Awake()
     {
@@ -22,5 +23,23 @@ public class RoomChange : MonoBehaviour
         //-17.8
         //-35,6
         //-53,4
+        if (block)
+        {
+            currentWave = GameManager.Instance.GetWaveNumber();
+            if (currentWave == 6)
+            {
+                transform.position = new Vector3(17.8f, 10f, 0);
+            }
+
+            if (currentWave == 11)
+            {
+                transform.position = new Vector3(0f, 10f, 0);
+            }
+
+            if (currentWave == 16)
+            {
+                transform.position = new Vector3(-17.8f, 10f, 0);
+            }
+        }
     }
 }

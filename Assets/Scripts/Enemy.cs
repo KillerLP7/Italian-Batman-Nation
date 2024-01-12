@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
-    private int health = 5;
+    private int health = 1;
     //public static int activeEnemies;
     
     private bool askForHelp = false;
@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         }
         if (enemys[0])
         {
-            health = 5;
+            health = 1;
         }
 
         GameManager.Instance.ActiveEnemiesAdd();

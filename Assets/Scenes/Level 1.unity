@@ -775,7 +775,7 @@ Transform:
   m_GameObject: {fileID: 562906366}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 17.8, y: 10, z: -0.057026833}
+  m_LocalPosition: {x: 35.6, y: 10, z: -0.057026833}
   m_LocalScale: {x: 17.8, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2109,6 +2109,10 @@ PrefabInstance:
       propertyPath: enemys.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: enemys.Array.data[0]
+      value: 
+      objectReference: {fileID: 1636633299321596787, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[1]
       value: 
