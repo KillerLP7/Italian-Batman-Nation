@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.A))
             {
+                playerLooksRight = false;
                 rb.velocity = new Vector2(-1, 0);
             }
             if (Input.GetKeyDown(KeyCode.S))
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
+                playerLooksRight = true;
                 rb.velocity = new Vector2(1, 0);
             }
             

@@ -71,11 +71,13 @@ public class Enemy : MonoBehaviour
         {
             if (targetPos.x > transform.position.x)
             {
+                enemyLooksRight = true;
                 nv += new Vector2(1, 0);
             }
             
             if (targetPos.x < transform.position.x)
             {
+                enemyLooksRight = false;
                 nv += new Vector2(-1, 0);
             }
 
