@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     private bool kick;
     //public static int activeEnemies;
     
-    private bool askForHelp = false;
+    private bool askForHelp;
     // Start is called before the first frame update
     void Awake()
     {
@@ -46,56 +46,64 @@ public class Enemy : MonoBehaviour
             health = 1;
         }
 
+        askForHelp = true;
+        Ask();
         GameManager.Instance.ActiveEnemiesAdd();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //rint($"Execute Kick: {kick}");
-        print($"Can Attack?: {canAttack}");
+        print($"Ask for help: {askForHelp}");
+        //print($"Can Attack?: {transform.position}");
         ExecuteAttack();
         Vector2 nv = new Vector2();
         
+        if (askForHelp)
+        {
+            Ask();
+            askForHelp = false;
+        }
+        if (counter > 3)
+        {
+            askForHelp = true;
+            //targetPos = GameManager.Instance.Chase(askForHelp);
+            Ask();
+            counter = 0;
+        }
+        counter += Time.deltaTime;
         if (targetPos.y > transform.position.y)
         {
             nv += new Vector2(0, 1);
         }
-
-        if (targetPos.y < transform.position.y)
+        else if (targetPos.y < transform.position.y)
         {
             nv += new Vector2(0, -1);
         }
-        
         if (Math.Abs(targetPos.y - transform.position.y) < 0.1f)
         {
-            if (targetPos.x > transform.position.x)
+            if (targetPos.x - 1f > transform.position.x)
             {
                 enemyLooksRight = true;
                 nv += new Vector2(1, 0);
             }
             
-            if (targetPos.x < transform.position.x)
+            if (targetPos.x + 1f < transform.position.x)
             {
                 enemyLooksRight = false;
                 nv += new Vector2(-1, 0);
             }
-
-            
-            
-            if (Math.Abs(targetPos.x - transform.position.x) < 0.1f)
+            if (Math.Abs(targetPos.x + 1 - transform.position.x) < 0.1f)
             {
-                askForHelp = true;
-                targetPos = GameManager.Instance.Chase(askForHelp);
+                //nv += new Vector2(0, 0);
             }
+            
+            if (Math.Abs(targetPos.x - 1 + transform.position.x) < 0.1f)
+            {
+                //nv += new Vector2(0, 0);
+            }
+            
         }
-        
-        if (counter > 5)
-        {
-            Ask();
-            counter = 0;
-        }
-        counter += Time.deltaTime;
         rb.velocity = nv.normalized;
         if (!canAttack)
         {
@@ -140,7 +148,7 @@ public class Enemy : MonoBehaviour
     }
     private void ExecuteAttack()
     {
-        print("Tried to Attack!" + kick);
+        //print("Tried to Attack!" + kick);
         
         
         if (canAttack && kick)
