@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI bossHealth;
+    public TextMeshProUGUI bossUI;
 
     private Vector3 playerPos;
     private int waveNumber = 14;
@@ -43,6 +44,9 @@ public class GameManager : MonoBehaviour
         {
             binary[i] = false;
         }
+
+        bossUI.enabled = false;
+        bossHealth.enabled = false;
     }
 
     // Update is called once per frame
@@ -111,13 +115,15 @@ public class GameManager : MonoBehaviour
         if (waveNumber > 15)
         {
             wave.text = "BOSS";
+            bossUI.enabled = true;
+            bossHealth.enabled = true;
             bossHealth.text = bossHP.ToString();
             spawnBoss = true;
         }
 
         if (allowSpawn && spawnBoss)
         {
-            Instantiate(enemys[4], new Vector3(8.88888f, 0, 0), quaternion.identity);
+            Instantiate(enemys[4], new Vector3(12f, 0, 0), quaternion.identity);
             allowSpawn = false;
         }
         if (activeEnemies > 0)

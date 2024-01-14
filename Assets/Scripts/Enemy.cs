@@ -11,10 +11,12 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
+    private float bossCooldown;
     private int health;
     private bool canAttack;
     private bool enemyLooksRight;
     private Vector3 attackArea;
+    private bool bossEnter;
 
     private bool kick;
     //public static int activeEnemies;
@@ -49,6 +51,7 @@ public class Enemy : MonoBehaviour
         if (boss)
         {
             health = 30;
+            bossEnter = true;
         }
 
         askForHelp = true;
@@ -124,7 +127,31 @@ public class Enemy : MonoBehaviour
 
         if (boss)
         {
-            rb.velocity = new Vector2(0, 0);
+            if (health == 20 || health == 10)
+            {
+                if (bossEnter && transform.position.x < 9f)
+                {
+                    bossEnter = false;
+                }
+            }
+            if (!bossEnter && bossCooldown > 10)
+            {
+                bossEnter = true;
+                bossCooldown = 0;
+            }
+            bossCooldown += Time.deltaTime;
+            if (bossEnter && transform.position.x > 8.7f)
+            {
+                rb.velocity = new Vector2(-1, 0);
+            }
+            else if (!bossEnter && transform.position.x < 12f)
+            {
+                rb.velocity = new Vector2(1, 0);
+            }
+            else
+            {
+                rb.velocity = new Vector2(0, 0);
+            }
             print($"Boss Health: {health}");
             
         }
