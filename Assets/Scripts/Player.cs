@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
-    private float speed = 100f;
+    private float speed = 2f;
     [SerializeField] private GameObject attack;
     [SerializeField] private bool player;
     private SpriteRenderer sr;
@@ -21,6 +21,8 @@ public class Player : MonoBehaviour
     private bool playerLooksRight;
     private int currentSceneIndex;
     private bool alive;
+    private float inputH;
+    private float inputV;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,7 +38,6 @@ public class Player : MonoBehaviour
     void Update()
     {
 
-
         if (currentSceneIndex >= 1)
         {
             alive = GameManager.Instance.AmIDead();
@@ -49,7 +50,18 @@ public class Player : MonoBehaviour
         
         if (player)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            inputH = Input.GetAxis("Horizontal");
+            inputV = Input.GetAxis("Vertical");
+            rb.velocity = new Vector2(inputH * speed, inputV * speed);
+            if (Input.GetKeyDown(KeyCode.A))
+            {
+                playerLooksRight = false;
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                playerLooksRight = true;
+            }
+            /*if (Input.GetKeyDown(KeyCode.W))
             {
                 rb.velocity = new Vector2(0, 1);
             }
@@ -66,7 +78,7 @@ public class Player : MonoBehaviour
             {
                 playerLooksRight = true;
                 rb.velocity = new Vector2(1, 0);
-            }
+            }*/
             
             if (Input.GetKeyDown(KeyCode.P))
             {

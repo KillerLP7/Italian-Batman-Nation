@@ -2384,6 +2384,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1197833407}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: bossUI
+      value: 
+      objectReference: {fileID: 970909987}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: bossHealth
       value: 
       objectReference: {fileID: 140638601}

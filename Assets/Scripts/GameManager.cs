@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI bossUI;
 
     private Vector3 playerPos;
-    private int waveNumber = 14;
+    private int waveNumber;
     private int hp;
     private int activeEnemies;
     private bool endOfWave;
