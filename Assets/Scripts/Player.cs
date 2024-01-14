@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
     {
         if (!player)
         {
-            if (collision.gameObject.CompareTag("Enemy"))
+            if (collision.gameObject.CompareTag("Boss"))
             {
                 print("Hit!");
             }

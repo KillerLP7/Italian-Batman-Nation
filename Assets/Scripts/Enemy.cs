@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject enemyAttack;
-
+    [SerializeField] private bool boss;
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
@@ -46,9 +46,9 @@ public class Enemy : MonoBehaviour
             health = 1;
         }
 
-        if (enemys[4])
+        if (boss)
         {
-            health = 1;
+            health = 30;
         }
 
         askForHelp = true;
@@ -59,64 +59,74 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print($"Ask for help: {askForHelp}");
-        //print($"Can Attack?: {transform.position}");
-        ExecuteAttack();
-        Vector2 nv = new Vector2();
-        if (askForHelp)
+        if (!boss)
         {
-            Ask();
-            askForHelp = false;
-        }
-        if (counter > 3)
-        {
-            askForHelp = true;
-            //targetPos = GameManager.Instance.Chase(askForHelp);
-            Ask();
-            counter = 0;
-        }
-        counter += Time.deltaTime;
-        if (targetPos.y > transform.position.y)
-        {
-            nv += new Vector2(0, 1);
-        }
-        else if (targetPos.y < transform.position.y)
-        {
-            nv += new Vector2(0, -1);
-        }
-        if (Math.Abs(targetPos.y - transform.position.y) < 0.1f)
-        {
-            if (targetPos.x - 1f > transform.position.x)
+            //print($"Ask for help: {askForHelp}");
+            //print($"Can Attack?: {transform.position}");
+            ExecuteAttack();
+            Vector2 nv = new Vector2();
+            if (askForHelp)
             {
-                enemyLooksRight = true;
-                nv += new Vector2(1, 0);
+                Ask();
+                askForHelp = false;
             }
-            
-            if (targetPos.x + 1f < transform.position.x)
-            {
-                enemyLooksRight = false;
-                nv += new Vector2(-1, 0);
-            }
-            if (Math.Abs(targetPos.x + 1 - transform.position.x) < 0.1f)
-            {
-                //nv += new Vector2(0, 0);
-            }
-            
-            if (Math.Abs(targetPos.x - 1 + transform.position.x) < 0.1f)
-            {
-                //nv += new Vector2(0, 0);
-            }
-            
-        }
-        rb.velocity = nv.normalized;
-        if (!canAttack)
-        {
             if (counter > 3)
             {
-                canAttack = true;
+                askForHelp = true;
+                //targetPos = GameManager.Instance.Chase(askForHelp);
+                Ask();
                 counter = 0;
             }
             counter += Time.deltaTime;
+            if (targetPos.y > transform.position.y)
+            {
+                nv += new Vector2(0, 1);
+            }
+            else if (targetPos.y < transform.position.y)
+            {
+                nv += new Vector2(0, -1);
+            }
+            if (Math.Abs(targetPos.y - transform.position.y) < 0.1f)
+            {
+                if (targetPos.x - 1f > transform.position.x)
+                {
+                    enemyLooksRight = true;
+                    nv += new Vector2(1, 0);
+                }
+            
+                if (targetPos.x + 1f < transform.position.x)
+                {
+                    enemyLooksRight = false;
+                    nv += new Vector2(-1, 0);
+                }
+                if (Math.Abs(targetPos.x + 1 - transform.position.x) < 0.1f)
+                {
+                    //nv += new Vector2(0, 0);
+                }
+            
+                if (Math.Abs(targetPos.x - 1 + transform.position.x) < 0.1f)
+                {
+                    //nv += new Vector2(0, 0);
+                }
+            
+            }
+            rb.velocity = nv.normalized;
+            if (!canAttack)
+            {
+                if (counter > 3)
+                {
+                    canAttack = true;
+                    counter = 0;
+                }
+                counter += Time.deltaTime;
+            }
+        }
+
+        if (boss)
+        {
+            rb.velocity = new Vector2(0, 0);
+            print($"Boss Health: {health}");
+            
         }
     }
 
@@ -127,18 +137,32 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Attack"))
+        if (!boss)
         {
-            
-            
-            //print(health);
-            health--;
-            if (health == 0)
+            if (collision.gameObject.CompareTag("Attack"))
             {
-                GameManager.Instance.ActiveEnemiesRemove();
-                Destroy(gameObject);
-            }
+                health--;
+                if (health == 0)
+                {
+                    GameManager.Instance.ActiveEnemiesRemove();
+                    Destroy(gameObject);
+                }
             
+            }
+        }
+
+        if (boss)
+        {
+            if (collision.gameObject.CompareTag("Attack"))
+            {
+                print("Did I got him?");
+                health--;
+                GameManager.Instance.BossGotHit();
+                if (health == 0)
+                {
+                    Destroy(gameObject);
+                }
+            }
         }
         
     }

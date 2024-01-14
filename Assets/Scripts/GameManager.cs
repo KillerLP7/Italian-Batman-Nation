@@ -1,4 +1,5 @@
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -10,14 +11,17 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemys;
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
+    public TextMeshProUGUI bossHealth;
 
     private Vector3 playerPos;
-    private int waveNumber;
+    private int waveNumber = 14;
     private int hp;
     private int activeEnemies;
     private bool endOfWave;
     private bool[] binary = new bool[4];
     private int lastWave;
+    private bool spawnBoss;
+    private int bossHP = 30;
 
     private bool allowSpawn;
     // Start is called before the first frame update
@@ -58,7 +62,7 @@ public class GameManager : MonoBehaviour
         if (allowSpawn)
         {
             GetBinary();
-            print($"try to spawn with {string.Join(", ", binary)}");
+            //print($"try to spawn with {string.Join(", ", binary)}");
             if (binary[0])
             {
                 GameObject cat1 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
@@ -97,6 +101,7 @@ public class GameManager : MonoBehaviour
             allowSpawn = true;
             if (waveNumber < 16)
             {
+                spawnBoss = false;
                 lastWave = waveNumber;
                 waveNumber++;
                 //print("Incerased Wave");
@@ -106,6 +111,14 @@ public class GameManager : MonoBehaviour
         if (waveNumber > 15)
         {
             wave.text = "BOSS";
+            bossHealth.text = bossHP.ToString();
+            spawnBoss = true;
+        }
+
+        if (allowSpawn && spawnBoss)
+        {
+            Instantiate(enemys[4], new Vector3(8.88888f, 0, 0), quaternion.identity);
+            allowSpawn = false;
         }
         if (activeEnemies > 0)
         {
@@ -114,6 +127,11 @@ public class GameManager : MonoBehaviour
         if (hp == 0)
         {
             print("GAME OVER");
+        }
+
+        if (bossHP == 0)
+        {
+            SceneManager.LoadScene(0);
         }
     }
 
@@ -172,5 +190,10 @@ public class GameManager : MonoBehaviour
     {
         bool isThePlayerAlive = hp != 0;
         return isThePlayerAlive;
+    }
+
+    public void BossGotHit()
+    {
+        bossHP--;
     }
 }

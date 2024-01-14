@@ -12,6 +12,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boss Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: boss
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: enemys.Array.size
       value: 5
