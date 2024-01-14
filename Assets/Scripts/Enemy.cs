@@ -1,15 +1,22 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = System.Random;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
+    [SerializeField] private GameObject enemyAttack;
 
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
     private int health;
+    private bool canAttack;
+    private bool enemyLooksRight;
+    private Vector3 attackArea;
+
+    private bool kick;
     //public static int activeEnemies;
     
     private bool askForHelp = false;
@@ -45,6 +52,9 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //rint($"Execute Kick: {kick}");
+        print($"Can Attack?: {canAttack}");
+        ExecuteAttack();
         Vector2 nv = new Vector2();
         
         if (targetPos.y > transform.position.y)
@@ -85,6 +95,15 @@ public class Enemy : MonoBehaviour
         }
         counter += Time.deltaTime;
         rb.velocity = nv.normalized;
+        if (!canAttack)
+        {
+            if (counter > 3)
+            {
+                canAttack = true;
+                counter = 0;
+            }
+            counter += Time.deltaTime;
+        }
     }
 
     void Ask()
@@ -114,6 +133,57 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
             
+        }
+        
+    }
+    private void ExecuteAttack()
+    {
+        print("Tried to Attack!" + kick);
+        
+        
+        if (canAttack && kick)
+        {
+            if (enemyLooksRight)
+            {
+                attackArea = transform.position;
+                attackArea.x += 1f;
+                attackArea.y += -0.5f;
+                Instantiate(enemyAttack, attackArea, quaternion.identity);
+                canAttack = false;
+                kick = false;
+                return;
+            }
+
+            attackArea = transform.position;
+            attackArea.x += -1f;
+            attackArea.y += -0.5f;
+            Instantiate(enemyAttack, attackArea, quaternion.identity);
+            canAttack = false;
+            kick = false;
+            return;
+        }
+        
+        
+        
+        if (canAttack && !kick)
+        {
+            if (enemyLooksRight)
+            {
+                attackArea = transform.position;
+                attackArea.x += 1f;
+                attackArea.y += 0.5f;
+                Instantiate(enemyAttack, attackArea, quaternion.identity);
+                canAttack = false;
+                kick = true;
+                return;
+            }
+
+            attackArea = transform.position;
+            attackArea.x += -1f;
+            attackArea.y += 0.5f;
+            Instantiate(enemyAttack, attackArea, quaternion.identity);
+            canAttack = false;
+            kick = true;
         }
         
     }

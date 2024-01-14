@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
         if (allowSpawn)
         {
             GetBinary();
-            print($"try to spawn with {string.Join(", ", binary)}");
+            //print($"try to spawn with {string.Join(", ", binary)}");
             if (binary[0])
             {
                 GameObject cat1 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
             {
                 lastWave = waveNumber;
                 waveNumber++;
-                print("Incerased Wave");
+                //print("Incerased Wave");
             }
             endOfWave = true;
         }

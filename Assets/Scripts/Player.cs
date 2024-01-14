@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     private float counter;
     private float cooldown;
     private int hp = 5;
+    private bool playerLooksRight;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -52,12 +53,22 @@ public class Player : MonoBehaviour
             {
                 if (canAttack)
                 {
-                    canAttack = false;
-                    attackArea = playerPos;
-                    attackArea.x += 1f;
-                    attackArea.y += 0.5f;
-                    Instantiate(attack, attackArea, quaternion.identity);
-                
+                    if (playerLooksRight)
+                    {
+                        canAttack = false;
+                        attackArea = playerPos;
+                        attackArea.x += 1f;
+                        attackArea.y += 0.5f;
+                        Instantiate(attack, attackArea, quaternion.identity);
+                    }
+                    else
+                    {
+                        canAttack = false;
+                        attackArea = playerPos;
+                        attackArea.x += -1f;
+                        attackArea.y += 0.5f;
+                        Instantiate(attack, attackArea, quaternion.identity);   
+                    }
                 }
             }
             
@@ -65,11 +76,22 @@ public class Player : MonoBehaviour
             {
                 if (canAttack)
                 {
-                    attackArea = playerPos;
-                    attackArea.x += 1f; 
-                    attackArea.y += -0.5f;
-                    Instantiate(attack, attackArea, quaternion.identity);
-                    canAttack = false;
+                    if (playerLooksRight)
+                    {
+                        canAttack = false;
+                        attackArea = playerPos;
+                        attackArea.x += 1f;
+                        attackArea.y += -0.5f;
+                        Instantiate(attack, attackArea, quaternion.identity);
+                    }
+                    else
+                    {
+                        canAttack = false;
+                        attackArea = playerPos;
+                        attackArea.x += -1f;
+                        attackArea.y += -0.5f;
+                        Instantiate(attack, attackArea, quaternion.identity);   
+                    }
                 }
             }
             
