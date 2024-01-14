@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private int hp = 5;
     private bool playerLooksRight;
     private int currentSceneIndex;
+    private bool alive;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -34,7 +35,18 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
+
+        if (currentSceneIndex >= 1)
+        {
+            alive = GameManager.Instance.AmIDead();
+     
+            if (!alive)
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+        
         if (player)
         {
             if (Input.GetKeyDown(KeyCode.W))

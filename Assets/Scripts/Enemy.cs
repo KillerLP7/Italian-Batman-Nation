@@ -11,7 +11,6 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
-    private float counter1;
     private int health;
     private bool canAttack;
     private bool enemyLooksRight;
@@ -43,6 +42,11 @@ public class Enemy : MonoBehaviour
             health = 1;
         }
         if (enemys[3])
+        {
+            health = 1;
+        }
+
+        if (enemys[4])
         {
             health = 1;
         }
@@ -123,14 +127,6 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //Sprite attack
-            //Player Health Bar drops
-            print("We got him!");
-            GameManager.Instance.PlayerGotHit();
-        }
-
         if (collision.gameObject.CompareTag("Attack"))
         {
             

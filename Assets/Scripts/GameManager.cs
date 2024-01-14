@@ -50,11 +50,15 @@ public class GameManager : MonoBehaviour
             GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(3);
+        }
 
         if (allowSpawn)
         {
             GetBinary();
-            //print($"try to spawn with {string.Join(", ", binary)}");
+            print($"try to spawn with {string.Join(", ", binary)}");
             if (binary[0])
             {
                 GameObject cat1 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
@@ -162,5 +166,11 @@ public class GameManager : MonoBehaviour
             binary[i] = tmp % 2 == 1;
             tmp >>= 1;
         }
+    }
+
+    public bool AmIDead()
+    {
+        bool isThePlayerAlive = hp != 0;
+        return isThePlayerAlive;
     }
 }
