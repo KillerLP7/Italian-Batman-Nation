@@ -19,11 +19,16 @@ public class Player : MonoBehaviour
     private float cooldown;
     private int hp = 5;
     private bool playerLooksRight;
+    private int currentSceneIndex;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        GameManager.Instance.HP(hp);
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        if (currentSceneIndex >= 1)
+        {
+            GameManager.Instance.HP(hp);
+        }
     }
 
     // Update is called once per frame
@@ -123,9 +128,12 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (player)
+        if (currentSceneIndex >= 1)
         {
-            GameManager.Instance.PlayerPos(transform.position); 
+            if (player)
+            {
+                GameManager.Instance.PlayerPos(transform.position); 
+            }   
         }
     }
 

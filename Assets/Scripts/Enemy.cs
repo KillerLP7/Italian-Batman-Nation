@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
+    private float counter1;
     private int health;
     private bool canAttack;
     private bool enemyLooksRight;
@@ -58,7 +59,6 @@ public class Enemy : MonoBehaviour
         //print($"Can Attack?: {transform.position}");
         ExecuteAttack();
         Vector2 nv = new Vector2();
-        
         if (askForHelp)
         {
             Ask();
