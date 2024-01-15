@@ -6,60 +6,94 @@ using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
 {
-    private static GameManager _instance;
-    public static GameManager Instance => _instance;
+    public static GameManager Instance { get; private set; }
+
     public GameObject[] enemys;
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI bossHealth;
     public TextMeshProUGUI bossUI;
+    public TextMeshProUGUI playerHealthText;
+    public TextMeshProUGUI waveText;
 
     private Vector3 playerPos;
-    private int waveNumber = 14;
+    private int waveNumber;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
     private bool[] binary = new bool[4];
-    private int lastWave;
     private bool spawnBoss;
     private int bossHP = 30;
     private int rnd;
     private float spawn;
     private float spawnCooldown;
 
+    private bool inMenu;
     private bool allowSpawn;
     // Start is called before the first frame update
     void Awake()
     {
-        if (_instance is not null)
+        if (Instance is not null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             return;
         }
-        _instance = this;
-
-        if (SceneManager.GetActiveScene().buildIndex != 1)
-        {
-            DontDestroyOnLoad(this);
-        }
+        Instance = this;
+        
+        DontDestroyOnLoad(gameObject);
 
         for (int i = 0; i < binary.Length; i++)
         {
             binary[i] = false;
         }
 
-        hp = 10;
         bossUI.enabled = false;
         bossHealth.enabled = false;
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += Refresh;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= Refresh;
+    }
+
+    private void Refresh(Scene s, LoadSceneMode m)
+    {
+        hp = 10;
+        activeEnemies = 0;
+        playerHealth.enabled = true;
+        wave.enabled = true;
+        playerHealthText.enabled = true;
+        waveText.enabled = true;
+        if (waveNumber != 0)
+        {
+            waveNumber--;
+        }
+        inMenu = SceneManager.GetActiveScene().buildIndex != 1;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (inMenu)
+        {
+            playerHealth.enabled = false;
+            wave.enabled = false;
+            playerHealthText.enabled = false;
+            waveText.enabled = false;
+            bossHealth.enabled = false;
+            bossUI.enabled = false;
+            return;
+        } 
+        
         if (Input.GetKeyDown(KeyCode.I))
         {
             print("I");
-            GameObject newEnemy = Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+            Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -82,7 +116,7 @@ public class GameManager : MonoBehaviour
                 {
                     spawn = 15f;
                 }
-                GameObject cat1 = Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[1])
@@ -96,7 +130,7 @@ public class GameManager : MonoBehaviour
                 {
                     spawn = 15f;
                 }
-                GameObject cat2 = Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[2])
@@ -110,7 +144,7 @@ public class GameManager : MonoBehaviour
                 {
                     spawn = 15f;
                 }
-                GameObject cat4 = Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[3])
@@ -124,7 +158,7 @@ public class GameManager : MonoBehaviour
                 {
                     spawn = 15f;
                 }
-                GameObject cat8 = Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
             //GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
             //GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
@@ -146,8 +180,8 @@ public class GameManager : MonoBehaviour
             if (waveNumber < 16)
             {
                 spawnBoss = false;
-                lastWave = waveNumber;
                 waveNumber++;
+                hp++;
                 //print("Incerased Wave");
             }
             endOfWave = true;
@@ -173,15 +207,11 @@ public class GameManager : MonoBehaviour
         if (hp <= 0)
         {
             print("GAME OVER");
-            bossUI.enabled = false;
-            bossHealth.enabled = false;
             SceneManager.LoadScene(0);
         }
 
         if (bossHP == 0)
         {
-            bossUI.enabled = false;
-            bossHealth.enabled = false;
             SceneManager.LoadScene(0);
         }
     }
@@ -193,14 +223,7 @@ public class GameManager : MonoBehaviour
         playerPos = pos;
     }
 
-    public GameObject EnemyTypes()
-    {
-        for (int i = 0; i < enemys.Length; i++)
-        {
-            return enemys[i];
-        }
-        return enemys[0];
-    }
+    public GameObject[] EnemyTypes() => enemys;
 
     public void PlayerGotHit()
     {

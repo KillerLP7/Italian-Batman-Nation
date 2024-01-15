@@ -1530,6 +1530,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 970909987}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: waveText
+      value: 
+      objectReference: {fileID: 6796805890125051495}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: bossHealth
       value: 
       objectReference: {fileID: 140638601}
@@ -1537,6 +1541,10 @@ PrefabInstance:
       propertyPath: playerHealth
       value: 
       objectReference: {fileID: 405674769}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: playerHealthText
+      value: 
+      objectReference: {fileID: 6796805890125051496}
     - target: {fileID: 2156096090472349735, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1751,6 +1759,28 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
+--- !u!114 &6796805890125051495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
+  m_PrefabInstance: {fileID: 6796805890125051494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6796805890125051496 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4096814497416039153, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
+  m_PrefabInstance: {fileID: 6796805890125051494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

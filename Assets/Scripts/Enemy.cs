@@ -1,7 +1,6 @@
 using System;
 using Unity.Mathematics;
 using UnityEngine;
-using Random = System.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class Enemy : MonoBehaviour
         for (int i = 0; i < enemys.Length; i++)
         {
             //print(i);
-            enemys[i] = GameManager.Instance.EnemyTypes();
+            enemys[i] = GameManager.Instance.EnemyTypes()[i];
         }
         if (firstEnemy)
         {
