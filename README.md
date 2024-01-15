@@ -5,6 +5,14 @@ Unsere Idee bisher für unser Game:
 Italian Nation -> Location = Italy
 Batman -> Protagonist = Player
 
+# Allgemeine To-Do Liste:
+- Comic Cut Scene
+  Als Cut Scene wollen wir eine Comic Seite (im Batman Stil) und die Camera fährt über die Panel
+- Hintergründe für die Level
+  Genug Hintergründe für die 3 Level (Süd, Mittel und Norditalien im entsprechenden Stil)
+- Diverses: Bumerang, Kicken, Bumerang werden, Katze 2 Beine Waffe rennen/schiessen, Boss Animations (Idle, Attack)
+  
+
 # Story:
 Warum ist Batman in Italien? Was ist sein Ziel? Wie kamen die Katzen dazu Batman zu helfen? Batman macht Urlaub in Italien. Als er ankommt, bemerkt er, dass macht-/rachsüchtige Katzen sich über das Land hermachen und für Chaos und Diktatur sorgen. Sofort fühlt sich Batman verantwortlich gegen die Katzen vorzugehen und den Menschen das Land zurückzugeben. 
 
