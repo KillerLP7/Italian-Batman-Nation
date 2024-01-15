@@ -7,6 +7,10 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject enemyAttack;
+    [SerializeField] private bool firstEnemy;
+    [SerializeField] private bool secondEnemy;
+    [SerializeField] private bool thirdEnemy;
+    [SerializeField] private bool fourthEnemy;
     [SerializeField] private bool boss;
     Rigidbody2D rb;
     private Vector3 targetPos;
@@ -31,21 +35,21 @@ public class Enemy : MonoBehaviour
             //print(i);
             enemys[i] = GameManager.Instance.EnemyTypes();
         }
-        if (enemys[0])
+        if (firstEnemy)
         {
             health = 1;
         }
-        if (enemys[1])
+        if (secondEnemy)
         {
-            health = 1;
+            health = 2;
         }
-        if (enemys[2])
+        if (thirdEnemy)
         {
-            health = 1;
+            health = 4;
         }
-        if (enemys[3])
+        if (fourthEnemy)
         {
-            health = 1;
+            health = 8;
         }
 
         if (boss)
@@ -144,7 +148,7 @@ public class Enemy : MonoBehaviour
             {
                 rb.velocity = new Vector2(-1, 0);
             }
-            else if (!bossEnter && transform.position.x < 12f)
+            else if (!bossEnter && transform.position.x < 15f)
             {
                 rb.velocity = new Vector2(1, 0);
             }

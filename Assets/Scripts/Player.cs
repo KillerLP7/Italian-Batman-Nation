@@ -17,37 +17,22 @@ public class Player : MonoBehaviour
     private bool canAttack = true;
     private float counter;
     private float cooldown;
-    private int hp = 5;
     private bool playerLooksRight;
     private int currentSceneIndex;
     private bool alive;
     private float inputH;
     private float inputV;
+    private bool sendHP;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if (currentSceneIndex >= 1)
-        {
-            GameManager.Instance.HP(hp);
-        }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (currentSceneIndex >= 1)
-        {
-            alive = GameManager.Instance.AmIDead();
-     
-            if (!alive)
-            {
-                SceneManager.LoadScene(0);
-            }
-        }
-        
         if (player)
         {
             inputH = Input.GetAxis("Horizontal");
@@ -139,15 +124,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (!player)
-        {
-            if (counter > 0.1)
-            {
-                ExecuteAttack();
-                counter = 0;
-            }
-            counter += Time.deltaTime;
-        }
+        
     }
 
     private void FixedUpdate()
@@ -158,22 +135,6 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.PlayerPos(transform.position); 
             }   
-        }
-    }
-
-    private void ExecuteAttack()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!player)
-        {
-            if (collision.gameObject.CompareTag("Boss"))
-            {
-                print("Hit!");
-            }
         }
     }
 }

@@ -15,14 +15,17 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI bossUI;
 
     private Vector3 playerPos;
-    private int waveNumber;
-    private int hp;
+    private int waveNumber = 14;
+    public int hp;
     private int activeEnemies;
     private bool endOfWave;
     private bool[] binary = new bool[4];
     private int lastWave;
     private bool spawnBoss;
     private int bossHP = 30;
+    private int rnd;
+    private float spawn;
+    private float spawnCooldown;
 
     private bool allowSpawn;
     // Start is called before the first frame update
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour
     {
         if (_instance is not null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
         _instance = this;
@@ -45,6 +48,7 @@ public class GameManager : MonoBehaviour
             binary[i] = false;
         }
 
+        hp = 10;
         bossUI.enabled = false;
         bossHealth.enabled = false;
     }
@@ -69,22 +73,58 @@ public class GameManager : MonoBehaviour
             //print($"try to spawn with {string.Join(", ", binary)}");
             if (binary[0])
             {
-                GameObject cat1 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
+                rnd = Random.Range(0, 2);
+                if (rnd == 0)
+                {
+                    spawn = -15f;
+                }
+                if (rnd == 1)
+                {
+                    spawn = 15f;
+                }
+                GameObject cat1 = Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[1])
             {
-                GameObject cat2 = Instantiate(enemys[1], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
+                rnd = Random.Range(0, 2);
+                if (rnd == 0)
+                {
+                    spawn = -15f;
+                }
+                if (rnd == 1)
+                {
+                    spawn = 15f;
+                }
+                GameObject cat2 = Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[2])
             {
-                GameObject cat4 = Instantiate(enemys[2], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
+                rnd = Random.Range(0, 2);
+                if (rnd == 0)
+                {
+                    spawn = -15f;
+                }
+                if (rnd == 1)
+                {
+                    spawn = 15f;
+                }
+                GameObject cat4 = Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
 
             if (binary[3])
             {
-                GameObject cat8 = Instantiate(enemys[3], new Vector3(Random.Range(10f, 15f), Random.Range(-5f, 1f), 0), Quaternion.identity);
+                rnd = Random.Range(0, 2);
+                if (rnd == 0)
+                {
+                    spawn = -15f;
+                }
+                if (rnd == 1)
+                {
+                    spawn = 15f;
+                }
+                GameObject cat8 = Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
             }
             //GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
             //GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
@@ -123,20 +163,25 @@ public class GameManager : MonoBehaviour
 
         if (allowSpawn && spawnBoss)
         {
-            Instantiate(enemys[4], new Vector3(12f, 0, 0), quaternion.identity);
+            Instantiate(enemys[4], new Vector3(15f, 0, 0), quaternion.identity);
             allowSpawn = false;
         }
         if (activeEnemies > 0)
         {
             endOfWave = false;
         }
-        if (hp == 0)
+        if (hp <= 0)
         {
             print("GAME OVER");
+            bossUI.enabled = false;
+            bossHealth.enabled = false;
+            SceneManager.LoadScene(0);
         }
 
         if (bossHP == 0)
         {
+            bossUI.enabled = false;
+            bossHealth.enabled = false;
             SceneManager.LoadScene(0);
         }
     }
@@ -157,13 +202,9 @@ public class GameManager : MonoBehaviour
         return enemys[0];
     }
 
-    public void HP(int playerHealth)
-    {
-        hp = playerHealth;
-    }
-
     public void PlayerGotHit()
     {
+        print($"Player got hit!");
         hp--;
     }
 
@@ -190,12 +231,6 @@ public class GameManager : MonoBehaviour
             binary[i] = tmp % 2 == 1;
             tmp >>= 1;
         }
-    }
-
-    public bool AmIDead()
-    {
-        bool isThePlayerAlive = hp != 0;
-        return isThePlayerAlive;
     }
 
     public void BossGotHit()

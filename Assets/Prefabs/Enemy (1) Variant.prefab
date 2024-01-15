@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: firstEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: secondEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemys.Array.data[1]
+      value: 
+      objectReference: {fileID: 4126959551537945538}
     - target: {fileID: 8257460366806497789, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.62
@@ -69,3 +81,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+--- !u!1 &4126959551537945538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1636633299321596787, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+  m_PrefabInstance: {fileID: 3455275248942887089}
+  m_PrefabAsset: {fileID: 0}

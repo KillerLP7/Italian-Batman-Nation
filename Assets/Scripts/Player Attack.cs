@@ -1,30 +1,32 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental;
 using UnityEngine;
 
-public class EnemyAttacks : MonoBehaviour
+public class PlayerAttack : MonoBehaviour
 {
     private float counter;
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
+        
+        
         if (counter > 0.1)
         {
             Destroy(gameObject);
             counter = 0;
         }
         counter += Time.deltaTime;
+        
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        
+        
+        if (collision.gameObject.CompareTag("Boss"))
         {
-            //Sprite attack
-            //Player Health Bar drops
-            print("We got him!");
-            GameManager.Instance.PlayerGotHit();
+            print("Hit!");
         }
+        
     }
 }

@@ -52,3 +52,6 @@ MonoBehaviour:
   - {fileID: 1121716223204429008, guid: a8469288ba99e804789c14548ad70193, type: 3}
   playerHealth: {fileID: 0}
   wave: {fileID: 0}
+  bossHealth: {fileID: 0}
+  bossUI: {fileID: 0}
+  hp: 10
