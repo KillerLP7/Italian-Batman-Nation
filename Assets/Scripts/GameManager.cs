@@ -216,7 +216,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public Vector3 Chase(bool asked) => playerPos;
+    public Vector3 GetPlayerPos(bool asked) => playerPos;
 
     public void PlayerPos(Vector3 pos)
     {

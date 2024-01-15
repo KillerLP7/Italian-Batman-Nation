@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -10,6 +7,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     private float speed = 2f;
     [SerializeField] private GameObject attack;
+    [SerializeField] private GameObject attackBR;
     [SerializeField] private bool player;
     private SpriteRenderer sr;
     private Vector3 playerPos;
@@ -23,11 +21,14 @@ public class Player : MonoBehaviour
     private float inputH;
     private float inputV;
     private bool sendHP;
+    private float boomerangCooldown;
+    private bool boomerang;
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        boomerang = true;
     }
 
     // Update is called once per frame
@@ -111,6 +112,26 @@ public class Player : MonoBehaviour
                 }
             }
             
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                if (boomerang)
+                {
+                    //boomerang = false;
+                    attackArea = playerPos;
+                    
+                    if (playerLooksRight)
+                    {
+                        attackArea.x += 1f;
+                    }
+                    else
+                    {
+                        attackArea.x += -1f;
+                    }
+                    
+                    Instantiate(attackBR, attackArea, Quaternion.identity);
+                }
+            }
+            
             playerPos = transform.position;
             
             if (!canAttack)
@@ -121,6 +142,15 @@ public class Player : MonoBehaviour
                     counter = 0;
                 }
                 counter += Time.deltaTime;
+            }
+            if (!boomerang)
+            {
+                if (boomerangCooldown > 1)
+                {
+                    canAttack = true;
+                    boomerangCooldown = 0;
+                }
+                boomerangCooldown += Time.deltaTime;
             }
         }
 

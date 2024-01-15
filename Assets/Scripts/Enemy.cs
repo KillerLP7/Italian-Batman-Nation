@@ -162,7 +162,7 @@ public class Enemy : MonoBehaviour
 
     void Ask()
     {
-        targetPos = GameManager.Instance.Chase(askForHelp);
+        targetPos = GameManager.Instance.GetPlayerPos(askForHelp);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
