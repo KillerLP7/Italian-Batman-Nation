@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Boomerang : MonoBehaviour
@@ -26,7 +27,27 @@ public class Boomerang : MonoBehaviour
 
         if (getBack)
         {
-            rb.velocity = (playerPos - transform.position).normalized * 10;
+            //rb.velocity = (playerPos - transform.position).normalized * 10;
+            if (playerPos.x > transform.position.x)
+            {
+                rb.velocity = new Vector2(2, 0);
+            }
+            if (playerPos.x < transform.position.x)
+            {
+                rb.velocity = new Vector2(-2, 0);
+            }
+
+            if (Math.Abs(playerPos.x - transform.position.x) < 0.2f)
+            {
+                if (playerPos.y > transform.position.y)
+                {
+                    rb.velocity = new Vector2(0, 10);
+                }
+                if (playerPos.y < transform.position.y)
+                {
+                    rb.velocity = new Vector2(0, -10);
+                }
+            }
         }
         
         if (counter > 0.2)

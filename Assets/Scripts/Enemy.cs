@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject enemyAttack;
+    [SerializeField] private GameObject bossAttack;
     [SerializeField] private bool firstEnemy;
     [SerializeField] private bool secondEnemy;
     [SerializeField] private bool thirdEnemy;
@@ -57,6 +58,7 @@ public class Enemy : MonoBehaviour
             bossEnter = true;
         }
 
+        canAttack = true;
         askForHelp = true;
         Ask();
         GameManager.Instance.ActiveEnemiesAdd();
@@ -127,9 +129,18 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
         }
-
         if (boss)
         {
+            if (!canAttack)
+            {
+                if (counter > 0.5)
+                {
+                    canAttack = true;
+                    counter = 0;
+                }
+                counter += Time.deltaTime;
+            }
+            ExecuteAttack();
             if (health == 20 || health == 10)
             {
                 if (bossEnter && transform.position.x < 9f)
@@ -201,7 +212,7 @@ public class Enemy : MonoBehaviour
         //print("Tried to Attack!" + kick);
         
         
-        if (canAttack && kick)
+        if (canAttack && kick && !boss)
         {
             if (enemyLooksRight)
             {
@@ -225,7 +236,7 @@ public class Enemy : MonoBehaviour
         
         
         
-        if (canAttack && !kick)
+        if (canAttack && !kick && !boss)
         {
             if (enemyLooksRight)
             {
@@ -244,6 +255,13 @@ public class Enemy : MonoBehaviour
             Instantiate(enemyAttack, attackArea, quaternion.identity);
             canAttack = false;
             kick = true;
+        }
+
+        if (canAttack && boss)
+        {
+            attackArea = transform.position;
+            Instantiate(bossAttack, attackArea, Quaternion.identity);
+            canAttack = false;
         }
         
     }

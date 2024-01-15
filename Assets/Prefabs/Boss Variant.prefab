@@ -20,9 +20,25 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5112543235638079410, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: boss
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: bossAttack
+      value: 
+      objectReference: {fileID: 5310496776991085004, guid: 90c1033290b60344bb138bd77acf5bbf, type: 3}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: firstEnemy
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: enemys.Array.size
