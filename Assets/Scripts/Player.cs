@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private Animator anime;
     private float speed = 2f;
     [SerializeField] private GameObject attack;
     [SerializeField] private GameObject attackBR;
     [SerializeField] private bool player;
-    private SpriteRenderer sr;
     private Vector3 playerPos;
     private Vector3 attackArea;
     private bool canAttack = true;
@@ -23,10 +24,13 @@ public class Player : MonoBehaviour
     private bool sendHP;
     private float boomerangCooldown;
     private bool boomerang;
+    private static readonly int IsWalking = Animator.StringToHash("isWalking");
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anime = GetComponent<Animator>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         boomerang = true;
     }
@@ -43,12 +47,14 @@ public class Player : MonoBehaviour
             {
                 playerLooksRight = false;
                 sr.flipX = false;
+                anime.SetBool(IsWalking, false);
                 //bool false
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 playerLooksRight = true;
                 sr.flipX = true;
+                anime.SetBool(IsWalking, true);
                 //bool true
             }
             /*if (Input.GetKeyDown(KeyCode.W))
