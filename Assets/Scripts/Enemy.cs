@@ -5,6 +5,9 @@ using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
+    private Animator anime;
+    private SpriteRenderer sr;
+    Rigidbody2D rb;
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject enemyAttack;
     [SerializeField] private GameObject bossAttack;
@@ -17,7 +20,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool boss;
     
     [SerializeField] private float enemySpeed;
-    Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
     private float bossCooldown;
@@ -39,6 +41,7 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         for (int i = 0; i < enemys.Length; i++)
         {
             //print(i);
@@ -117,22 +120,28 @@ public class Enemy : MonoBehaviour
                 if (targetPos.x - 1f > transform.position.x)
                 {
                     enemyLooksRight = true;
+                    sr.flipX = true;
+                    anime.SetBool("EnemyWalking", true);
                     nv += new Vector2(1, 0);
                 }
             
                 if (targetPos.x + 1f < transform.position.x)
                 {
                     enemyLooksRight = false;
+                    sr.flipX = false;
+                    anime.SetBool("EnemyWalking", true);
                     nv += new Vector2(-1, 0);
                 }
                 if (Math.Abs(targetPos.x + 1 - transform.position.x) < 0.1f)
                 {
                     //nv += new Vector2(0, 0);
+                    anime.SetBool("EnemyWalking", false);
                 }
             
                 if (Math.Abs(targetPos.x - 1 + transform.position.x) < 0.1f)
                 {
                     //nv += new Vector2(0, 0);
+                    anime.SetBool("EnemyWalking", false);
                 }
             
             }
