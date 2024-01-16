@@ -1,6 +1,7 @@
 using System;
-using Unity.Mathematics;
 using UnityEngine;
+using Unity.Mathematics;
+using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject enemyAttack;
     [SerializeField] private GameObject bossAttack;
     [SerializeField] private bool firstEnemy;
+    [SerializeField] private GameObject bomb;
     [SerializeField] private bool secondEnemy;
     [SerializeField] private bool thirdEnemy;
     [SerializeField] private bool fourthEnemy;
+    [SerializeField] private bool catBombEnemy;
     [SerializeField] private bool boss;
     Rigidbody2D rb;
     private Vector3 targetPos;
@@ -20,7 +23,11 @@ public class Enemy : MonoBehaviour
     private bool canAttack;
     private bool enemyLooksRight;
     private Vector3 attackArea;
+    private Vector3 explosionArea;
     private bool bossEnter;
+    private float bombCooldown;
+    private float rnd;
+    private bool bossCanDie;
 
     private bool kick;
     //public static int activeEnemies;
@@ -52,10 +59,16 @@ public class Enemy : MonoBehaviour
             health = 8;
         }
 
+        if (catBombEnemy)
+        {
+            health = 1;
+        }
+
         if (boss)
         {
             health = 30;
             bossEnter = true;
+            bossCanDie = false;
         }
 
         canAttack = true;
@@ -71,7 +84,10 @@ public class Enemy : MonoBehaviour
         {
             //print($"Ask for help: {askForHelp}");
             //print($"Can Attack?: {transform.position}");
-            ExecuteAttack();
+            if (!catBombEnemy)
+            {
+                ExecuteAttack();
+            }
             Vector2 nv = new Vector2();
             if (askForHelp)
             {
@@ -118,19 +134,28 @@ public class Enemy : MonoBehaviour
                 }
             
             }
+
+            
+            
             rb.velocity = nv.normalized;
-            if (!canAttack)
+            if (!catBombEnemy)
             {
-                if (counter > 3)
+                if (!canAttack)
                 {
-                    canAttack = true;
-                    counter = 0;
+                    if (counter > 3)
+                    {
+                        canAttack = true;
+                        counter = 0;
+                    }
+                    counter += Time.deltaTime;
                 }
-                counter += Time.deltaTime;
             }
         }
         if (boss)
         {
+            bossCanDie = GameManager.Instance.GetBossCanDie();
+            health = GameManager.Instance.GetBossHP();
+            GameManager.Instance.BossPhase();
             if (!canAttack)
             {
                 if (counter > 0.5)
@@ -141,14 +166,14 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
             ExecuteAttack();
-            if (health == 20 || health == 10)
+            if (health == 200 || health == 100 || health == 20 || health == 10)
             {
                 if (bossEnter && transform.position.x < 9f)
                 {
                     bossEnter = false;
                 }
             }
-            if (!bossEnter && bossCooldown > 10)
+            if (!bossEnter && bossCooldown > 30)
             {
                 bossEnter = true;
                 bossCooldown = 0;
@@ -166,9 +191,30 @@ public class Enemy : MonoBehaviour
             {
                 rb.velocity = new Vector2(0, 0);
             }
-            print($"Boss Health: {health}");
+            //print($"Boss Health: {health}");
             
         }
+
+        if (catBombEnemy)
+        {
+            print("Cat Health:" + health);
+            if (health == 0)
+            {
+                explosionArea = transform.position;
+                explosionArea.x += 0;
+                explosionArea.y += -0.5f;
+                Instantiate(bomb, explosionArea, Quaternion.identity);
+                Destroy(gameObject);
+            }
+            rnd = Random.Range(30f, 60f);
+            if (bombCooldown > rnd)
+            {
+                health--;
+                bombCooldown = 0;
+            }
+            bombCooldown += Time.deltaTime;
+        }
+        
     }
 
     void Ask()
@@ -178,7 +224,7 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (!boss)
+        if (!boss && !catBombEnemy)
         {
             if (collision.gameObject.CompareTag("Attack"))
             {
@@ -199,7 +245,7 @@ public class Enemy : MonoBehaviour
                 print("Did I got him?");
                 health--;
                 GameManager.Instance.BossGotHit();
-                if (health == 0)
+                if (health == 0 && bossCanDie)
                 {
                     Destroy(gameObject);
                 }

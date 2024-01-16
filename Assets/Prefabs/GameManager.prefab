@@ -50,8 +50,11 @@ MonoBehaviour:
   - {fileID: 5694701434125156676, guid: 81d6ce207719a5642beca9d02f6f4493, type: 3}
   - {fileID: 1913279440347985967, guid: 969ebc0786a71024aa6e571ca58ac6eb, type: 3}
   - {fileID: 1121716223204429008, guid: a8469288ba99e804789c14548ad70193, type: 3}
+  toxicBall: {fileID: 2155863465790612040, guid: 30fabfa25df534d41b3152fc88f74e22, type: 3}
   playerHealth: {fileID: 0}
   wave: {fileID: 0}
   bossHealth: {fileID: 0}
   bossUI: {fileID: 0}
+  playerHealthText: {fileID: 0}
+  waveText: {fileID: 0}
   hp: 10

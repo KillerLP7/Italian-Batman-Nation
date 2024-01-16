@@ -129,6 +129,7 @@ public class Player : MonoBehaviour
                     }
                     
                     Instantiate(attackBR, attackArea, Quaternion.identity);
+                    boomerang = false;
                 }
             }
             
@@ -136,7 +137,7 @@ public class Player : MonoBehaviour
             
             if (!canAttack)
             {
-                if (counter > 1)
+                if (counter > 0.5)
                 {
                     canAttack = true;
                     counter = 0;
@@ -145,9 +146,10 @@ public class Player : MonoBehaviour
             }
             if (!boomerang)
             {
-                if (boomerangCooldown > 1)
+                GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
+                if (boomerangCooldown > 30)
                 {
-                    canAttack = true;
+                    boomerang = true;
                     boomerangCooldown = 0;
                 }
                 boomerangCooldown += Time.deltaTime;
