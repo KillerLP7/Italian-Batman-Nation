@@ -45,10 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemys:
-  - {fileID: 1636633299321596787, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
-  - {fileID: 4126959551537945538, guid: 14d1d9cd850c1ee4e9580be991027df5, type: 3}
-  - {fileID: 5694701434125156676, guid: 81d6ce207719a5642beca9d02f6f4493, type: 3}
-  - {fileID: 1913279440347985967, guid: 969ebc0786a71024aa6e571ca58ac6eb, type: 3}
+  - {fileID: 1198301333726900878, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
+  - {fileID: 1198301333726900878, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
+  - {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+  - {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
   - {fileID: 1121716223204429008, guid: a8469288ba99e804789c14548ad70193, type: 3}
   toxicBall: {fileID: 2155863465790612040, guid: 30fabfa25df534d41b3152fc88f74e22, type: 3}
   playerHealth: {fileID: 0}
@@ -57,4 +57,6 @@ MonoBehaviour:
   bossUI: {fileID: 0}
   playerHealthText: {fileID: 0}
   waveText: {fileID: 0}
+  cooldownText: {fileID: 0}
+  cooldownNumber: {fileID: 0}
   hp: 10
