@@ -24,8 +24,6 @@ public class Player : MonoBehaviour
     private bool sendHP;
     private float boomerangCooldown;
     private bool boomerang;
-    private bool isWalking;
-    private float isWalkingCooldown;
 
     void Awake()
     {
@@ -34,8 +32,7 @@ public class Player : MonoBehaviour
         anime = GetComponent<Animator>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         boomerang = true;
-        isWalking = false;
-        Time.timeScale = 2f;
+        //Time.timeScale = 2f;
     }
 
     // Update is called once per frame
@@ -51,7 +48,6 @@ public class Player : MonoBehaviour
                 playerLooksRight = false;
                 sr.flipX = false;
                 anime.SetBool("IsWalking", true);
-                isWalking = true;
                 //bool false
             }
             else if (Input.GetKeyDown(KeyCode.D))
@@ -59,7 +55,6 @@ public class Player : MonoBehaviour
                 playerLooksRight = true;
                 sr.flipX = true;
                 anime.SetBool("IsWalking", true);
-                isWalking = true;
                 //bool true
             }
             if (rb.velocity.x == 0 && rb.velocity.y == 0)

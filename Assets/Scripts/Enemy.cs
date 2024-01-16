@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
+        anime = GetComponent<Animator>();
         for (int i = 0; i < enemys.Length; i++)
         {
             //print(i);
