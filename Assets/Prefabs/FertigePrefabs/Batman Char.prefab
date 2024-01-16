@@ -9,21 +9,37 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6496787697612337812, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 4.461515
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496787697612337812, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 5.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 6496787697612337812, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 6.0007863
+      value: 4.011362
       objectReference: {fileID: 0}
     - target: {fileID: 6496787697612337812, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 7.45
+      value: 5.71
       objectReference: {fileID: 0}
     - target: {fileID: 7540984068029458552, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_Name
       value: Batman Char
       objectReference: {fileID: 0}
     - target: {fileID: 7752498510119929904, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_Size.x
+      value: 4.461515
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752498510119929904, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_Size.y
+      value: 5.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 7752498510119929904, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1889606904, guid: 617daef4acb2aaf488d40a8c0d18f640, type: 3}
+      objectReference: {fileID: -944938080, guid: 617daef4acb2aaf488d40a8c0d18f640, type: 3}
     - target: {fileID: 7752498510119929904, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_Color.b
       value: 1
@@ -36,9 +52,17 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7752498510119929904, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8959343941879592273, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5221071
+      objectReference: {fileID: 0}
     - target: {fileID: 8959343941879592273, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 0.522107
       objectReference: {fileID: 0}
     - target: {fileID: 8959343941879592273, guid: 109e6ad0c331d6d4fb00c026035980c3, type: 3}
       propertyPath: m_LocalPosition.x
