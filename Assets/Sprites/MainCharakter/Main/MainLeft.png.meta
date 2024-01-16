@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,217 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: MainLeft_0
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 1905
+        width: 313
+        height: 551
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 014dbd3397f3dbc449d131dda5bdaabc
+      internalID: -1496104105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_1
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 1905
+        width: 404
+        height: 519
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7b1d301b288c874f957a14b22e15314
+      internalID: 614452989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_2
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 1901
+        width: 447
+        height: 554
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e954ef111fa1c94c9ae9e866223329c
+      internalID: -1003715878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_3
+      rect:
+        serializedVersion: 2
+        x: 361
+        y: 1317
+        width: 393
+        height: 573
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ad5674044aa924aa125e9c40d67015
+      internalID: -722811655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_4
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1281
+        width: 354
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4f25152757e21244ab16ff9471577e3
+      internalID: -103109691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_5
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 641
+        width: 304
+        height: 550
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f91c7e6d6b1ba6141ae04bf45b34286a
+      internalID: -883060363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_6
+      rect:
+        serializedVersion: 2
+        x: 671
+        y: 641
+        width: 357
+        height: 516
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02595736d928fd14cae94da629179a25
+      internalID: 818586531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_7
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 642
+        width: 443
+        height: 548
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d891bd972f579e3409b93e397c03d515
+      internalID: 1318678788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_8
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 52
+        width: 401
+        height: 571
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c15dbbd45adb0f54bacf92bf054cf3b1
+      internalID: -1230142762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MainLeft_9
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 15
+        width: 354
+        height: 575
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f2ff9c189d2c834bbf773beb7b5568f
+      internalID: -1133803865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +329,17 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      MainLeft_0: -1496104105
+      MainLeft_1: 614452989
+      MainLeft_2: -1003715878
+      MainLeft_3: -722811655
+      MainLeft_4: -103109691
+      MainLeft_5: -883060363
+      MainLeft_6: 818586531
+      MainLeft_7: 1318678788
+      MainLeft_8: -1230142762
+      MainLeft_9: -1133803865
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
