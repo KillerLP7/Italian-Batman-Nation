@@ -187,3 +187,4 @@ MonoBehaviour:
   fourthEnemy: 0
   catBombEnemy: 0
   boss: 0
+  enemySpeed: 5

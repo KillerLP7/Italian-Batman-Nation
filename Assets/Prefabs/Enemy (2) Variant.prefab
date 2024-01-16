@@ -21,6 +21,10 @@ PrefabInstance:
       value: Enemy (2) Variant
       objectReference: {fileID: 0}
     - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemySpeed
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: firstEnemy
       value: 0
       objectReference: {fileID: 0}

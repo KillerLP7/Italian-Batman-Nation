@@ -7,7 +7,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
     private SpriteRenderer sr;
     private Animator anime;
-    private float speed = 2f;
+    [SerializeField] private float speed;
     [SerializeField] private GameObject attack;
     [SerializeField] private GameObject attackBR;
     [SerializeField] private bool player;
@@ -26,7 +26,6 @@ public class Player : MonoBehaviour
     private bool boomerang;
     private bool isWalking;
     private float isWalkingCooldown;
-    private static readonly int IsWalking = Animator.StringToHash("isWalking");
 
     void Awake()
     {
@@ -36,6 +35,7 @@ public class Player : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         boomerang = true;
         isWalking = false;
+        Time.timeScale = 2f;
     }
 
     // Update is called once per frame

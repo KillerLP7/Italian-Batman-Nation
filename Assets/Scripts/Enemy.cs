@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool fourthEnemy;
     [SerializeField] private bool catBombEnemy;
     [SerializeField] private bool boss;
+    
+    [SerializeField] private float enemySpeed;
     Rigidbody2D rb;
     private Vector3 targetPos;
     private float counter;
@@ -137,7 +139,7 @@ public class Enemy : MonoBehaviour
 
             
             
-            rb.velocity = nv.normalized;
+            rb.velocity = nv.normalized * enemySpeed;
             if (!catBombEnemy)
             {
                 if (!canAttack)
