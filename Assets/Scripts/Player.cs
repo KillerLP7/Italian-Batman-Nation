@@ -42,10 +42,12 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.A))
             {
                 playerLooksRight = false;
+                //bool false
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 playerLooksRight = true;
+                //bool true
             }
             /*if (Input.GetKeyDown(KeyCode.W))
             {

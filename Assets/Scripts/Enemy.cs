@@ -166,7 +166,7 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
             ExecuteAttack();
-            if (health == 200 || health == 100 || health == 20 || health == 10)
+            if (health == 200 || health == 100 || health <= 0)
             {
                 if (bossEnter && transform.position.x < 9f)
                 {

@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownNumber;
 
     private Vector3 playerPos;
-    private int waveNumber;
+    private int waveNumber = 15;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -198,7 +198,6 @@ public class GameManager : MonoBehaviour
             {
                 spawnBoss = false;
                 waveNumber++;
-                hp++;
                 //print("Incerased Wave");
             }
             endOfWave = true;
@@ -252,7 +251,7 @@ public class GameManager : MonoBehaviour
                 if (bossHPCooldown > bossHPCounter)
                 {
                     bossHP++;
-                    bossHPCounter -= 0.1f;
+                    bossHPCounter -= 0.5f;
                     bossHPCooldown = 0;
                 }
                 bossHPCooldown += Time.deltaTime;
@@ -290,6 +289,7 @@ public class GameManager : MonoBehaviour
     public void ActiveEnemiesRemove()
     {
         activeEnemies--;
+        hp++;
     }
 
     public int GetWaveNumber()
@@ -319,7 +319,7 @@ public class GameManager : MonoBehaviour
 
         if (bossCanDie)
         {
-            if (bossHP < 100)
+            if (bossHP <= 100)
             {
                 //Toxicball
                 if (BossAllowSpawn)
@@ -328,7 +328,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                 }
             }
-            if (bossHP < 200)
+            if (bossHP <= 200)
             {
                 //Bombcats
                 if (BossAllowSpawn)
@@ -375,7 +375,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(enemys[5], new Vector3(spawn, Random.Range(-1, -4), 0), Quaternion.identity);
                 }
             }
-            if (bossHP < 300)
+            if (bossHP <= 300)
             {
                 if (BossAllowSpawn)
                 {
@@ -440,5 +440,10 @@ public class GameManager : MonoBehaviour
     public void GiveBoomerCooldown(float currentCooldown)
     {
         cooldownNumber.text = currentCooldown.ToString("0.0");
+    }
+
+    public bool BossSpawned()
+    {
+        return spawnBoss;
     }
 }
