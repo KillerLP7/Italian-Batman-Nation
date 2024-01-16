@@ -439,7 +439,7 @@ public class GameManager : MonoBehaviour
 
     public void GiveBoomerCooldown(float currentCooldown)
     {
-        cooldownNumber.text = currentCooldown.ToString("0.0");
+        cooldownNumber.text = currentCooldown.ToString("0");
     }
 
     public bool BossSpawned()

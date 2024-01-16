@@ -19,7 +19,7 @@ public class CatBomb : MonoBehaviour
             counter = 0;
         }
         counter += Time.deltaTime;
-        if (attackCooldown > 0.5)
+        if (attackCooldown > 0.1)
         {
             Instantiate(attack, transform.position, Quaternion.identity);
             attackCooldown = 0;

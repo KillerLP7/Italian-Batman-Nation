@@ -9,6 +9,7 @@ TagManager:
   - EnemyAttack
   - Boss
   - Destroy
+  - BOOMERang
   layers:
   - Default
   - TransparentFX

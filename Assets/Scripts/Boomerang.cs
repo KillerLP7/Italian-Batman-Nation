@@ -27,14 +27,14 @@ public class Boomerang : MonoBehaviour
 
         if (getBack)
         {
-            //rb.velocity = (playerPos - transform.position).normalized * 10;
-            if (playerPos.x > transform.position.x)
+            rb.velocity = (playerPos - transform.position).normalized * 10;
+            /*if (playerPos.x > transform.position.x)
             {
-                rb.velocity = new Vector2(2, 0);
+                rb.velocity = new Vector2(3, 0);
             }
             if (playerPos.x < transform.position.x)
             {
-                rb.velocity = new Vector2(-2, 0);
+                rb.velocity = new Vector2(-3, 0);
             }
 
             if (Math.Abs(playerPos.x - transform.position.x) < 0.2f)
@@ -47,10 +47,10 @@ public class Boomerang : MonoBehaviour
                 {
                     rb.velocity = new Vector2(0, -10);
                 }
-            }
+            }*/
         }
         
-        if (counter > 0.2)
+        if (counter > 0.1)
         {
             Instantiate(attack, transform.position, Quaternion.identity);
             counter = 0;

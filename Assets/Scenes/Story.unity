@@ -1803,11 +1803,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7263223965511167138, guid: 2b917e77d006f5c42b83bb78b5a498a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.22
+      value: -6.25
       objectReference: {fileID: 0}
     - target: {fileID: 7263223965511167138, guid: 2b917e77d006f5c42b83bb78b5a498a5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.45
+      value: 1.59
       objectReference: {fileID: 0}
     - target: {fileID: 7263223965511167138, guid: 2b917e77d006f5c42b83bb78b5a498a5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1913,19 +1913,19 @@ PrefabInstance:
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[0]
       value: 
-      objectReference: {fileID: 1198301333726900878, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
+      objectReference: {fileID: 289916460539888613, guid: 40b268433b13d6a4197476f21bc9ccee, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[1]
       value: 
-      objectReference: {fileID: 1198301333726900878, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
+      objectReference: {fileID: 1153218612011004558, guid: e3376a4903b5f084c84da9b65b834059, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[2]
       value: 
-      objectReference: {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      objectReference: {fileID: 2098197441006252734, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[3]
       value: 
-      objectReference: {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      objectReference: {fileID: 1532997668064101811, guid: 4c43e3d1b3be05a46a33fa70aaf37b39, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[4]
       value: 
@@ -2044,7 +2044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4771688239374194390, guid: 7b388dbf894c065458031bb2f4cfcd6a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.55
+      value: 3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

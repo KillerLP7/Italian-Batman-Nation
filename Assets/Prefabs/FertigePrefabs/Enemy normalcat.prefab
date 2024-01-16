@@ -25,6 +25,26 @@ PrefabInstance:
       value: Enemy normalcat
       objectReference: {fileID: 0}
     - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.x
+      value: 8.946948
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.y
+      value: 2.651401
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.027228832
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.86157864
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 8.831157
       objectReference: {fileID: 0}
@@ -32,6 +52,22 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 4.16
       objectReference: {fileID: 0}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemys.Array.data[1]
+      value: 
+      objectReference: {fileID: 1198301333726900878}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemys.Array.data[2]
+      value: 
+      objectReference: {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemys.Array.data[3]
+      value: 
+      objectReference: {fileID: 3430276056448854701, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+    - target: {fileID: 5669160303937395040, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: enemys.Array.data[4]
+      value: 
+      objectReference: {fileID: 7249366693534426567, guid: 089fc81352983074f86c5fee4251eb6f, type: 3}
     - target: {fileID: 8257460366806497789, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.2778265

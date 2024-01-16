@@ -108,15 +108,15 @@ public class Enemy : MonoBehaviour
                 counter = 0;
             }
             counter += Time.deltaTime;
-            if (targetPos.y > transform.position.y)
+            if (targetPos.y - 1f > transform.position.y)
             {
                 nv += new Vector2(0, 1);
             }
-            else if (targetPos.y < transform.position.y)
+            else if (targetPos.y - 1f < transform.position.y)
             {
                 nv += new Vector2(0, -1);
             }
-            if (Math.Abs(targetPos.y - transform.position.y) < 0.1f)
+            if (Math.Abs(targetPos.y - 1f- transform.position.y) < 0.1f)
             {
                 if (targetPos.x - 1f > transform.position.x)
                 {
@@ -133,17 +133,17 @@ public class Enemy : MonoBehaviour
                     anime.SetBool("EnemyWalking", true);
                     nv += new Vector2(-1, 0);
                 }
-                if (Math.Abs(targetPos.x + 1 - transform.position.x) < 0.1f)
+                if (Math.Abs(targetPos.x + 1.5f - transform.position.x) < 0.1f)
                 {
-                    //nv += new Vector2(0, 0);
                     anime.SetBool("EnemyWalking", false);
                 }
             
-                if (Math.Abs(targetPos.x - 1 + transform.position.x) < 0.1f)
+                if (Math.Abs(targetPos.x - 1.5f + transform.position.x) < 0.1f)
                 {
-                    //nv += new Vector2(0, 0);
                     anime.SetBool("EnemyWalking", false);
                 }
+                //TODO: Enemy stop shaking
+                nv += new Vector2(0, 0);
             
             }
 
@@ -180,6 +180,7 @@ public class Enemy : MonoBehaviour
             ExecuteAttack();
             if (health == 200 || health == 100 || health <= 0)
             {
+                //TODO: Execute only once
                 if (bossEnter && transform.position.x < 9f)
                 {
                     bossEnter = false;
@@ -209,7 +210,7 @@ public class Enemy : MonoBehaviour
 
         if (catBombEnemy)
         {
-            print("Cat Health:" + health);
+            print("Cat rnd:" + rnd);
             if (health == 0)
             {
                 explosionArea = transform.position;
@@ -218,7 +219,8 @@ public class Enemy : MonoBehaviour
                 Instantiate(bomb, explosionArea, Quaternion.identity);
                 Destroy(gameObject);
             }
-            rnd = Random.Range(30f, 60f);
+            rnd = Random.Range(30, 60);
+            print("Cat rnd:" + rnd);
             if (bombCooldown > rnd)
             {
                 health--;

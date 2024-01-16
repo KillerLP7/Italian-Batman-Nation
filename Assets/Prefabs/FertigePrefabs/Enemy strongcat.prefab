@@ -29,6 +29,26 @@ PrefabInstance:
       value: Enemy strongcat
       objectReference: {fileID: 0}
     - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.x
+      value: 9.209749
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Size.y
+      value: 2.8445005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.006995201
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.76170063
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335262866546589186, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 9.071188
       objectReference: {fileID: 0}

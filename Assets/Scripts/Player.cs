@@ -1,3 +1,4 @@
+using System;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     private bool sendHP;
     private float boomerangCooldown;
     private bool boomerang;
+    private bool startCooldown;
 
     void Awake()
     {
@@ -31,7 +33,9 @@ public class Player : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();
         anime = GetComponent<Animator>();
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        boomerang = true;
+        boomerang = false;
+        startCooldown = true;
+        boomerangCooldown = 30;
         //Time.timeScale = 2f;
     }
 
@@ -52,6 +56,7 @@ public class Player : MonoBehaviour
             }
             else if (Input.GetKeyDown(KeyCode.D))
             {
+                //TODO: No Moonwalking in my House!
                 playerLooksRight = true;
                 sr.flipX = true;
                 anime.SetBool("IsWalking", true);
@@ -135,16 +140,17 @@ public class Player : MonoBehaviour
                     
                     if (playerLooksRight)
                     {
-                        attackArea.x += 1f;
+                        attackArea.x += 1.5f;
                     }
                     else
                     {
-                        attackArea.x += -1f;
+                        attackArea.x += -1.5f;
                     }
                     
                     Instantiate(attackBR, attackArea, Quaternion.identity);
-                    boomerang = false;
                 }
+
+                boomerang = false;
             }
             
             playerPos = transform.position;
@@ -158,15 +164,16 @@ public class Player : MonoBehaviour
                 }
                 counter += Time.deltaTime;
             }
-            if (!boomerang)
+            if (!boomerang && startCooldown)
             {
                 GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
-                if (boomerangCooldown > 30)
+                if (boomerangCooldown <= 0)
                 {
                     boomerang = true;
-                    boomerangCooldown = 0;
+                    startCooldown = false;
+                    boomerangCooldown = 30;
                 }
-                boomerangCooldown += Time.deltaTime;
+                boomerangCooldown -= Time.deltaTime;
             }
         }
 
@@ -181,6 +188,14 @@ public class Player : MonoBehaviour
             {
                 GameManager.Instance.PlayerPos(transform.position); 
             }   
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("BOOMERang"))
+        {
+            startCooldown = true;
         }
     }
 }
