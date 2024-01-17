@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
                 Ask();
                 askForHelp = false;
             }
-            if (counter > 3)
+            if (counter > 1.5f)
             {
                 askForHelp = true;
                 //targetPos = GameManager.Instance.Chase(askForHelp);
@@ -114,7 +114,7 @@ public class Enemy : MonoBehaviour
             }
             else if (targetPos.y < transform.position.y)
             {
-                nv += new Vector2(0, -0f);
+                nv += new Vector2(0, 0f);
             }
             if (targetPos.y < transform.position.y || targetPos.y > transform.position.y)
             {
@@ -133,6 +133,15 @@ public class Enemy : MonoBehaviour
                     anime.SetBool("EnemyWalking", true);
                     nv += new Vector2(-1, 0);
                 }
+                if (targetPos.y - 1f > transform.position.y)
+                {
+                    nv += new Vector2(0, 1);
+                }
+            
+                if (targetPos.y - 1f < transform.position.y || Math.Abs(targetPos.y - 1f - transform.position.y) < 0.1f)
+                {
+                    nv += new Vector2(0, -1);
+                }
                 if (Math.Abs(targetPos.x + 1.5f - transform.position.x) < 0.1f)
                 {
                     anime.SetBool("EnemyWalking", false);
@@ -142,7 +151,6 @@ public class Enemy : MonoBehaviour
                 {
                     anime.SetBool("EnemyWalking", false);
                 }
-                //TODO: Enemy stop shaking
                 nv += new Vector2(0, 0);
             
             }
