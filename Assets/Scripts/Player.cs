@@ -92,6 +92,7 @@ public class Player : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.P))
             {
+                anime.SetBool("Punch", true);
                 if (canAttack)
                 {
                     if (playerLooksRight)
@@ -101,7 +102,6 @@ public class Player : MonoBehaviour
                         attackArea.x += 1f;
                         attackArea.y += 0.5f;
                         sr.flipX = true;
-                        anime.SetBool("Punch", true);
                         Instantiate(attack, attackArea, quaternion.identity);
                     }
                     else
@@ -110,15 +110,17 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += -1f;
                         attackArea.y += 0.5f;
-                        anime.SetBool("Punch", true);
                         sr.flipX = false;
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
+                anime.SetBool("Kick", false);
             }
             
             if (Input.GetKeyDown(KeyCode.K))
             {
+                
+                anime.SetBool("Kick", true);
                 if (canAttack)
                 {
                     if (playerLooksRight)
@@ -127,7 +129,6 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += 1f;
                         attackArea.y += -1.5f;
-                        anime.SetBool("Kick", true);
                         Instantiate(attack, attackArea, quaternion.identity);
                     }
                     else
@@ -136,13 +137,12 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += -1f;
                         attackArea.y += -1.5f;
-                        anime.SetBool("Kick", true);
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
+                anime.SetBool("Kick", false);
             }
-            anime.SetBool("Punch", false);
-            anime.SetBool("Kick", false);
+           
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
