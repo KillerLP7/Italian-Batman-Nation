@@ -61,7 +61,6 @@ public class Player : MonoBehaviour
             }
             else if (inputH > 0)
             {
-                //TODO: No Moonwalking in my House!
                 playerLooksRight = true;
                 sr.flipX = true;
                 anime.SetBool("IsWalking", true);
