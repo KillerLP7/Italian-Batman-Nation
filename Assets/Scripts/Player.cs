@@ -52,14 +52,14 @@ public class Player : MonoBehaviour
             inputH = Input.GetAxis("Horizontal");
             inputV = Input.GetAxis("Vertical");
             rb.velocity = new Vector2(inputH * speed, inputV * speed);
-            if (Input.GetKeyDown(KeyCode.A))
+            if (inputH < 0f)
             {
                 playerLooksRight = false;
                 sr.flipX = false;
                 anime.SetBool("IsWalking", true);
                 //bool false
             }
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (inputH > 0)
             {
                 //TODO: No Moonwalking in my House!
                 playerLooksRight = true;
@@ -67,8 +67,8 @@ public class Player : MonoBehaviour
                 anime.SetBool("IsWalking", true);
                 //bool true
             }
-            if (rb.velocity.x == 0 && rb.velocity.y == 0)
-            {
+            else
+            { 
                 anime.SetBool("IsWalking", false);
             }
             /*if (Input.GetKeyDown(KeyCode.W))
