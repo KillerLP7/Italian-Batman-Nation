@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
             {
                 nv += new Vector2(0, -1);
             }
-            if (Math.Abs(targetPos.y - 1f- transform.position.y) < 0.1f)
+            if (targetPos.y < transform.position.y && targetPos.y > transform.position.y)
             {
                 if (targetPos.x - 1f > transform.position.x)
                 {

@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
-                anime.SetBool("Kick", false);
+                anime.SetBool("Punch", false);
             }
             
             if (Input.GetKeyDown(KeyCode.K))
