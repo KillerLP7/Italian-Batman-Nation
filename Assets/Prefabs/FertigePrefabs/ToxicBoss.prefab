@@ -88,6 +88,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1121716223204429008, guid: a8469288ba99e804789c14548ad70193, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2315845327262540090}
+    - targetCorrespondingSourceObject: {fileID: 1121716223204429008, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -5378442815054848254}
   m_SourcePrefab: {fileID: 100100000, guid: a8469288ba99e804789c14548ad70193, type: 3}
 --- !u!1 &7249366693534426567 stripped
 GameObject:
@@ -621,3 +624,24 @@ PolygonCollider2D:
       - {x: -2.3626142, y: 2.6565003}
       - {x: -2.3510892, y: 2.6680253}
   m_UseDelaunayMesh: 1
+--- !u!95 &-5378442815054848254
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7249366693534426567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
