@@ -95,6 +95,8 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += 1f;
                         attackArea.y += 0.5f;
+                        sr.flipX = true;
+                        anime.SetBool("Punch", true);
                         Instantiate(attack, attackArea, quaternion.identity);
                     }
                     else
@@ -103,6 +105,8 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += -1f;
                         attackArea.y += 0.5f;
+                        anime.SetBool("Punch", true);
+                        sr.flipX = false;
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
@@ -117,7 +121,8 @@ public class Player : MonoBehaviour
                         canAttack = false;
                         attackArea = playerPos;
                         attackArea.x += 1f;
-                        attackArea.y += -0.5f;
+                        attackArea.y += -1.5f;
+                        anime.SetBool("Punch", false);
                         Instantiate(attack, attackArea, quaternion.identity);
                     }
                     else
@@ -125,7 +130,8 @@ public class Player : MonoBehaviour
                         canAttack = false;
                         attackArea = playerPos;
                         attackArea.x += -1f;
-                        attackArea.y += -0.5f;
+                        attackArea.y += -1.5f;
+                        anime.SetBool("Punch", false);
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
