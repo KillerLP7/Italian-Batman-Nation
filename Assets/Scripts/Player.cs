@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     private float boomerangCooldown;
     private bool boomerang;
     private bool startCooldown;
+    private bool a;
+    private bool d;
 
     void Awake()
     {
@@ -36,6 +38,9 @@ public class Player : MonoBehaviour
         boomerang = false;
         startCooldown = true;
         boomerangCooldown = 30;
+        a = true;
+        d = true;
+
         //Time.timeScale = 2f;
     }
 
@@ -122,7 +127,7 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += 1f;
                         attackArea.y += -1.5f;
-                        anime.SetBool("Punch", false);
+                        anime.SetBool("Kick", true);
                         Instantiate(attack, attackArea, quaternion.identity);
                     }
                     else
@@ -131,11 +136,13 @@ public class Player : MonoBehaviour
                         attackArea = playerPos;
                         attackArea.x += -1f;
                         attackArea.y += -1.5f;
-                        anime.SetBool("Punch", false);
+                        anime.SetBool("Kick", true);
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
             }
+            anime.SetBool("Punch", false);
+            anime.SetBool("Kick", false);
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
