@@ -13,15 +13,27 @@ PrefabInstance:
       value: ToxicBoss
       objectReference: {fileID: 0}
     - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: m_Size.x
+      value: 23.603092
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: m_Size.y
+      value: 16.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 01a44e7514896814a9e6b18b9973b282, type: 3}
+      objectReference: {fileID: 21300000, guid: 847533b47d9288948acd125ebe24a816, type: 3}
     - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1909740911458541580, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3994240151039007137, guid: a8469288ba99e804789c14548ad70193, type: 3}
@@ -34,11 +46,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7763990058307755614, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.4522178
+      value: 0.67296
       objectReference: {fileID: 0}
     - target: {fileID: 7763990058307755614, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4522178
+      value: 0.67296
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763990058307755614, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.67296
       objectReference: {fileID: 0}
     - target: {fileID: 7763990058307755614, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_LocalPosition.x
@@ -134,7 +150,7 @@ PolygonCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 23.603092, y: 16.4}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 23.603092, y: 16.4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -634,7 +650,7 @@ Animator:
   m_GameObject: {fileID: 7249366693534426567}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ecf39f00211ff4f43aeb1272d0c18a8e, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
