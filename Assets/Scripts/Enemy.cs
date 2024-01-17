@@ -170,7 +170,7 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.BossPhase();
             if (!canAttack)
             {
-                if (counter > 0.5)
+                if (counter > 0.1)
                 {
                     canAttack = true;
                     counter = 0;
@@ -272,7 +272,7 @@ public class Enemy : MonoBehaviour
         //print("Tried to Attack!" + kick);
         
         
-        if (canAttack && kick && !boss)
+        if (canAttack && kick)
         {
             if (enemyLooksRight)
             {
@@ -305,7 +305,7 @@ public class Enemy : MonoBehaviour
                 attackArea.y += 0.5f;
                 Instantiate(enemyAttack, attackArea, quaternion.identity);
                 canAttack = false;
-                kick = true;
+                kick = false;
                 return;
             }
 
@@ -314,7 +314,7 @@ public class Enemy : MonoBehaviour
             attackArea.y += 0.5f;
             Instantiate(enemyAttack, attackArea, quaternion.identity);
             canAttack = false;
-            kick = true;
+            kick = false;
         }
 
         if (canAttack && boss)
