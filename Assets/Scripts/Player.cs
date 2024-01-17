@@ -114,7 +114,6 @@ public class Player : MonoBehaviour
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
-                anime.SetBool("Punch", false);
             }
             
             if (Input.GetKeyDown(KeyCode.K))
@@ -140,7 +139,6 @@ public class Player : MonoBehaviour
                         Instantiate(attack, attackArea, quaternion.identity);   
                     }
                 }
-                anime.SetBool("Kick", false);
             }
            
             
@@ -173,6 +171,8 @@ public class Player : MonoBehaviour
                 if (counter > 0.5)
                 {
                     canAttack = true;
+                    anime.SetBool("Punch", false);
+                    anime.SetBool("Kick", false);
                     counter = 0;
                 }
                 counter += Time.deltaTime;
