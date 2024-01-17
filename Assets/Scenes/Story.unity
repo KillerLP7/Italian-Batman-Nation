@@ -1913,7 +1913,7 @@ PrefabInstance:
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[0]
       value: 
-      objectReference: {fileID: 289916460539888613, guid: 40b268433b13d6a4197476f21bc9ccee, type: 3}
+      objectReference: {fileID: 1636633299321596787, guid: 662cb7b8df8688c448565d44bd9f0b19, type: 3}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: enemys.Array.data[1]
       value: 

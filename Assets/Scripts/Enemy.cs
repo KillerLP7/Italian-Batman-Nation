@@ -108,15 +108,15 @@ public class Enemy : MonoBehaviour
                 counter = 0;
             }
             counter += Time.deltaTime;
-            if (targetPos.y - 1f > transform.position.y)
+            if (targetPos.y > transform.position.y)
             {
-                nv += new Vector2(0, 1);
+                nv += new Vector2(0, 0f);
             }
-            else if (targetPos.y - 1f < transform.position.y)
+            else if (targetPos.y < transform.position.y)
             {
-                nv += new Vector2(0, -1);
+                nv += new Vector2(0, -0f);
             }
-            if (targetPos.y < transform.position.y && targetPos.y > transform.position.y)
+            if (targetPos.y < transform.position.y || targetPos.y > transform.position.y)
             {
                 if (targetPos.x - 1f > transform.position.x)
                 {
