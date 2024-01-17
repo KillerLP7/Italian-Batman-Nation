@@ -79,6 +79,7 @@ public class Enemy : MonoBehaviour
 
         canAttack = true;
         askForHelp = true;
+        enemyLooksRight = true;
         Ask();
         GameManager.Instance.ActiveEnemiesAdd();
     }
@@ -86,6 +87,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print($"Die Werte: CanAttack: {canAttack} EnemyLooksRight {enemyLooksRight}");
         if (!boss)
         {
             //print($"Ask for help: {askForHelp}");
@@ -162,7 +164,7 @@ public class Enemy : MonoBehaviour
             {
                 if (!canAttack)
                 {
-                    if (counter > 3)
+                    if (counter > 1.5f)
                     {
                         canAttack = true;
                         counter = 0;
@@ -306,6 +308,7 @@ public class Enemy : MonoBehaviour
         
         if (canAttack && !kick && !boss)
         {
+          
             if (enemyLooksRight)
             {
                 attackArea = transform.position;
@@ -316,7 +319,6 @@ public class Enemy : MonoBehaviour
                 kick = false;
                 return;
             }
-
             attackArea = transform.position;
             attackArea.x += -1f;
             attackArea.y += 0.5f;
