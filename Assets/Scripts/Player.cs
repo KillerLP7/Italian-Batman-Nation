@@ -168,7 +168,7 @@ public class Player : MonoBehaviour
             
             if (!canAttack)
             {
-                if (counter > 0.5)
+                if (counter > 0.2)
                 {
                     canAttack = true;
                     anime.SetBool("Punch", false);
