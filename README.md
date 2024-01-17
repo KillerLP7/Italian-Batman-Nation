@@ -6,6 +6,8 @@ Italian Nation -> Location = Italy
 Batman -> Protagonist = Player
 
 # Allgemeine To-Do Liste:
+- Speedrun Mode mit Timer
+- Trefferfeedback
 - Comic Cut Scene
   Als Cut Scene wollen wir eine Comic Seite (im Batman Stil) und die Camera fährt über die Panel
 - Hintergründe für die Level
