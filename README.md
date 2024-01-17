@@ -14,9 +14,15 @@ Batman -> Protagonist = Player
   Genug Hintergründe für die 3 Level (Süd, Mittel und Norditalien im entsprechenden Stil)
 - Diverses: Bumerang, Kicken, Bumerang werden, Katze 2 Beine Waffe rennen/schiessen, Boss Animations (Idle, Attack)
 
+#Programmieren
 - Boss Attack Parameter
 - Enemy Walking Parameter
 - Enemy Attack generel (lol)
+
+#Design
+- Cooldown Leisten bzw. Kreise
+- Healthbar
+- Achivements bzw. "Du hast ... erhalten"
   
 
 # Story:
