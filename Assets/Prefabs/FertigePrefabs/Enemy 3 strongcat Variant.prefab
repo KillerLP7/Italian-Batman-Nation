@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy 3 strongcat Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4218509652860175985, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: m_SortingOrder
+      value: 97
+      objectReference: {fileID: 0}
     - target: {fileID: 5455214582540072995, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.227168

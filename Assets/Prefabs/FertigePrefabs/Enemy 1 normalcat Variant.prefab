@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 410066698273283666, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
+      propertyPath: m_SortingOrder
+      value: 96
+      objectReference: {fileID: 0}
     - target: {fileID: 1198301333726900878, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
       propertyPath: m_Name
       value: Enemy 1 normalcat Variant
