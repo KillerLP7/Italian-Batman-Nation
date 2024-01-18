@@ -1,34 +1,45 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Boomerang : MonoBehaviour
 {
-    [SerializeField] private GameObject attack;
+    [FormerlySerializedAs("Playerattack")] [FormerlySerializedAs("attack")] [SerializeField] private GameObject playerAttack;
+    [SerializeField] private GameObject enemyAttack;
     private Rigidbody2D rb;
     private Vector3 playerPos;
     private bool getBack;
     private float counter;
     private float speed = 2f;
+    [SerializeField] private bool gun;
+    private bool activate;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerPos = GameManager.Instance.GetPlayerPos(true);
 
-        rb.velocity = Vector2.right * ( playerPos.x < transform.position.x ? speed : -speed);
+        if (!gun)
+        {
+            rb.velocity = Vector2.right * ( playerPos.x < transform.position.x ? speed : -speed);
+        }
+
+        activate = true;
     }
 
     // Update is called once per frame
     private void Update()
     {
         playerPos = GameManager.Instance.GetPlayerPos(true);
-        
-        if (transform.position.x is > 8 or < -8) getBack = true;
 
-        if (getBack)
+        if (!gun)
         {
-            rb.velocity = (playerPos - transform.position).normalized * 10;
-            /*if (playerPos.x > transform.position.x)
+            if (transform.position.x is > 8 or < -8) getBack = true;
+
+            if (getBack)
+            {
+                rb.velocity = (playerPos - transform.position).normalized * 10;
+                /*if (playerPos.x > transform.position.x)
             {
                 rb.velocity = new Vector2(3, 0);
             }
@@ -48,11 +59,36 @@ public class Boomerang : MonoBehaviour
                     rb.velocity = new Vector2(0, -10);
                 }
             }*/
+            }
+        }
+
+        if (gun)
+        {
+            if (transform.position.x < 0 && activate)
+            {
+                rb.velocity = new Vector2(1f, 0);
+                activate = false;
+            }
+        
+            if (transform.position.x > 0 && activate)
+            {
+                rb.velocity = new Vector2(-1f, 0);
+                activate = false;
+            }
         }
         
         if (counter > 0.1)
         {
-            Instantiate(attack, transform.position, Quaternion.identity);
+
+            if (!gun)
+            {
+                Instantiate(playerAttack, transform.position, Quaternion.identity);
+            }
+
+            if (gun)
+            {
+                Instantiate(enemyAttack, transform.position, Quaternion.identity);
+            }
             counter = 0;
         }
         
@@ -61,6 +97,19 @@ public class Boomerang : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")) Destroy(gameObject);
+        if (collision.CompareTag("Player"))
+        {
+            if (gun)
+            {
+                GameManager.Instance.PlayerGotHit();
+            }
+            Destroy(gameObject);
+        }
+
+        if (collision.CompareTag("Destroy"))
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -15,7 +15,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool firstEnemy;
     [SerializeField] private GameObject bomb;
     [SerializeField] private bool secondEnemy;
-    [SerializeField] private bool thirdEnemy;
+    [SerializeField] private bool catGunEnemy;
     [SerializeField] private bool fourthEnemy;
     [SerializeField] private bool catBombEnemy;
     [SerializeField] private bool boss;
@@ -36,6 +36,7 @@ public class Enemy : MonoBehaviour
     private bool bossCanDie;
     private bool hit;
     private float hitCooldown;
+    private bool allowWalking;
 
     private bool kick;
     //public static int activeEnemies;
@@ -60,7 +61,7 @@ public class Enemy : MonoBehaviour
         {
             health = 2;
         }
-        if (thirdEnemy)
+        if (catGunEnemy)
         {
             health = 4;
         }
@@ -107,7 +108,7 @@ public class Enemy : MonoBehaviour
         {
             //print($"Ask for help: {askForHelp}");
             //print($"Can Attack?: {transform.position}");
-            if (!catBombEnemy)
+            if (!catBombEnemy && !catGunEnemy)
             {
                 ExecuteAttack();
             }
@@ -137,7 +138,7 @@ public class Enemy : MonoBehaviour
             }
             if (targetPos.y < transform.position.y || targetPos.y > transform.position.y)
             {
-                if (targetPos.x - 1f > transform.position.x)
+                if (targetPos.x - 1f > transform.position.x && allowWalking || !catGunEnemy)
                 {
                     enemyLooksRight = true;
                     sr.flipX = true;
@@ -145,7 +146,7 @@ public class Enemy : MonoBehaviour
                     nv += new Vector2(1, 0);
                 }
             
-                if (targetPos.x + 1f < transform.position.x)
+                if (targetPos.x + 1f < transform.position.x && allowWalking || !catGunEnemy)
                 {
                     enemyLooksRight = false;
                     sr.flipX = false;
@@ -292,6 +293,8 @@ public class Enemy : MonoBehaviour
             {
                 print("Did I got him?");
                 health--;
+                sr.color = hitColor;
+                hit = true;
                 GameManager.Instance.BossGotHit();
                 if (health == 0 && bossCanDie)
                 {
