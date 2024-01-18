@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownNumber;
 
     private Vector3 playerPos;
-    private int waveNumber;
+    private int waveNumber = 15;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
