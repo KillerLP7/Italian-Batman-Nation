@@ -21,13 +21,13 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownNumber;
 
     private Vector3 playerPos;
-    private int waveNumber = 15;
+    private int waveNumber = 16;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
     private bool[] binary = new bool[4];
     private bool spawnBoss;
-    private int bossHP = 30;
+    private int bossHP = 3;
     private int rnd;
     private float spawn;
     private float spawnCooldown;
