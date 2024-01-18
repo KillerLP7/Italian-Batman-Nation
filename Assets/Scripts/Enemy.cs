@@ -196,6 +196,15 @@ public class Enemy : MonoBehaviour
                     bossEnter = false;
                 }
             }
+
+            if (health == 300 || health == 200 || health == 100 || health == 0)
+            {
+                anime.SetBool("BossNextPhase", true);
+            }
+            if (health == 250 || health == 150 || health == 50)
+            {
+                anime.SetBool("BossNextPhase", false);
+            }
             if (!bossEnter && bossCooldown > 30)
             {
                 bossEnter = true;
@@ -204,17 +213,14 @@ public class Enemy : MonoBehaviour
             bossCooldown += Time.deltaTime;
             if (bossEnter && transform.position.x > 8.7f)
             {
-                anime.SetBool("BossNextPhase", true);
                 rb.velocity = new Vector2(-1, 0);
             }
             else if (!bossEnter && transform.position.x < 15f)
             {
-                anime.SetBool("BossNextPhase", true);
                 rb.velocity = new Vector2(1, 0);
             }
             else
             {
-                anime.SetBool("BossNextPhase", false);
                 rb.velocity = new Vector2(0, 0);
             }
             //print($"Boss Health: {health}");
