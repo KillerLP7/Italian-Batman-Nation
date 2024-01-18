@@ -204,17 +204,17 @@ public class Enemy : MonoBehaviour
             bossCooldown += Time.deltaTime;
             if (bossEnter && transform.position.x > 8.7f)
             {
-                anime.SetBool("BossNextPhase", false);
+                anime.SetBool("BossNextPhase", true);
                 rb.velocity = new Vector2(-1, 0);
             }
             else if (!bossEnter && transform.position.x < 15f)
             {
-                anime.SetBool("BossNextPhase", false);
+                anime.SetBool("BossNextPhase", true);
                 rb.velocity = new Vector2(1, 0);
             }
             else
             {
-                anime.SetBool("BossNextPhase", true);
+                anime.SetBool("BossNextPhase", false);
                 rb.velocity = new Vector2(0, 0);
             }
             //print($"Boss Health: {health}");
