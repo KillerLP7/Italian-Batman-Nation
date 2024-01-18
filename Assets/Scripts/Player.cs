@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     private bool startCooldown;
     private bool a;
     private bool d;
+    private bool hit;
+    private float hitCooldown;
+    private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
 
     void Awake()
     {
@@ -49,6 +52,16 @@ public class Player : MonoBehaviour
     {
         if (player)
         {
+            if (hit)
+            {
+                if (hitCooldown > 0.1)
+                {
+                    sr.color = Color.white;
+                    hit = false;
+                    hitCooldown = 0;
+                }
+                hitCooldown += Time.deltaTime;
+            }
             inputH = Input.GetAxis("Horizontal");
             inputV = Input.GetAxis("Vertical");
             rb.velocity = new Vector2(inputH * speed, inputV * speed);
@@ -205,6 +218,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.CompareTag("EnemyAttack"))
+        {
+            sr.color = hitColor;
+            hit = true;
+        }
+        
         if (collision.CompareTag("BOOMERang"))
         {
             startCooldown = true;

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using Unity.Mathematics;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -18,6 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool fourthEnemy;
     [SerializeField] private bool catBombEnemy;
     [SerializeField] private bool boss;
+    [SerializeField] private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     
     [SerializeField] private float enemySpeed;
     private Vector3 targetPos;
@@ -32,6 +34,8 @@ public class Enemy : MonoBehaviour
     private float bombCooldown;
     private float rnd;
     private bool bossCanDie;
+    private bool hit;
+    private float hitCooldown;
 
     private bool kick;
     //public static int activeEnemies;
@@ -87,6 +91,17 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (hit)
+        {
+            if (hitCooldown > 0.1)
+            {
+                sr.color = Color.white;
+                hit = false;
+                hitCooldown = 0;
+            }
+            hitCooldown += Time.deltaTime;
+        }
+        
         print($"Die Werte: CanAttack: {canAttack} EnemyLooksRight {enemyLooksRight}");
         if (!boss)
         {
@@ -260,6 +275,8 @@ public class Enemy : MonoBehaviour
             if (collision.gameObject.CompareTag("Attack"))
             {
                 health--;
+                sr.color = hitColor;
+                hit = true;
                 if (health == 0)
                 {
                     GameManager.Instance.ActiveEnemiesRemove();
