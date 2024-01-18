@@ -194,20 +194,16 @@ public class Enemy : MonoBehaviour
                 if (bossEnter && transform.position.x < 9f)
                 {
                     bossEnter = false;
+                    if (health == 100)
+                    {
+                        anime.SetBool("NextBossPhase", true);
+                    }
                 }
-            }
-
-            if (health == 101)
-            {
-                anime.SetBool("BossNextPhase", true);
-            }
-            if (health == 50)
-            {
-                anime.SetBool("BossNextPhase", false);
             }
             if (!bossEnter && bossCooldown > 30)
             {
                 bossEnter = true;
+                anime.SetBool("NextBossPhase", false);
                 bossCooldown = 0;
             }
             bossCooldown += Time.deltaTime;
