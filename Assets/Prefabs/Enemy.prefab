@@ -188,6 +188,7 @@ MonoBehaviour:
   fourthEnemy: 0
   catBombEnemy: 0
   boss: 0
+  hit: {r: 1, g: 0, b: 0, a: 1}
   enemySpeed: 5
 --- !u!95 &2324109682909325426
 Animator:
