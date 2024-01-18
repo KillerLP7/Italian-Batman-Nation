@@ -113,10 +113,12 @@ public class Enemy : MonoBehaviour
             if (targetPos.y > transform.position.y)
             {
                 nv += new Vector2(0, 0f);
+                anime.SetBool("EnemyWalking", false);
             }
             else if (targetPos.y < transform.position.y)
             {
                 nv += new Vector2(0, 0f);
+                anime.SetBool("EnemyWalking", false);
             }
             if (targetPos.y < transform.position.y || targetPos.y > transform.position.y)
             {
@@ -146,12 +148,12 @@ public class Enemy : MonoBehaviour
                 }
                 if (Math.Abs(targetPos.x + 1.5f - transform.position.x) < 0.1f)
                 {
-                    anime.SetBool("EnemyWalking", false);
+                    //anime.SetBool("EnemyWalking", false);
                 }
             
                 if (Math.Abs(targetPos.x - 1.5f + transform.position.x) < 0.1f)
                 {
-                    anime.SetBool("EnemyWalking", false);
+                    //anime.SetBool("EnemyWalking", false);
                 }
                 nv += new Vector2(0, 0);
             
