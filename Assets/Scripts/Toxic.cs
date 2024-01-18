@@ -9,6 +9,7 @@ public class Toxic : MonoBehaviour
     private Animator anime;
     [SerializeField] private GameObject attack;
     private float counter;
+    private bool dmg;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,11 +21,16 @@ public class Toxic : MonoBehaviour
     void Update()
     {
         anime.SetBool("ToxicBallSpawn", false);
-        anime.SetBool("ToxicDmg", false);
+        if (!dmg)
+        {
+            anime.SetBool("ToxicDmg", false);
+            dmg = true;
+        }
         rb.velocity = new Vector2(-2, 0);
         if (counter > 0.5)
         {
             anime.SetBool("ToxicDmg", true);
+            dmg = false;
             Instantiate(attack, transform.position, Quaternion.identity);
             counter = 0;
         }
