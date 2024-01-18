@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
                 {
                     boomerang = true;
                     startCooldown = false;
-                    boomerangCooldown = 5;
+                    boomerangCooldown = 1;
                 }
                 boomerangCooldown -= Time.deltaTime;
             }
