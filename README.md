@@ -12,7 +12,6 @@ Batman -> Protagonist = Player
   Als Cut Scene wollen wir eine Comic Seite (im Batman Stil) und die Camera fährt über die Panel
 - Hintergründe für die Level
   Genug Hintergründe für die 3 Level (Süd, Mittel und Norditalien im entsprechenden Stil)
-- Diverses: Bumerang, Kicken, Bumerang werden, Katze 2 Beine Waffe rennen/schiessen, Boss Animations (Idle, Attack)
 
 #Programmieren
 - Boss Attack Parameter
