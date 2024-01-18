@@ -188,22 +188,22 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
             ExecuteAttack();
-            if (health == 200 || health == 100 || health <= 0)
+            if (health == 110)
             {
+                anime.SetBool("NextBossPhase", true);
+            }
+            if (health == 200 || health == 100 || health == 0)
+            {
+                anime.SetBool("NextBossPhase", false);
                 //TODO: Execute only once
                 if (bossEnter && transform.position.x < 9f)
                 {
                     bossEnter = false;
-                    if (health == 100)
-                    {
-                        anime.SetBool("NextBossPhase", true);
-                    }
                 }
             }
             if (!bossEnter && bossCooldown > 30)
             {
                 bossEnter = true;
-                anime.SetBool("NextBossPhase", false);
                 bossCooldown = 0;
             }
             bossCooldown += Time.deltaTime;
