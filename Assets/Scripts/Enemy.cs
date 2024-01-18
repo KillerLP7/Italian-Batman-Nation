@@ -197,11 +197,11 @@ public class Enemy : MonoBehaviour
                 }
             }
 
-            if (health == 300 || health == 200 || health == 100 || health == 0)
+            if (health == 101)
             {
                 anime.SetBool("BossNextPhase", true);
             }
-            if (health == 250 || health == 150 || health == 50)
+            if (health == 50)
             {
                 anime.SetBool("BossNextPhase", false);
             }
