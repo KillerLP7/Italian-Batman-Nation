@@ -205,9 +205,10 @@ public class Enemy : MonoBehaviour
             rb.velocity = nv.normalized * enemySpeed;
             if (!catBombEnemy)
             {
+                anime.SetBool("Shoot", false);
                 if (!canAttack)
                 {
-                    anime.SetBool("Shoot", false);
+                    anime.SetBool("Shoot", true);
                     if (counter > 1.5f)
                     {
                         canAttack = true;
@@ -408,7 +409,6 @@ public class Enemy : MonoBehaviour
 
         if (canAttack && catGunEnemy)
         {
-            anime.SetBool("Shoot", true);
             if (enemyLooksRight)
             {
                 attackArea = transform.position;
