@@ -17,6 +17,7 @@ public class Boomerang : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        sr = GetComponent<SpriteRenderer>();
         playerPos = GameManager.Instance.GetPlayerPos(true);
 
         if (!gun)
@@ -72,8 +73,7 @@ public class Boomerang : MonoBehaviour
             }
         
             if (transform.position.x > 0 && activate)
-            {
-                sr.flipX = false;
+            {   sr.flipX = false;
                 rb.velocity = new Vector2(-5f, 0);
                 activate = false;
             }
