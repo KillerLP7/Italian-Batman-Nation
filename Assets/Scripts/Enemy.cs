@@ -209,6 +209,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (counter > 1.5f)
                     {
+                        anime.SetBool("Shoot", false);
                         canAttack = true;
                         counter = 0;
                     }
@@ -226,7 +227,6 @@ public class Enemy : MonoBehaviour
             {
                 if (counter > 0.1)
                 {
-                    anime.SetBool("Shoot", false);
                     canAttack = true;
                     counter = 0;
                 }
