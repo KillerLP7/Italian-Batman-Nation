@@ -1,6 +1,5 @@
 using TMPro;
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -21,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownNumber;
 
     private Vector3 playerPos;
-    private int waveNumber = 15;
+    private int waveNumber;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -253,9 +252,11 @@ public class GameManager : MonoBehaviour
                 bossMaxHealth = true;
                 if (bossHPCooldown > bossHPCounter)
                 {
-                    bossHP++;
-                    bossHPCounter -= 0.5f;
+                    if (bossHP % 100 == 99) bossHP += 2;
+                    else bossHP++;
+                    
                     bossHPCooldown = 0;
+                    bossHPCounter -= 0.5f;
                 }
                 bossHPCooldown += Time.deltaTime;
             }
@@ -430,14 +431,7 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public int GetBossHP()
-    {
-        if (bossHP < 199 || bossHP > 201 )
-        {
-            return bossHP;
-        }
-        return 0;
-    }
+    public int GetBossHP => bossHP;
 
     public bool GetBossCanDie()
     {

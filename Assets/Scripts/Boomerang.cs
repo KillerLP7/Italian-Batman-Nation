@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,7 +9,7 @@ public class Boomerang : MonoBehaviour
     private Vector3 playerPos;
     private bool getBack;
     private float counter;
-    private float speed = 2f;
+    private float speed = 5f;
     [SerializeField] private bool gun;
     private bool activate;
 
@@ -66,13 +65,13 @@ public class Boomerang : MonoBehaviour
         {
             if (transform.position.x < 0 && activate)
             {
-                rb.velocity = new Vector2(1f, 0);
+                rb.velocity = new Vector2(5f, 0);
                 activate = false;
             }
         
             if (transform.position.x > 0 && activate)
             {
-                rb.velocity = new Vector2(-1f, 0);
+                rb.velocity = new Vector2(-5f, 0);
                 activate = false;
             }
         }

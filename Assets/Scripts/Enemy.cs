@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using Unity.Mathematics;
-using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -12,6 +11,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject[] enemys;
     [SerializeField] private GameObject enemyAttack;
     [SerializeField] private GameObject bossAttack;
+    [SerializeField] private GameObject bullet;
     [SerializeField] private bool firstEnemy;
     [SerializeField] private GameObject bomb;
     [SerializeField] private bool secondEnemy;
@@ -116,7 +116,7 @@ public class Enemy : MonoBehaviour
         {
             //print($"Ask for help: {askForHelp}");
             //print($"Can Attack?: {transform.position}");
-            if (!catBombEnemy && !catGunEnemy)
+            if (!catBombEnemy)
             {
                 ExecuteAttack();
             }
@@ -214,7 +214,7 @@ public class Enemy : MonoBehaviour
         {
             print("Boss: " + health);
             bossCanDie = GameManager.Instance.GetBossCanDie();
-            health = GameManager.Instance.GetBossHP();
+            health = GameManager.Instance.GetBossHP;
             GameManager.Instance.BossPhase();
             if (!canAttack)
             {
@@ -347,7 +347,7 @@ public class Enemy : MonoBehaviour
         //print("Tried to Attack!" + kick);
         
         
-        if (canAttack && kick)
+        if (canAttack && kick && !catGunEnemy)
         {
             if (enemyLooksRight)
             {
@@ -371,7 +371,7 @@ public class Enemy : MonoBehaviour
         
         
         
-        if (canAttack && !kick && !boss)
+        if (canAttack && !kick && !boss && !catGunEnemy)
         {
           
             if (enemyLooksRight)
@@ -392,11 +392,31 @@ public class Enemy : MonoBehaviour
             kick = false;
         }
 
-        if (canAttack && boss)
+        if (canAttack && boss && !catGunEnemy)
         {
             attackArea = transform.position;
             Instantiate(bossAttack, attackArea, Quaternion.identity);
             canAttack = false;
+        }
+
+        if (canAttack && catGunEnemy)
+        {
+            if (enemyLooksRight)
+            {
+                attackArea = transform.position;
+                attackArea.x += 1f;
+                attackArea.y += 0.5f;
+                Instantiate(bullet, attackArea, quaternion.identity);
+                canAttack = false;
+                kick = false;
+                return;
+            }
+            attackArea = transform.position;
+            attackArea.x += -1f;
+            attackArea.y += 0.5f;
+            Instantiate(bullet, attackArea, quaternion.identity);
+            canAttack = false;
+            kick = false;
         }
         
     }

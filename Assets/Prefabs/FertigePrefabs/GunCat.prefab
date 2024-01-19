@@ -9,6 +9,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1685911215093956572, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: m_Size.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911215093956572, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: m_Size.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911215093956572, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: m_Offset.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911215093956572, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1685911215093956572, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 5.88077
       objectReference: {fileID: 0}
@@ -96,6 +112,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: ed068a2b64fd04643bc38af891b4dd78, type: 2}
+    - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1615177403320654230, guid: 959af9acdf3c46e43bdb27aa91deaa0f, type: 3}
     - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: firstEnemy
       value: 0
