@@ -37,6 +37,10 @@ public class Enemy : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private bool allowWalking;
+    
+    private bool firstTimeTwoHundred;
+    private bool firstTimeHundred;
+    private bool firstTimeZero;
 
     private bool kick;
     //public static int activeEnemies;
@@ -80,11 +84,14 @@ public class Enemy : MonoBehaviour
             health = 30;
             bossEnter = true;
             bossCanDie = false;
+            firstTimeHundred = firstTimeZero = firstTimeTwoHundred = true;
         }
 
         canAttack = true;
         askForHelp = true;
         enemyLooksRight = true;
+        allowWalking = true;
+        
         Ask();
         GameManager.Instance.ActiveEnemiesAdd();
     }
@@ -92,6 +99,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         if (hit)
         {
             if (hitCooldown > 0.1)
@@ -138,20 +146,31 @@ public class Enemy : MonoBehaviour
             }
             if (targetPos.y < transform.position.y || targetPos.y > transform.position.y)
             {
-                if (targetPos.x - 1f > transform.position.x && allowWalking || !catGunEnemy)
+                // && allowWalking || !catGunEnemy
+                if (allowWalking)
                 {
-                    enemyLooksRight = true;
-                    sr.flipX = true;
-                    anime.SetBool("EnemyWalking", true);
-                    nv += new Vector2(1, 0);
-                }
+                    if (targetPos.x - 1f > transform.position.x)
+                    {
+                        print("Hiya :3 Go Right");
+                        enemyLooksRight = true;
+                        sr.flipX = true;
+                        anime.SetBool("EnemyWalking", true);
+                        nv += new Vector2(1, 0);
+                    }
             
-                if (targetPos.x + 1f < transform.position.x && allowWalking || !catGunEnemy)
-                {
-                    enemyLooksRight = false;
-                    sr.flipX = false;
-                    anime.SetBool("EnemyWalking", true);
-                    nv += new Vector2(-1, 0);
+                    if (targetPos.x + 1f < transform.position.x)
+                    {
+                        print("Hiya :3 Go Left");
+                        enemyLooksRight = false;
+                        sr.flipX = false;
+                        anime.SetBool("EnemyWalking", true);
+                        nv += new Vector2(-1, 0);
+                    }
+
+                    if (catGunEnemy)
+                    {
+                        if (Mathf.Abs(transform.position.x) < 5) allowWalking = false;
+                    }
                 }
                 if (targetPos.y - 1f > transform.position.y)
                 {
@@ -193,6 +212,7 @@ public class Enemy : MonoBehaviour
         }
         if (boss)
         {
+            print("Boss: " + health);
             bossCanDie = GameManager.Instance.GetBossCanDie();
             health = GameManager.Instance.GetBossHP();
             GameManager.Instance.BossPhase();
@@ -206,19 +226,39 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
             ExecuteAttack();
-            if (health == 110)
+            switch (health)
             {
-                anime.SetBool("NextBossPhase", true);
-            }
-            if (health == 200 || health == 100 || health == 0)
-            {
-                anime.SetBool("NextBossPhase", false);
-                //TODO: Execute only once
-                if (bossEnter && transform.position.x < 9f)
+                case 110:
+                    anime.SetBool("NextBossPhase", true);
+                    break;
+                case 200 when firstTimeTwoHundred:
+                case 100 when firstTimeHundred:
+                case 0 when firstTimeZero:
                 {
-                    bossEnter = false;
+                    anime.SetBool("NextBossPhase", false);
+                    //TODO: Execute only once
+                    if (bossEnter && transform.position.x < 9f)
+                    {
+                        bossEnter = false;
+                    }
+                    
+                    if (firstTimeZero)
+                    {
+                        firstTimeZero = false;
+                    }
+                    else if (firstTimeTwoHundred)
+                    {
+                        firstTimeTwoHundred = false;
+                    }
+                    else if (firstTimeHundred)
+                    {
+                        firstTimeHundred = false;
+                    }
+
+                    break;
                 }
             }
+
             if (!bossEnter && bossCooldown > 30)
             {
                 bossEnter = true;
@@ -237,8 +277,6 @@ public class Enemy : MonoBehaviour
             {
                 rb.velocity = new Vector2(0, 0);
             }
-            //print($"Boss Health: {health}");
-            
         }
 
         if (catBombEnemy)

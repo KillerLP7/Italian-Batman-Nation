@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace DefaultNamespace
 {
     public class Test
@@ -12,6 +14,12 @@ namespace DefaultNamespace
                 enemyBool[i] = level % 2 == 1;
                 level >>= 1;
             }
+        }
+
+        public void stuff()
+        {
+            //Vector2.Distance(playerpos, enemypos) < 3;
+            
         }
     }
 }

@@ -248,7 +248,7 @@ public class GameManager : MonoBehaviour
 
         if (!bossCanDie)
         {
-            if (bossHP <= 3 || bossMaxHealth)
+            if (bossHP <= 0 || bossMaxHealth)
             {
                 bossMaxHealth = true;
                 if (bossHPCooldown > bossHPCounter)
@@ -432,7 +432,11 @@ public class GameManager : MonoBehaviour
 
     public int GetBossHP()
     {
-        return bossHP;
+        if (bossHP < 199 || bossHP > 201 )
+        {
+            return bossHP;
+        }
+        return 0;
     }
 
     public bool GetBossCanDie()

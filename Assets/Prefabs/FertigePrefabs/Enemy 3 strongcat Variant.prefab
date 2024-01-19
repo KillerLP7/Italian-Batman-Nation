@@ -65,6 +65,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: catGunEnemy
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: enemys.Array.data[0]
       value: 
       objectReference: {fileID: 289916460539888613, guid: 40b268433b13d6a4197476f21bc9ccee, type: 3}

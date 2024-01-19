@@ -26,8 +26,6 @@ public class Player : MonoBehaviour
     private float boomerangCooldown;
     private bool boomerang;
     private bool startCooldown;
-    private bool a;
-    private bool d;
     private bool hit;
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
@@ -41,10 +39,6 @@ public class Player : MonoBehaviour
         boomerang = false;
         startCooldown = true;
         boomerangCooldown = 30;
-        a = true;
-        d = true;
-
-        //Time.timeScale = 2f;
     }
 
     // Update is called once per frame
