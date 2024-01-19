@@ -205,10 +205,11 @@ public class Enemy : MonoBehaviour
             rb.velocity = nv.normalized * enemySpeed;
             if (!catBombEnemy)
             {
-                anime.SetBool("Shoot", false);
+                
                 if (!canAttack)
                 {
                     anime.SetBool("Shoot", true);
+                    anime.SetBool("Shoot", false);
                     if (counter > 1.5f)
                     {
                         canAttack = true;
