@@ -208,8 +208,6 @@ public class Enemy : MonoBehaviour
                 
                 if (!canAttack)
                 {
-                    anime.SetBool("Shoot", true);
-                    anime.SetBool("Shoot", false);
                     if (counter > 1.5f)
                     {
                         canAttack = true;
@@ -410,6 +408,7 @@ public class Enemy : MonoBehaviour
 
         if (canAttack && catGunEnemy)
         {
+            anime.SetBool("Shoot", true);
             if (enemyLooksRight)
             {
                 attackArea = transform.position;
@@ -418,6 +417,7 @@ public class Enemy : MonoBehaviour
                 Instantiate(bullet, attackArea, quaternion.identity);
                 canAttack = false;
                 kick = false;
+                anime.SetBool("Shoot", false);
                 return;
             }
             attackArea = transform.position;
@@ -426,6 +426,7 @@ public class Enemy : MonoBehaviour
             Instantiate(bullet, attackArea, quaternion.identity);
             canAttack = false;
             kick = false;
+            anime.SetBool("Shoot", false);
         }
         
     }
