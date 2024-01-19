@@ -157,6 +157,7 @@ public class Enemy : MonoBehaviour
                         enemyLooksRight = true;
                         sr.flipX = true;
                         anime.SetBool("EnemyWalking", true);
+                        anime.SetBool("MaskCatWalking", true);
                         nv += new Vector2(1, 0);
                     }
             
@@ -166,6 +167,7 @@ public class Enemy : MonoBehaviour
                         enemyLooksRight = false;
                         sr.flipX = false;
                         anime.SetBool("EnemyWalking", true);
+                        anime.SetBool("MaskCatWalking", true);
                         nv += new Vector2(-1, 0);
                     }
 
@@ -176,13 +178,13 @@ public class Enemy : MonoBehaviour
                 }
                 if (targetPos.y - 1f > transform.position.y)
                 {
-                    anime.SetBool("MaskCatWalking", true);
+                    //anime.SetBool("MaskCatWalking", true);
                     nv += new Vector2(0, 1);
                 }
             
                 if (targetPos.y - 1f < transform.position.y || Math.Abs(targetPos.y - 1f - transform.position.y) < 0.1f)
                 {
-                    anime.SetBool("MaskCatWalking", true);
+                    //anime.SetBool("MaskCatWalking", true);
                     nv += new Vector2(0, -1);
                 }
                 if (Math.Abs(targetPos.x + 1.5f - transform.position.x) < 0.1f)
