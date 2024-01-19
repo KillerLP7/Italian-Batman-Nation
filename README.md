@@ -13,11 +13,6 @@ Batman -> Protagonist = Player
 - Hintergründe für die Level
   Genug Hintergründe für die 3 Level (Süd, Mittel und Norditalien im entsprechenden Stil)
 
-#Programmieren
-- Boss Attack Parameter
-- Enemy Walking Parameter
-- Enemy Attack generel (lol)
-
 #Design
 - Cooldown Leisten bzw. Kreise
 - Healthbar
