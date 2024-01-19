@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7877871637764705637, guid: c1a221c292247484f91d611d3e84ebc9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 99
+      objectReference: {fileID: 0}
     - target: {fileID: 8202309026263379248, guid: c1a221c292247484f91d611d3e84ebc9, type: 3}
       propertyPath: m_Name
       value: Bullet Variant Variant
