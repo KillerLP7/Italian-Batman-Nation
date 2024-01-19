@@ -13,7 +13,7 @@ Batman -> Protagonist = Player
 - Hintergründe für die Level
   Genug Hintergründe für die 3 Level (Süd, Mittel und Norditalien im entsprechenden Stil)
 
-#Design
+# Design
 - Cooldown Leisten bzw. Kreise
 - Healthbar
 - Achivements bzw. "Du hast ... erhalten"
