@@ -6,6 +6,7 @@ public class Boomerang : MonoBehaviour
     [FormerlySerializedAs("Playerattack")] [FormerlySerializedAs("attack")] [SerializeField] private GameObject playerAttack;
     [SerializeField] private GameObject enemyAttack;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
     private Vector3 playerPos;
     private bool getBack;
     private float counter;
@@ -65,12 +66,14 @@ public class Boomerang : MonoBehaviour
         {
             if (transform.position.x < 0 && activate)
             {
+                sr.flipX = true;
                 rb.velocity = new Vector2(5f, 0);
                 activate = false;
             }
         
             if (transform.position.x > 0 && activate)
             {
+                sr.flipX = false;
                 rb.velocity = new Vector2(-5f, 0);
                 activate = false;
             }
