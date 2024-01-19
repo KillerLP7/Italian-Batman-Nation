@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1af258a1cbae7794f85f188cfea0d715
+guid: c830129ba418ec845b954cb6ada43bd7
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,106 +110,106 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Guncatwalkleft_0
+      name: Walkleft2.0_0
       rect:
         serializedVersion: 2
-        x: 245
+        x: 184
         y: 864
         width: 443
         height: 762
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cc43d3fcb41fcc84e992622bd08c2edf
-      internalID: -1078022340
+      spriteID: d136efc80c8192c41bebc0fe141959a7
+      internalID: 2078096517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guncatwalkleft_1
+      name: Walkleft2.0_1
       rect:
         serializedVersion: 2
-        x: 582
+        x: 521
         y: 69
         width: 536
-        height: 789
+        height: 787
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d608288c795f9cb4d92aad51ac0a3b95
-      internalID: 598980501
+      spriteID: a6a3da3ce879ea148aba3d6d9f7ba484
+      internalID: 1633462461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guncatwalkleft_2
+      name: Walkleft2.0_2
       rect:
         serializedVersion: 2
-        x: 955
-        y: 865
+        x: 894
+        y: 867
         width: 529
         height: 715
-      alignment: 9
-      pivot: {x: 0.49319243, y: 0.47481665}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7c3c7690c6f51a4c9ce23dee34c9139
-      internalID: 534477627
+      spriteID: 4a84a64550166a9488e9908ae94884eb
+      internalID: -438867441
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guncatwalkleft_3
+      name: Walkleft2.0_3
       rect:
         serializedVersion: 2
-        x: 1580
+        x: 1519
         y: 867
         width: 596
         height: 759
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98344a4708bde1041ab9353e44978221
-      internalID: -1200011948
+      spriteID: fcf002f1ba2db2d4b9f8668d39bc3444
+      internalID: -66228764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Guncatwalkleft_4
+      name: Walkleft2.0_4
       rect:
         serializedVersion: 2
-        x: 1325
+        x: 1264
         y: 21
-        width: 457
+        width: 456
         height: 796
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c83324a9851ad24f9dbc0c16b0ac169
-      internalID: -1218137790
+      spriteID: de585610119beb64f9a1d75218074929
+      internalID: 456957690
       vertices: []
       indices: 
       edges: []
@@ -225,11 +225,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Guncatwalkleft_0: -1078022340
-      Guncatwalkleft_1: 598980501
-      Guncatwalkleft_2: 534477627
-      Guncatwalkleft_3: -1200011948
-      Guncatwalkleft_4: -1218137790
+      Walkleft2.0_0: 2078096517
+      Walkleft2.0_1: 1633462461
+      Walkleft2.0_2: -438867441
+      Walkleft2.0_3: -66228764
+      Walkleft2.0_4: 456957690
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
