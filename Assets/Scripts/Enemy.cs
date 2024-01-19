@@ -224,6 +224,7 @@ public class Enemy : MonoBehaviour
             {
                 if (counter > 0.1)
                 {
+                    anime.SetBool("Shoot", false);
                     canAttack = true;
                     counter = 0;
                 }
@@ -405,6 +406,7 @@ public class Enemy : MonoBehaviour
 
         if (canAttack && catGunEnemy)
         {
+            anime.SetBool("Shoot", true);
             if (enemyLooksRight)
             {
                 attackArea = transform.position;
