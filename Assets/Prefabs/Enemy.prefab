@@ -176,7 +176,7 @@ MonoBehaviour:
   - {fileID: 1636633299321596787}
   - {fileID: 1636633299321596787}
   - {fileID: 1636633299321596787}
-  - {fileID: 1636633299321596787}
+  - {fileID: 2255355292753587946, guid: 0e27da18902f9834c87c78b437a7b494, type: 3}
   - {fileID: 1636633299321596787}
   - {fileID: 7644948661372649444, guid: 4e4961aba4568084e92ee4ef8a6127b3, type: 3}
   enemyAttack: {fileID: 1333311967959955449, guid: e6e001dd4838a0048ab333c332dede19, type: 3}
@@ -184,11 +184,11 @@ MonoBehaviour:
   firstEnemy: 1
   bomb: {fileID: 6255732722421819748, guid: aa03ff6dbbcd6eb498c5e03907b97540, type: 3}
   secondEnemy: 0
-  thirdEnemy: 0
+  catGunEnemy: 0
   fourthEnemy: 0
   catBombEnemy: 0
   boss: 0
-  hit: {r: 1, g: 0, b: 0, a: 1}
+  hitColor: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
   enemySpeed: 5
 --- !u!95 &2324109682909325426
 Animator:

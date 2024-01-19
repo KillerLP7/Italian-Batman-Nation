@@ -23,7 +23,7 @@ PrefabInstance:
     - target: {fileID: 5240961420289867933, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
       propertyPath: enemys.Array.data[2]
       value: 
-      objectReference: {fileID: 2098197441006252734, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
+      objectReference: {fileID: 2255355292753587946, guid: 0e27da18902f9834c87c78b437a7b494, type: 3}
     - target: {fileID: 5240961420289867933, guid: e4caf8827af07d34bb3c9569b8ca3a50, type: 3}
       propertyPath: enemys.Array.data[3]
       value: 

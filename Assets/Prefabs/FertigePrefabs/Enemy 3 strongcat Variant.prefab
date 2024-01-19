@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: catGunEnemy
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: enemys.Array.data[0]
@@ -76,6 +76,10 @@ PrefabInstance:
       propertyPath: enemys.Array.data[1]
       value: 
       objectReference: {fileID: 1153218612011004558, guid: e3376a4903b5f084c84da9b65b834059, type: 3}
+    - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
+      propertyPath: enemys.Array.data[2]
+      value: 
+      objectReference: {fileID: 2255355292753587946, guid: 0e27da18902f9834c87c78b437a7b494, type: 3}
     - target: {fileID: 8610974795664054462, guid: 068c3a92a99beb54a8d83c31dc4bd934, type: 3}
       propertyPath: enemys.Array.data[3]
       value: 

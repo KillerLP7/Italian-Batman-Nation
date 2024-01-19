@@ -24,6 +24,10 @@ PrefabInstance:
       propertyPath: enemys.Array.data[1]
       value: 
       objectReference: {fileID: 1153218612011004558}
+    - target: {fileID: 6638138098285310454, guid: 40b268433b13d6a4197476f21bc9ccee, type: 3}
+      propertyPath: enemys.Array.data[3]
+      value: 
+      objectReference: {fileID: 2255355292753587946, guid: 0e27da18902f9834c87c78b437a7b494, type: 3}
     - target: {fileID: 6929883521384796523, guid: 40b268433b13d6a4197476f21bc9ccee, type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.9066658
