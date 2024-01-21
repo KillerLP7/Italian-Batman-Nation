@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -35,6 +36,7 @@ public class GameManager : MonoBehaviour
     private float bossHPCounter;
     private float bossHPCooldown;
     private bool bossMaxHealth;
+    private bool nextLevel;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -58,6 +60,7 @@ public class GameManager : MonoBehaviour
 
         bossUI.enabled = false;
         bossHealth.enabled = false;
+        nextLevel = true;
     }
 
     private void OnEnable()
@@ -190,13 +193,16 @@ public class GameManager : MonoBehaviour
         playerHealth.text = hp.ToString();
         wave.text = waveNumber.ToString();
 
-        if (activeEnemies == 0 && !endOfWave)
+        if (activeEnemies == 0 && !endOfWave && nextLevel)
         {
             allowSpawn = true;
             if (waveNumber < 16)
             {
                 spawnBoss = false;
-                waveNumber++;
+                if (waveNumber != 6 && waveNumber != 11 && waveNumber != 16)
+                {
+                    waveNumber++;
+                }
                 //print("Incerased Wave");
             }
             endOfWave = true;
@@ -446,5 +452,27 @@ public class GameManager : MonoBehaviour
     public bool BossSpawned()
     {
         return spawnBoss;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Level 2"))
+        {
+            print("Lets switch to Level 2!");
+            nextLevel = true;
+            waveNumber++;
+        }
+        if (collision.CompareTag("Level 3"))
+        {
+            print("Lets switch to Level 3!");
+            nextLevel = true;
+            waveNumber++;
+        }
+        if (collision.CompareTag("Level Boss"))
+        {
+            print("Lets switch to Level Boss!");
+            nextLevel = true;
+            waveNumber++;
+        }
     }
 }

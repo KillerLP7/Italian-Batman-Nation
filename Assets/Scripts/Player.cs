@@ -38,6 +38,8 @@ public class Player : MonoBehaviour
         boomerang = false;
         startCooldown = true;
         boomerangCooldown = 30;
+        anime.SetBool("Batman1", false);
+        anime.SetBool("Batman1", false);
     }
 
     // Update is called once per frame
@@ -220,6 +222,21 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("BOOMERang"))
         {
             startCooldown = true;
+        }
+
+        if (collision.CompareTag("Level 2"))
+        {
+            print("Lets switch to Level 2!");
+            anime.SetBool("Batman1", true);
+        }
+        if (collision.CompareTag("Level 3"))
+        {
+            print("Lets switch to Level 3!");
+            anime.SetBool("Batman2", true);
+        }
+        if (collision.CompareTag("Level Boss"))
+        {
+            print("Lets switch to Level Boss!");
         }
     }
 }
