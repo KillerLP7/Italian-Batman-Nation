@@ -111,7 +111,7 @@ public class Enemy : MonoBehaviour
             hitCooldown += Time.deltaTime;
         }
         
-        print($"Die Werte: CanAttack: {canAttack} EnemyLooksRight {enemyLooksRight}");
+        //print($"Die Werte: CanAttack: {canAttack} EnemyLooksRight {enemyLooksRight}");
         if (!boss)
         {
             //print($"Ask for help: {askForHelp}");
@@ -153,7 +153,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (targetPos.x - 1f > transform.position.x)
                     {
-                        print("Hiya :3 Go Right");
+                        //print("Hiya :3 Go Right");
                         enemyLooksRight = true;
                         sr.flipX = true;
                         anime.SetBool("EnemyWalking", true);
@@ -163,7 +163,7 @@ public class Enemy : MonoBehaviour
             
                     if (targetPos.x + 1f < transform.position.x)
                     {
-                        print("Hiya :3 Go Left");
+                        //print("Hiya :3 Go Left");
                         enemyLooksRight = false;
                         sr.flipX = false;
                         anime.SetBool("EnemyWalking", true);

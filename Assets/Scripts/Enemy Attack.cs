@@ -23,7 +23,7 @@ public class EnemyAttacks : MonoBehaviour
         {
             //Sprite attack
             //Player Health Bar drops
-            print("We got him!");
+            //print("We got him!");
             GameManager.Instance.PlayerGotHit();
         }
     }

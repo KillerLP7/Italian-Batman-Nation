@@ -192,17 +192,20 @@ public class GameManager : MonoBehaviour
         print(activeEnemies);
         playerHealth.text = hp.ToString();
         wave.text = waveNumber.ToString();
+        print($"Die Werte: Allow Spawn?: {allowSpawn} EnemyLooksRight {endOfWave}");
 
         if (activeEnemies == 0 && !endOfWave && nextLevel)
         {
-            allowSpawn = true;
+            if (waveNumber != 5 && waveNumber != 10 && waveNumber != 15)
+            {
+                allowSpawn = true;
+            }
             if (waveNumber < 16)
             {
                 spawnBoss = false;
-                if (waveNumber != 6 && waveNumber != 11 && waveNumber != 16)
-                {
-                    waveNumber++;
-                }
+
+                waveNumber++;
+                
                 //print("Incerased Wave");
             }
             endOfWave = true;
@@ -460,19 +463,19 @@ public class GameManager : MonoBehaviour
         {
             print("Lets switch to Level 2!");
             nextLevel = true;
-            waveNumber++;
+            allowSpawn = true;
         }
         if (collision.CompareTag("Level 3"))
         {
             print("Lets switch to Level 3!");
             nextLevel = true;
-            waveNumber++;
+            allowSpawn = true;
         }
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
             nextLevel = true;
-            waveNumber++;
+            allowSpawn = true;
         }
     }
 }
