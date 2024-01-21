@@ -19,9 +19,8 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI waveText;
     public TextMeshProUGUI cooldownText;
     public TextMeshProUGUI cooldownNumber;
-
     private Vector3 playerPos;
-    private int waveNumber;
+    private int waveNumber = 15;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -36,7 +35,7 @@ public class GameManager : MonoBehaviour
     private float bossHPCounter;
     private float bossHPCooldown;
     private bool bossMaxHealth;
-    private bool nextLevel;
+    private bool bossLevel;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -44,6 +43,8 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        //OPTIONS: Speed, Difficulty * player/enemy Health, Sound
+        Time.timeScale = 2;
         if (Instance is not null)
         {
             Destroy(gameObject);
@@ -60,7 +61,7 @@ public class GameManager : MonoBehaviour
 
         bossUI.enabled = false;
         bossHealth.enabled = false;
-        nextLevel = true;
+        bossLevel = false;
     }
 
     private void OnEnable()
@@ -86,7 +87,7 @@ public class GameManager : MonoBehaviour
         bossMaxHealth = false;
         cooldownText.enabled = true;
         cooldownNumber.enabled = true;
-        if (waveNumber != 0)
+        if (waveNumber > 0)
         {
             waveNumber--;
         }
@@ -192,9 +193,9 @@ public class GameManager : MonoBehaviour
         print(activeEnemies);
         playerHealth.text = hp.ToString();
         wave.text = waveNumber.ToString();
-        print($"Die Werte: Allow Spawn?: {allowSpawn} EnemyLooksRight {endOfWave}");
+        print($"Die Werte: Allow Spawn?: {allowSpawn} Boss spawn? {spawnBoss}");
 
-        if (activeEnemies == 0 && !endOfWave && nextLevel)
+        if (activeEnemies == 0 && !endOfWave)
         {
             if (waveNumber != 5 && waveNumber != 10 && waveNumber != 15)
             {
@@ -233,10 +234,12 @@ public class GameManager : MonoBehaviour
             spawnBoss = true;
         }
 
-        if (allowSpawn && spawnBoss)
+        if (bossLevel)
         {
+            print("Did I spawn?");
             Instantiate(enemys[4], new Vector3(15f, 0, 0), quaternion.identity);
-            allowSpawn = false;
+            spawnBoss = false;
+            bossLevel = false;
             boss = true;
         }
         if (activeEnemies > 0)
@@ -462,19 +465,17 @@ public class GameManager : MonoBehaviour
         if (collision.CompareTag("Level 2"))
         {
             print("Lets switch to Level 2!");
-            nextLevel = true;
             allowSpawn = true;
         }
         if (collision.CompareTag("Level 3"))
         {
             print("Lets switch to Level 3!");
-            nextLevel = true;
             allowSpawn = true;
         }
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
-            nextLevel = true;
+            bossLevel = true;
             allowSpawn = true;
         }
     }

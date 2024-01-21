@@ -173,7 +173,7 @@ public class Enemy : MonoBehaviour
 
                     if (catGunEnemy)
                     {
-                        if (Mathf.Abs(transform.position.x) < 5) allowWalking = false;
+                        if (Mathf.Abs(transform.position.x) < 7) allowWalking = false;
                     }
                 }
                 if (targetPos.y - 1f > transform.position.y)

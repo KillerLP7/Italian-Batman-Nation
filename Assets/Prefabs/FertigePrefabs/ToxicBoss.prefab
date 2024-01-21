@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 16.4
       objectReference: {fileID: 0}
+    - target: {fileID: 6308338993354784451, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: enemys.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308338993354784451, guid: a8469288ba99e804789c14548ad70193, type: 3}
+      propertyPath: enemys.Array.data[5]
+      value: 
+      objectReference: {fileID: 7249366693534426567}
     - target: {fileID: 7763990058307755614, guid: a8469288ba99e804789c14548ad70193, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.67296
