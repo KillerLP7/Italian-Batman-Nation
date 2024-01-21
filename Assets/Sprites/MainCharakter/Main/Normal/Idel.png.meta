@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8119eb1e69872584099a52f5f370c06e
+guid: 8808a47720dcc434b946b0cb40f121be
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -106,17 +106,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: kick_0
+      name: Idel_0
       rect:
         serializedVersion: 2
-        x: 179
-        y: 1283
-        width: 545
-        height: 605
+        x: 541
+        y: 1351
+        width: 277
+        height: 563
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f7973669e2197a45a011f2188fea9d7
-      internalID: -182554576
+      spriteID: ee28b6a4ddec4c74a906c0c5893f8a13
+      internalID: 342937929
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: kick_1
+      name: Idel_1
       rect:
         serializedVersion: 2
-        x: 729
-        y: 1283
-        width: 546
-        height: 604
+        x: 873
+        y: 1351
+        width: 268
+        height: 563
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,8 +158,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8ff8dd0e620e28c4f9848d94dd2e73db
-      internalID: -1524835400
+      spriteID: e85908b5b17a1194693bf4a7ffb6cda6
+      internalID: 736222380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idel_2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 771
+        width: 277
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b841b2081adda844c90f80b4145c8650
+      internalID: 124133123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Idel_3
+      rect:
+        serializedVersion: 2
+        x: 873
+        y: 771
+        width: 268
+        height: 559
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1fc4219501624a46ac50a6d1b86088b
+      internalID: -488929815
       vertices: []
       indices: 
       edges: []
@@ -162,8 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      kick_0: -182554576
-      kick_1: -1524835400
+      Idel_0: 342937929
+      Idel_1: 736222380
+      Idel_2: 124133123
+      Idel_3: -488929815
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

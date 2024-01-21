@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 076981a5bfcb4a34b98cca63f0a6d64c
+guid: 432ea0f7570591a469225e828e7574ce
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -81,6 +81,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
     resizeAlgorithm: 0
@@ -110,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: punch 1_0
+      name: catbite_0
       rect:
         serializedVersion: 2
-        x: 179
-        y: 1283
-        width: 545
-        height: 605
+        x: 164
+        y: 1147
+        width: 941
+        height: 416
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,29 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2c7cbca791cb2a4082055c6a7a26300
-      internalID: -83606674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: punch 1_1
-      rect:
-        serializedVersion: 2
-        x: 729
-        y: 1283
-        width: 546
-        height: 604
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2cec130b4971b084c96df78e5fb70773
-      internalID: -127636329
+      spriteID: dbf4375dc85baf14a91ccff8c93468a9
+      internalID: 952367312
       vertices: []
       indices: 
       edges: []
@@ -162,8 +154,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      punch 1_0: -83606674
-      punch 1_1: -127636329
+      catbite_0: 952367312
+      catbite_1: 553407039
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
