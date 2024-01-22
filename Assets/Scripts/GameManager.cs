@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownText;
     public TextMeshProUGUI cooldownNumber;
     private Vector3 playerPos;
-    private int waveNumber = 15;
+    private int waveNumber;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //OPTIONS: Speed, Difficulty * player/enemy Health, Sound
-        Time.timeScale = 2;
+        //Time.timeScale = 2;
         if (Instance is not null)
         {
             Destroy(gameObject);
