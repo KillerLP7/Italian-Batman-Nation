@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     private float bossHPCooldown;
     private bool bossMaxHealth;
     private bool bossLevel;
+    private int currentDiff;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -97,6 +98,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (inMenu)
         {
             playerHealth.enabled = false;
@@ -137,6 +139,15 @@ public class GameManager : MonoBehaviour
                     spawn = 15f;
                 }
                 Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                if (currentDiff > 0)
+                {
+                    Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
+
+                if (currentDiff == 2)
+                {
+                    Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
             }
 
             if (binary[1])
@@ -151,6 +162,15 @@ public class GameManager : MonoBehaviour
                     spawn = 15f;
                 }
                 Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                if (currentDiff > 0)
+                {
+                    Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
+
+                if (currentDiff == 2)
+                {
+                    Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
             }
 
             if (binary[2])
@@ -165,6 +185,15 @@ public class GameManager : MonoBehaviour
                     spawn = 15f;
                 }
                 Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                if (currentDiff > 0)
+                {
+                    Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
+
+                if (currentDiff == 2)
+                {
+                    Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
             }
 
             if (binary[3])
@@ -179,6 +208,15 @@ public class GameManager : MonoBehaviour
                     spawn = 15f;
                 }
                 Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                if (currentDiff > 0)
+                {
+                    Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
+
+                if (currentDiff == 2)
+                {
+                    Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
+                }
             }
             //GameObject cat2 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
             //GameObject cat4 = Instantiate(enemys[0], new Vector3(Random.Range(10f, 15f),Random.Range(-5f, 1f),0), Quaternion.identity);
@@ -295,6 +333,16 @@ public class GameManager : MonoBehaviour
     {
         //print($"Player got hit!");
         hp--;
+    }
+
+    public void SFX()
+    {
+        
+    }
+    
+    public void Difficulty(int diff)
+    {
+        currentDiff = diff;
     }
 
     public void ActiveEnemiesAdd()

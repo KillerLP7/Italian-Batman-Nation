@@ -305,6 +305,14 @@ public class Enemy : MonoBehaviour
                 bombCooldown = 0;
             }
             bombCooldown += Time.deltaTime;
+            if (Vector2.Distance(targetPos, transform.position) < 3)
+            {
+                explosionArea = transform.position;
+                explosionArea.x += 0;
+                explosionArea.y += -0.5f;
+                Instantiate(bomb, explosionArea, Quaternion.identity);
+                Destroy(gameObject);
+            }
         }
         
     }
