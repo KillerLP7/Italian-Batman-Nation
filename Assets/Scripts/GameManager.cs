@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownText;
     public TextMeshProUGUI cooldownNumber;
     private Vector3 playerPos;
-    private int waveNumber = 15;
+    private int waveNumber;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
-        hp = 100;
+        hp = 5;
         activeEnemies = 0;
         bossCanDie = false;
         playerHealth.enabled = true;
@@ -527,5 +527,10 @@ public class GameManager : MonoBehaviour
             bossLevel = true;
             allowSpawn = true;
         }
+    }
+
+    public void Armor(int armor)
+    {
+        hp += armor;
     }
 }
