@@ -225,6 +225,7 @@ public class Enemy : MonoBehaviour
             GameManager.Instance.BossPhase();
             if (!canAttack)
             {
+                anime.SetBool("CatAttack", false);
                 if (counter > 0.1)
                 {
                     canAttack = true;
@@ -437,8 +438,6 @@ public class Enemy : MonoBehaviour
             kick = false;
             anime.SetBool("Shoot", false);
         }
-        
-        anime.SetBool("CatAttack", false);
         
     }
 }
