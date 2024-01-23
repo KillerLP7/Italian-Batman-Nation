@@ -69,11 +69,11 @@ public class Enemy : MonoBehaviour
         }
         if (catGunEnemy)
         {
-            health = 4;
+            health = 8;
         }
         if (fourthEnemy)
         {
-            health = 8;
+            health = 4;
         }
 
         if (catBombEnemy)

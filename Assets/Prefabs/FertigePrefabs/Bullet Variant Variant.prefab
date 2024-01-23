@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bullet Variant Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 8202309026263379248, guid: c1a221c292247484f91d611d3e84ebc9, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 8699339467157313415, guid: c1a221c292247484f91d611d3e84ebc9, type: 3}
       propertyPath: m_Controller
       value: 

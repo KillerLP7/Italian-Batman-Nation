@@ -11,22 +11,22 @@ public class Toxic : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anime = GetComponent<Animator>();
-        anime.SetBool("ToxicBallSpawn", true);
+        //anime.SetBool("ToxicBallSpawn", true);
     }
 
     // Update is called once per frame
     void Update()
     {
-        anime.SetBool("ToxicBallSpawn", false);
+        //anime.SetBool("ToxicBallSpawn", false);
         if (!dmg)
         {
-            anime.SetBool("ToxicDmg", false);
+            //anime.SetBool("ToxicDmg", false);
             dmg = true;
         }
         rb.velocity = new Vector2(-2, 0);
         if (counter > 0.5)
         {
-            anime.SetBool("ToxicDmg", true);
+            //anime.SetBool("ToxicDmg", true);
             dmg = false;
             Instantiate(attack, transform.position, Quaternion.identity);
             counter = 0;

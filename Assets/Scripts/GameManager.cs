@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] enemys;
     public GameObject toxicBall;
+    public GameObject gameOver;
+    public GameObject ui;
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI bossHealth;
@@ -20,8 +22,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownText;
     public TextMeshProUGUI cooldownNumber;
     private Vector3 playerPos;
-    private int waveNumber = 16;
+    private int waveNumber;
+    private int lastWaveNumber;
     public int hp;
+    public int lastHp;
     private int activeEnemies;
     private bool endOfWave;
     private bool[] binary = new bool[4];
@@ -77,7 +81,8 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
-        hp = 5;
+        lastHp = 5;
+        lastWaveNumber = 16;
         activeEnemies = 0;
         bossCanDie = false;
         playerHealth.enabled = true;
@@ -88,10 +93,11 @@ public class GameManager : MonoBehaviour
         bossMaxHealth = false;
         cooldownText.enabled = true;
         cooldownNumber.enabled = true;
-        if (waveNumber > 0)
-        {
-            waveNumber--;
-        }
+        gameOver.SetActive(false);
+        ui.SetActive(true);
+        waveNumber = lastWaveNumber;
+        hp = lastHp;
+        allowSpawn = true;
         inMenu = SceneManager.GetActiveScene().buildIndex != 1;
     }
 
@@ -109,6 +115,7 @@ public class GameManager : MonoBehaviour
             bossUI.enabled = false;
             cooldownText.enabled = false;
             cooldownNumber.enabled = false;
+            ui.SetActive(false);
             return;
         } 
         
@@ -120,6 +127,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            lastWaveNumber = waveNumber;
+            lastHp = hp;
             SceneManager.LoadScene(3);
         }
 
@@ -141,11 +150,29 @@ public class GameManager : MonoBehaviour
                 Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 if (currentDiff > 0)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
 
                 if (currentDiff == 2)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[0], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
             }
@@ -164,11 +191,29 @@ public class GameManager : MonoBehaviour
                 Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 if (currentDiff > 0)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
 
                 if (currentDiff == 2)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[1], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
             }
@@ -187,11 +232,29 @@ public class GameManager : MonoBehaviour
                 Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 if (currentDiff > 0)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
 
                 if (currentDiff == 2)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[2], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
             }
@@ -210,11 +273,29 @@ public class GameManager : MonoBehaviour
                 Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 if (currentDiff > 0)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
 
                 if (currentDiff == 2)
                 {
+                    rnd = Random.Range(0, 2);
+                    if (rnd == 0)
+                    {
+                        spawn = -15f;
+                    }
+                    if (rnd == 1)
+                    {
+                        spawn = 15f;
+                    }
                     Instantiate(enemys[3], new Vector3(spawn, Random.Range(-5f, 1f), 0), Quaternion.identity);
                 }
             }
@@ -242,7 +323,7 @@ public class GameManager : MonoBehaviour
             if (waveNumber < 16)
             {
                 spawnBoss = false;
-
+                lastWaveNumber = waveNumber;
                 waveNumber++;
                 
                 //print("Incerased Wave");
@@ -287,11 +368,15 @@ public class GameManager : MonoBehaviour
         if (hp <= 0)
         {
             print("GAME OVER");
-            SceneManager.LoadScene(0);
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
+            //SceneManager.LoadScene(0);
         }
 
         if (bossHP == 0 && bossCanDie)
         {
+            waveNumber = 0;
+            bossHP = 30;
             SceneManager.LoadScene(5);
             
         }
@@ -391,6 +476,7 @@ public class GameManager : MonoBehaviour
                 //Toxicball
                 if (BossAllowSpawn)
                 {
+                    print("???");
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                 }
@@ -528,6 +614,7 @@ public class GameManager : MonoBehaviour
             print("Lets switch to Level Boss!");
             bossLevel = true;
             allowSpawn = true;
+            bossHP = 30;
         }
     }
 

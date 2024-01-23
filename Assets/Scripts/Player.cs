@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,6 +12,10 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject attack;
     [SerializeField] private GameObject attackBR;
     [SerializeField] private bool player;
+    public TextMeshProUGUI pressP;
+    public TextMeshProUGUI pressK;
+    public TextMeshProUGUI pressWASD;
+    public TextMeshProUGUI pressSpacebar;
     private Vector3 playerPos;
     private Vector3 attackArea;
     private bool canAttack = true;
@@ -29,6 +34,13 @@ public class Player : MonoBehaviour
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     private bool unlocked;
+    //static public bool tutorial;
+    //static public bool tutorialWASD;
+    static public bool tutorialP;
+    static public bool tutorialK;
+    static public bool tutorialBoomer;
+    
+    //static public bool tutorialSpacebar;
 
     void Awake()
     {
@@ -41,7 +53,20 @@ public class Player : MonoBehaviour
         boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
         anime.SetBool("Batman2", false);
-        unlocked = false;
+        if (currentSceneIndex < 1)
+        {
+            tutorialP = true;
+            tutorialK = true;
+            pressP.enabled = true;
+            pressK.enabled = false;
+            pressWASD.enabled = false;
+        }
+        else
+        {
+            tutorialP = false;
+            tutorialK = false;
+            pressSpacebar.enabled = false;
+        }
     }
 
     // Update is called once per frame
@@ -59,8 +84,16 @@ public class Player : MonoBehaviour
                 }
                 hitCooldown += Time.deltaTime;
             }
-            inputH = Input.GetAxis("Horizontal");
-            inputV = Input.GetAxis("Vertical");
+
+            if (!tutorialK)
+            {
+                inputH = Input.GetAxis("Horizontal");
+                inputV = Input.GetAxis("Vertical");
+                if (inputH > 0 || inputV > 0)
+                {
+                    Destroy(pressWASD);
+                }
+            }
             rb.velocity = new Vector2(inputH * speed, inputV * speed);
             if (inputH < 0f)
             {
@@ -101,6 +134,12 @@ public class Player : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.P))
             {
+                if (tutorialP)
+                {
+                    tutorialP = false;
+                    pressK.enabled = true;
+                    Destroy(pressP);
+                }
                 anime.SetBool("Punch", true);
                 if (canAttack)
                 {
@@ -125,9 +164,14 @@ public class Player : MonoBehaviour
                 }
             }
             
-            if (Input.GetKeyDown(KeyCode.K))
+            if (Input.GetKeyDown(KeyCode.K) && !tutorialP)
             {
-                
+                if (tutorialK)
+                {
+                    tutorialK = false;
+                    pressWASD.enabled = true;
+                    Destroy(pressK);
+                }
                 anime.SetBool("Kick", true);
                 if (canAttack)
                 {
@@ -153,6 +197,8 @@ public class Player : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
+                Time.timeScale = 1;
+                Destroy(pressSpacebar);
                 if (boomerang)
                 {
                     boomerang = false;
@@ -187,7 +233,10 @@ public class Player : MonoBehaviour
             }
             if (!boomerang && startCooldown)
             {
-                GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
+                if (currentSceneIndex >= 1)
+                {
+                    GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
+                }
                 if (boomerangCooldown <= 0.1f)
                 {
                     boomerang = true;
@@ -228,7 +277,12 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Level 2"))
         {
             print("Lets switch to Level 2!");
-            unlocked = true;
+            if (!unlocked)
+            {
+                unlocked = true;
+                pressSpacebar.enabled = true;
+                Time.timeScale = 0;
+            }
         }
         if (collision.CompareTag("Level 3"))
         {

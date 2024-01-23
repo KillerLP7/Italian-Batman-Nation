@@ -112,6 +112,14 @@ public class Boomerang : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        if (collision.CompareTag("BOOMERang"))
+        {
+            if (gun)
+            {
+                Destroy(gameObject);
+            }
+        }
         
     }
 }

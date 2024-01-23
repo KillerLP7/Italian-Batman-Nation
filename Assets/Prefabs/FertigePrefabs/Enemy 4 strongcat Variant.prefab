@@ -17,13 +17,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4973330127636332717, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
+      propertyPath: catGunEnemy
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4973330127636332717, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
       propertyPath: fourthEnemy
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4973330127636332717, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
+      propertyPath: enemys.Array.data[2]
+      value: 
+      objectReference: {fileID: 1532997668064101811}
+    - target: {fileID: 4973330127636332717, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
       propertyPath: enemys.Array.data[3]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 2255355292753587946, guid: 0e27da18902f9834c87c78b437a7b494, type: 3}
     - target: {fileID: 8732570181361082416, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
       propertyPath: m_LocalPosition.x
       value: -5.227168
@@ -69,3 +77,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
+--- !u!1 &1532997668064101811 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2098197441006252734, guid: fdebb3876addf784fbe600d7c466fced, type: 3}
+  m_PrefabInstance: {fileID: 601237376932067085}
+  m_PrefabAsset: {fileID: 0}

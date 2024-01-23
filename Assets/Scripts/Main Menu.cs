@@ -10,23 +10,40 @@ public class MainMenu : MonoBehaviour
    [SerializeField] private bool endless;
    [SerializeField] private bool options;
    [SerializeField] private bool quit;
-   static public bool skip;
+   static public bool skipIntro;
+   static public bool skipOutro;
+   [SerializeField] private bool intro;
+   [SerializeField] private bool outro;
 
    private void Update()
    {
 
       if (SceneManager.GetActiveScene().buildIndex > 3)
       {
-         if (skip)
+         if (skipIntro && intro)
          {
             SceneManager.LoadScene(1);
+         }
+
+         if (skipOutro && outro)
+         {
+            SceneManager.LoadScene(0);
          }
       }
       
      if (Input.GetKeyDown(KeyCode.Return))
      {
-        SceneManager.LoadScene(1);
-        skip = true;
+        if (intro)
+        {
+           SceneManager.LoadScene(1);
+           skipIntro = true;
+        }
+
+        if (outro)
+        {
+           SceneManager.LoadScene(0);
+           skipOutro = true;
+        }
      }
       
    }

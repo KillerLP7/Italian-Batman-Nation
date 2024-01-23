@@ -404,6 +404,8 @@ MonoBehaviour:
   endless: 0
   options: 0
   quit: 0
+  intro: 1
+  outro: 0
 --- !u!1 &197528783
 GameObject:
   m_ObjectHideFlags: 0
