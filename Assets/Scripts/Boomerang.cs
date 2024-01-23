@@ -35,7 +35,7 @@ public class Boomerang : MonoBehaviour
 
         if (!gun)
         {
-            if (transform.position.x is > 8 or < -8) getBack = true;
+            if (transform.position.x is > 10 or < -10) getBack = true;
 
             if (getBack)
             {

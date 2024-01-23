@@ -292,7 +292,8 @@ public class GameManager : MonoBehaviour
 
         if (bossHP == 0 && bossCanDie)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(5);
+            
         }
 
         if (!bossCanDie)

@@ -13,6 +13,13 @@ public class MainMenu : MonoBehaviour
 
    private void Update()
    {
+
+      
+      
+     if (Input.GetKeyDown(KeyCode.Return))
+     {
+        SceneManager.LoadScene(1);
+     }
       
    }
 
@@ -20,7 +27,7 @@ public class MainMenu : MonoBehaviour
    {
       if (start && collision.CompareTag("Player"))
       {
-         SceneManager.LoadScene(1);
+         SceneManager.LoadScene(4);
       }
       if (endless && collision.CompareTag("Player"))
       {
