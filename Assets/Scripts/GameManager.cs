@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI cooldownText;
     public TextMeshProUGUI cooldownNumber;
     private Vector3 playerPos;
-    private int waveNumber = 15;
+    private int waveNumber = 16;
     public int hp;
     private int activeEnemies;
     private bool endOfWave;
@@ -303,8 +303,10 @@ public class GameManager : MonoBehaviour
                 bossMaxHealth = true;
                 if (bossHPCooldown > bossHPCounter)
                 {
-                    if (bossHP % 100 == 99) bossHP += 2;
-                    else bossHP++;
+                    // if (bossHP % 100 == 99) bossHP += 2;
+                    // else bossHP++;
+                    
+                    bossHP++;
                     
                     bossHPCooldown = 0;
                     bossHPCounter -= 0.5f;

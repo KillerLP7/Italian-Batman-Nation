@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Unity.Mathematics;
 using Random = UnityEngine.Random;
@@ -20,11 +21,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool catBombEnemy;
     [SerializeField] private bool boss;
     [SerializeField] private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
+    [SerializeField] private float bossCooldown;
     
     [SerializeField] private float enemySpeed;
     private Vector3 targetPos;
     private float counter;
-    private float bossCooldown;
     private int health;
     private bool canAttack;
     private bool enemyLooksRight;
@@ -37,11 +38,11 @@ public class Enemy : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private bool allowWalking;
-    
-    private bool firstTimeTwoHundred;
-    private bool firstTimeHundred;
-    private bool firstTimeZero;
 
+    private int currentPhase;
+    private bool ZeroOnlyOnce;
+
+    
     private bool kick;
     //public static int activeEnemies;
     
@@ -49,6 +50,7 @@ public class Enemy : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        ZeroOnlyOnce = true;
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anime = GetComponent<Animator>();
@@ -84,7 +86,7 @@ public class Enemy : MonoBehaviour
             health = 30;
             bossEnter = true;
             bossCanDie = false;
-            firstTimeHundred = firstTimeZero = firstTimeTwoHundred = true;
+            currentPhase = 1;
         }
 
         canAttack = true;
@@ -235,45 +237,7 @@ public class Enemy : MonoBehaviour
                 counter += Time.deltaTime;
             }
             ExecuteAttack();
-            switch (health)
-            {
-                case 110:
-                    anime.SetBool("NextBossPhase", true);
-                    break;
-                case 200 when firstTimeTwoHundred:
-                case 100 when firstTimeHundred:
-                case 0 when firstTimeZero:
-                {
-                    anime.SetBool("NextBossPhase", false);
-                    //TODO: Execute only once
-                    if (bossEnter && transform.position.x < 9f)
-                    {
-                        bossEnter = false;
-                    }
-                    
-                    if (firstTimeZero)
-                    {
-                        firstTimeZero = false;
-                    }
-                    else if (firstTimeTwoHundred)
-                    {
-                        firstTimeTwoHundred = false;
-                    }
-                    else if (firstTimeHundred)
-                    {
-                        firstTimeHundred = false;
-                    }
-
-                    break;
-                }
-            }
-
-            if (!bossEnter && bossCooldown > 30)
-            {
-                bossEnter = true;
-                bossCooldown = 0;
-            }
-            bossCooldown += Time.deltaTime;
+            
             if (bossEnter && transform.position.x > 8.7f)
             {
                 rb.velocity = new Vector2(-1, 0);
@@ -348,6 +312,26 @@ public class Enemy : MonoBehaviour
             {
                 print("Did I got him?");
                 health--;
+                
+                switch (health)
+                {
+                    case 110:
+                        anime.SetBool("NextBossPhase", true);
+                        break;
+                    case 200:
+                    case 100:
+                    case 0 when ZeroOnlyOnce:
+                    {
+                        anime.SetBool("NextBossPhase", false);
+                        bossEnter = false;
+                        StartCoroutine(BossEnterAfterTime());
+                        
+                        ZeroOnlyOnce = false;
+                        currentPhase++;
+                        break;
+                    }
+                }
+                
                 sr.color = hitColor;
                 hit = true;
                 GameManager.Instance.BossGotHit();
@@ -438,5 +422,11 @@ public class Enemy : MonoBehaviour
             anime.SetBool("Shoot", false);
         }
         
+    }
+
+    private IEnumerator BossEnterAfterTime()
+    {
+        yield return new WaitForSeconds(bossCooldown);
+        bossEnter = true;
     }
 }
