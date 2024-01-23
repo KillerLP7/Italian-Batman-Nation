@@ -211,6 +211,7 @@ public class Enemy : MonoBehaviour
                     anime.SetBool("CatAttack", false);
                     if (counter > 1.5f)
                     {
+                        anime.SetBool("CatAttack", true);
                         canAttack = true;
                         counter = 0;
                     }
@@ -361,8 +362,6 @@ public class Enemy : MonoBehaviour
     private void ExecuteAttack()
     {
         //print("Tried to Attack!" + kick);
-        
-        anime.SetBool("CatAttack", true);
         
         if (canAttack && kick && !catGunEnemy)
         {
