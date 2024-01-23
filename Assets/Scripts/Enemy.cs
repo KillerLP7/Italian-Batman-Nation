@@ -208,10 +208,10 @@ public class Enemy : MonoBehaviour
                 
                 if (!canAttack)
                 {
-                    anime.SetBool("CatAttack", false);
+                    anime.SetBool("CatAttack", true);
                     if (counter > 1.5f)
                     {
-                        anime.SetBool("CatAttack", true);
+                        anime.SetBool("CatAttack", false);
                         canAttack = true;
                         counter = 0;
                     }
