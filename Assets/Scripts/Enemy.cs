@@ -120,7 +120,6 @@ public class Enemy : MonoBehaviour
             {
                 anime.SetBool("CatAttack", true);
                 ExecuteAttack();
-                anime.SetBool("CatAttack", false);
             }
             Vector2 nv = new Vector2();
             if (askForHelp)
@@ -212,6 +211,7 @@ public class Enemy : MonoBehaviour
                 {
                     if (counter > 1.5f)
                     {
+                        anime.SetBool("CatAttack", false);
                         canAttack = true;
                         counter = 0;
                     }
