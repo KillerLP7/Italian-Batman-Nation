@@ -151,10 +151,11 @@ public class Player : MonoBehaviour
             }
            
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
-                if (boomerang && unlocked)
+                if (boomerang)
                 {
+                    boomerang = false;
                     //boomerang = false;
                     attackArea = playerPos;
                     
@@ -169,8 +170,6 @@ public class Player : MonoBehaviour
                     
                     Instantiate(attackBR, attackArea, Quaternion.identity);
                 }
-
-                boomerang = false;
             }
             
             playerPos = transform.position;
@@ -189,7 +188,7 @@ public class Player : MonoBehaviour
             if (!boomerang && startCooldown)
             {
                 GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
-                if (boomerangCooldown <= 0)
+                if (boomerangCooldown <= 0.1f)
                 {
                     boomerang = true;
                     startCooldown = false;

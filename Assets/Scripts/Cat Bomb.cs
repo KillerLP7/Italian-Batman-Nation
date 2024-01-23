@@ -13,7 +13,7 @@ public class CatBomb : MonoBehaviour
     {
         
         
-        if (counter > 15)
+        if (counter > 1)
         {
             Destroy(gameObject);
             counter = 0;
