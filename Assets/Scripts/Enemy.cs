@@ -361,6 +361,7 @@ public class Enemy : MonoBehaviour
     {
         //print("Tried to Attack!" + kick);
         
+        anime.SetBool("CatAttack", true);
         
         if (canAttack && kick && !catGunEnemy)
         {
@@ -436,6 +437,8 @@ public class Enemy : MonoBehaviour
             kick = false;
             anime.SetBool("Shoot", false);
         }
+        
+        anime.SetBool("CatAttack", false);
         
     }
 }
