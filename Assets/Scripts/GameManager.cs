@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
-        hp = 100;
+        hp = 5;
         activeEnemies = 0;
         bossCanDie = false;
         playerHealth.enabled = true;
@@ -527,5 +527,10 @@ public class GameManager : MonoBehaviour
             bossLevel = true;
             allowSpawn = true;
         }
+    }
+
+    public void Armor(int armor)
+    {
+        hp += armor;
     }
 }

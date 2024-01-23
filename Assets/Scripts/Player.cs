@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
+    private bool unlocked;
 
     void Awake()
     {
@@ -37,9 +38,10 @@ public class Player : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         boomerang = false;
         startCooldown = true;
-        boomerangCooldown = 30;
+        boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
-        anime.SetBool("Batman1", false);
+        anime.SetBool("Batman2", false);
+        unlocked = false;
     }
 
     // Update is called once per frame
@@ -149,10 +151,11 @@ public class Player : MonoBehaviour
             }
            
             
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
                 if (boomerang)
                 {
+                    boomerang = false;
                     //boomerang = false;
                     attackArea = playerPos;
                     
@@ -167,8 +170,6 @@ public class Player : MonoBehaviour
                     
                     Instantiate(attackBR, attackArea, Quaternion.identity);
                 }
-
-                boomerang = false;
             }
             
             playerPos = transform.position;
@@ -187,11 +188,11 @@ public class Player : MonoBehaviour
             if (!boomerang && startCooldown)
             {
                 GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
-                if (boomerangCooldown <= 0)
+                if (boomerangCooldown <= 0.1f)
                 {
                     boomerang = true;
                     startCooldown = false;
-                    boomerangCooldown = 1;
+                    boomerangCooldown = 0;
                 }
                 boomerangCooldown -= Time.deltaTime;
             }
@@ -227,16 +228,19 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Level 2"))
         {
             print("Lets switch to Level 2!");
-            anime.SetBool("Batman1", true);
+            unlocked = true;
         }
         if (collision.CompareTag("Level 3"))
         {
             print("Lets switch to Level 3!");
-            anime.SetBool("Batman2", true);
+            anime.SetBool("Batman1", true);
+            GameManager.Instance.Armor(5);
         }
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
+            anime.SetBool("Batman2", true);
+            GameManager.Instance.Armor(15);
         }
     }
 }
