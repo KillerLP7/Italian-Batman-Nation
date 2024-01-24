@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
                         Time.timeScale = 2;
                         break;
                 }
-                Destroy(pressSpacebar);
+                pressSpacebar.enabled = false;
                 if (boomerang)
                 {
                     boomerang = false;

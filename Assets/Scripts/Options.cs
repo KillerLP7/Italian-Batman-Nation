@@ -83,6 +83,6 @@ public class Options : MonoBehaviour
     {
         PlayerPrefs.SetFloat(audioKey, audioValue);
         PlayerPrefs.SetInt(diffKey, difficulty);
-        PlayerPrefs.SetFloat(speedKey, timeScale);
+        PlayerPrefs.SetInt(speedKey, timeScale);
     }
 }
