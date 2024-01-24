@@ -98,6 +98,7 @@ public class GameManager : MonoBehaviour
         cooldownNumber.enabled = true;
         gameOver.SetActive(false);
         ui.SetActive(true);
+        lastWaveNumber = 1;
         waveNumber = lastWaveNumber;
         hp = lastHp;
         allowSpawn = true;
