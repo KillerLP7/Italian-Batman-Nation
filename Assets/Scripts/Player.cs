@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
-    static public bool unlocked;
-    static public bool lvl3;
-    static public bool lvlBoss;
+    private bool unlocked;
+    private bool lvl3;
+    private bool lvlBoss;
     //static public bool tutorial;
     //static public bool tutorialWASD;
     static public bool tutorialP;
@@ -57,9 +57,6 @@ public class Player : MonoBehaviour
         boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
         anime.SetBool("Batman2", false);
-        unlocked = false;
-        lvl3 = true;
-        lvlBoss = true;
         if (currentSceneIndex < 1)
         {
             tutorialP = true;
@@ -86,6 +83,9 @@ public class Player : MonoBehaviour
         if (currentSceneIndex > 1)
         {
             pressSpacebar = GameObject.FindGameObjectWithTag("SpaceTutorial").GetComponent<TextMeshProUGUI>();
+            unlocked = false;
+            lvl3 = true;
+            lvlBoss = true;
         }
     }
 
