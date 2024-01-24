@@ -82,6 +82,7 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
+        lastHp = 5;
         if (lastHp <= 0)
         {
             lastHp = 5;
