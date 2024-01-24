@@ -34,9 +34,9 @@ public class Player : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
-    private bool unlocked;
-    private bool lvl3;
-    private bool lvlBoss;
+    static public bool unlocked;
+    static public bool lvl3;
+    static public bool lvlBoss;
     //static public bool tutorial;
     //static public bool tutorialWASD;
     static public bool tutorialP;
