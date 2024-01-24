@@ -19,7 +19,7 @@ public class Button : MonoBehaviour
         {
             Options.OnExit();
         }
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
     public void MainMenu()

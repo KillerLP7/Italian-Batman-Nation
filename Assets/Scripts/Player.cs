@@ -57,9 +57,6 @@ public class Player : MonoBehaviour
         boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
         anime.SetBool("Batman2", false);
-        unlocked = false;
-        lvl3 = true;
-        lvlBoss = true;
         if (currentSceneIndex < 1)
         {
             tutorialP = true;
@@ -70,6 +67,9 @@ public class Player : MonoBehaviour
         }
         else
         {
+            unlocked = false;
+            lvl3 = true;
+            lvlBoss = true;
             tutorialP = false;
             tutorialK = false;
             pressSpacebar.enabled = false;
