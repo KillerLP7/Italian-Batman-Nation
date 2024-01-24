@@ -7,13 +7,13 @@ public class Button : MonoBehaviour
 {
     public void Back()
     {
-        Time.timeScale = 1;
+        Options.OnExit();
         SceneManager.LoadScene(1);
     }
 
     public void MainMenu()
     {
-        Time.timeScale = 1;
+        Options.OnExit();
         SceneManager.LoadScene(0);
     }
 }

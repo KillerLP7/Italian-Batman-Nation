@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
     private bool bossMaxHealth;
     private bool bossLevel;
     private int currentDiff;
+    private int time;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -82,7 +83,7 @@ public class GameManager : MonoBehaviour
     private void Refresh(Scene s, LoadSceneMode m)
     {
         lastHp = 5;
-        lastWaveNumber = 16;
+        lastWaveNumber = 1;
         activeEnemies = 0;
         bossCanDie = false;
         playerHealth.enabled = true;
@@ -98,13 +99,32 @@ public class GameManager : MonoBehaviour
         waveNumber = lastWaveNumber;
         hp = lastHp;
         allowSpawn = true;
+        time = PlayerPrefs.GetInt(Options.speedKey, 2);
+        switch (time)
+        {
+            case 0:
+                Time.timeScale = 0.5f;
+                break;
+            case 1:
+                Time.timeScale = 0.75f;
+                break;
+            case 2:
+                Time.timeScale = 1;
+                break;
+            case 3:
+                Time.timeScale = 1.5f;
+                break;
+            case 4:
+                Time.timeScale = 2;
+                break;
+        }
         inMenu = SceneManager.GetActiveScene().buildIndex != 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        print("Whats the time?" + Time.timeScale);
         if (inMenu)
         {
             playerHealth.enabled = false;
@@ -134,6 +154,7 @@ public class GameManager : MonoBehaviour
 
         if (allowSpawn)
         {
+            currentDiff = PlayerPrefs.GetInt(Options.diffKey, 0);
             GetBinary();
             //print($"try to spawn with {string.Join(", ", binary)}");
             if (binary[0])
@@ -421,16 +442,6 @@ public class GameManager : MonoBehaviour
     {
         //print($"Player got hit!");
         hp--;
-    }
-
-    public void SFX()
-    {
-        
-    }
-    
-    public void Difficulty(int diff)
-    {
-        currentDiff = diff;
     }
 
     public void ActiveEnemiesAdd()

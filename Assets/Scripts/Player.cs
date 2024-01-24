@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     static public bool tutorialP;
     static public bool tutorialK;
     static public bool tutorialBoomer;
+    private int time;
     
     //static public bool tutorialSpacebar;
 
@@ -72,6 +73,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time = PlayerPrefs.GetInt(Options.speedKey, 2);
         if (player)
         {
             if (hit)
@@ -197,7 +199,24 @@ public class Player : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
-                Time.timeScale = 1;
+                switch (time)
+                {
+                    case 0:
+                        Time.timeScale = 0.5f;
+                        break;
+                    case 1:
+                        Time.timeScale = 0.75f;
+                        break;
+                    case 2:
+                        Time.timeScale = 1;
+                        break;
+                    case 3:
+                        Time.timeScale = 1.5f;
+                        break;
+                    case 4:
+                        Time.timeScale = 2;
+                        break;
+                }
                 Destroy(pressSpacebar);
                 if (boomerang)
                 {

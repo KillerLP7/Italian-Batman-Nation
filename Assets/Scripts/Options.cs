@@ -1,27 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class Options : MonoBehaviour
 {
-    [SerializeField] private Slider ASlider = null;
-    [SerializeField] private Slider DSlider = null;
-    [SerializeField] private Slider SSlider = null;
+    public const string diffKey = "Difficulty";
+    public const string audioKey = "Audio";
+    public const string speedKey = "Speed";
+    
+    [SerializeField] private Slider ASlider;
+    [SerializeField] private Slider DSlider;
+    [SerializeField] private Slider SSlider;
     [SerializeField] private TextMeshProUGUI percent;
     [SerializeField] private TextMeshProUGUI diff;
     [SerializeField] private TextMeshProUGUI speed;
+    private static int difficulty;
+    private static int timeScale;
+    private static float audioValue;
+
+    private void Awake()
+    {
+        audioValue =  PlayerPrefs.GetFloat(audioKey, 1);
+        difficulty =  PlayerPrefs.GetInt(diffKey, 0);
+        timeScale =  PlayerPrefs.GetInt(speedKey, 2);
+        ASlider.value = audioValue;
+        DSlider.value = difficulty;
+        SSlider.value = timeScale;
+    }   
+
     public void Audio()
     {
         percent.text = ASlider.value.ToString("0%");
         //GameManager.Instance.SFX(3, slider.value);
     }
-
+    
     public void Difficulty()
     {
-        switch (DSlider.value)
+        difficulty = (int) DSlider.value;
+        switch (difficulty)
         {
             case 0:
                 diff.text = "Easy";
@@ -34,9 +50,10 @@ public class Options : MonoBehaviour
                 break;
         }
     }
-
+    
     public void GameSpeed()
     {
+        timeScale = (int) SSlider.value;
         switch (SSlider.value)
         {
             case 0:
@@ -60,5 +77,12 @@ public class Options : MonoBehaviour
                 Time.timeScale = 2;
                 break;
         }
+    }
+    
+    public static void OnExit()
+    {
+        PlayerPrefs.SetFloat(audioKey, audioValue);
+        PlayerPrefs.SetInt(diffKey, difficulty);
+        PlayerPrefs.SetFloat(speedKey, timeScale);
     }
 }
