@@ -34,6 +34,9 @@ public class Player : MonoBehaviour
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     private bool unlocked;
+
+    private bool lvl3;
+    private bool lvlBoss;
     //static public bool tutorial;
     //static public bool tutorialWASD;
     static public bool tutorialP;
@@ -54,6 +57,8 @@ public class Player : MonoBehaviour
         boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
         anime.SetBool("Batman2", false);
+        lvl3 = true;
+        lvlBoss = true;
         if (currentSceneIndex < 1)
         {
             tutorialP = true;
@@ -306,14 +311,22 @@ public class Player : MonoBehaviour
         if (collision.CompareTag("Level 3"))
         {
             print("Lets switch to Level 3!");
-            anime.SetBool("Batman1", true);
-            GameManager.Instance.Armor(5);
+            if (lvl3)
+            {
+                anime.SetBool("Batman1", true);
+                GameManager.Instance.Armor(5);
+                lvl3 = false;
+            }
         }
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
-            anime.SetBool("Batman2", true);
-            GameManager.Instance.Armor(15);
+            if (lvlBoss)
+            {
+                anime.SetBool("Batman2", true);
+                GameManager.Instance.Armor(15);
+                lvlBoss = false;
+            }
         }
     }
 }

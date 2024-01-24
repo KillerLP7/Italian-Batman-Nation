@@ -82,8 +82,10 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
-        lastHp = 5;
-        lastWaveNumber = 1;
+        if (lastHp <= 0)
+        {
+            lastHp = 5;
+        }
         activeEnemies = 0;
         bossCanDie = false;
         playerHealth.enabled = true;
