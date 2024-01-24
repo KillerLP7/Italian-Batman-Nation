@@ -35,7 +35,6 @@ public class Player : MonoBehaviour
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     private bool unlocked;
-
     private bool lvl3;
     private bool lvlBoss;
     //static public bool tutorial;
@@ -58,6 +57,7 @@ public class Player : MonoBehaviour
         boomerangCooldown = 0;
         anime.SetBool("Batman1", false);
         anime.SetBool("Batman2", false);
+        unlocked = false;
         lvl3 = true;
         lvlBoss = true;
         if (currentSceneIndex < 1)
