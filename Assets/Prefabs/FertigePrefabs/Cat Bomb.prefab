@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.7871655, y: -0.44, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalScale: {x: 0.42548, y: 0.42548, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.310503, g: 0, b: 1, a: 1}
+  m_Sprite: {fileID: 878877202, guid: d3b998d940c9347429492aa0f4f3d5fe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,8 +123,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0}
+    oldSize: {x: 7.131296, y: 4.18}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -189,7 +189,8 @@ MonoBehaviour:
   fourthEnemy: 0
   catBombEnemy: 1
   boss: 0
-  hitColor: {r: 1, g: 0.39215687, b: 0.39215687, a: 1}
+  hitColor: {r: 0.39215684, g: 0.5115855, b: 1, a: 1}
+  bossCooldown: 0
   enemySpeed: 2
 --- !u!95 &1407795863481119772
 Animator:
@@ -201,7 +202,7 @@ Animator:
   m_GameObject: {fileID: 7644948661372649444}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f63da6408e52add40a8c1a0ff852df67, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
