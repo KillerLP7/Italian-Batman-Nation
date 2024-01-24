@@ -31,6 +31,7 @@ public class Options : MonoBehaviour
     public void Audio()
     {
         percent.text = ASlider.value.ToString("0%");
+        audioValue = ASlider.value;
         //GameManager.Instance.SFX(3, slider.value);
     }
     
