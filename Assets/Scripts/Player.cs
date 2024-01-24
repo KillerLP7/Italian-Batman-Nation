@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -73,6 +74,21 @@ public class Player : MonoBehaviour
             tutorialK = false;
             pressSpacebar.enabled = false;
         }
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += FindText;
+    }
+
+    private void FindText(Scene arg0, LoadSceneMode arg1)
+    {
+        pressSpacebar = GameObject.FindGameObjectWithTag("SpaceTutorial").GetComponent<TextMeshProUGUI>();
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= FindText;
     }
 
     // Update is called once per frame

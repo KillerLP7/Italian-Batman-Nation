@@ -15,6 +15,7 @@ TagManager:
   - Level Boss
   - GameManager
   - Bullet
+  - SpaceTutorial
   layers:
   - Default
   - TransparentFX
