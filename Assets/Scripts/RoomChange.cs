@@ -4,6 +4,7 @@ public class RoomChange : MonoBehaviour
 {
     private Rigidbody2D rb;
     [SerializeField]private bool block;
+    public AudioSource src;
     private int currentWave;
 
     private void Awake()
@@ -16,6 +17,7 @@ public class RoomChange : MonoBehaviour
 
     private void Update()
     {
+        src.volume = PlayerPrefs.GetFloat(Options.audioKey, 1) / 2;
         if (!block)
         {
             rb.velocity = new Vector2(-1, 0);

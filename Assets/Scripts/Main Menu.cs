@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
    [SerializeField] private bool endless;
    [SerializeField] private bool options;
    [SerializeField] private bool quit;
+   public AudioSource src;
    static public bool skipIntro;
    static public bool skipOutro;
    [SerializeField] private bool intro;
@@ -17,7 +18,16 @@ public class MainMenu : MonoBehaviour
 
    private void Update()
    {
-
+      if (intro || outro)
+      {
+         src.volume = PlayerPrefs.GetFloat(Options.audioKey, 1) * 2;
+      }
+      
+      if (start)
+      {
+         src.volume = PlayerPrefs.GetFloat(Options.audioKey, 1) / 2;
+      }
+      
       if (SceneManager.GetActiveScene().buildIndex > 3)
       {
          if (skipIntro && intro)

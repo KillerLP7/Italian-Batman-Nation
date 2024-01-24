@@ -1407,6 +1407,7 @@ MonoBehaviour:
   endless: 1
   options: 0
   quit: 0
+  src: {fileID: 0}
   intro: 0
   outro: 0
 --- !u!61 &885220716
@@ -2307,6 +2308,7 @@ MonoBehaviour:
   endless: 0
   options: 0
   quit: 1
+  src: {fileID: 0}
   intro: 0
   outro: 0
 --- !u!61 &1464100679
@@ -2480,6 +2482,7 @@ MonoBehaviour:
   endless: 0
   options: 1
   quit: 0
+  src: {fileID: 0}
   intro: 0
   outro: 0
 --- !u!61 &1550591118
@@ -2576,6 +2579,7 @@ MonoBehaviour:
   endless: 0
   options: 0
   quit: 0
+  src: {fileID: 788911762}
   intro: 0
   outro: 0
 --- !u!61 &1637097486
