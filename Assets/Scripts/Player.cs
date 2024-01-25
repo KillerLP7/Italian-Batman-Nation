@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
 
     private void FindText(Scene arg0, LoadSceneMode arg1)
     {
-        if (currentSceneIndex > 1)
+        if (currentSceneIndex == 1)
         {
             pressSpacebar = GameObject.FindGameObjectWithTag("SpaceTutorial").GetComponent<TextMeshProUGUI>();
         }
@@ -223,6 +223,7 @@ public class Player : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
+                pressSpacebar.enabled = false;
                 switch (time)
                 {
                     case 0:
@@ -241,7 +242,6 @@ public class Player : MonoBehaviour
                         Time.timeScale = 2;
                         break;
                 }
-                //pressSpacebar.enabled = false;
                 if (boomerang)
                 {
                     boomerang = false;
@@ -319,11 +319,11 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Level 2"))
         {
+            pressSpacebar.enabled = true;
             print("Lets switch to Level 2!");
             if (!unlocked)
             {
                 unlocked = true;
-                //pressSpacebar.enabled = true;
                 Time.timeScale = 0;
             }
         }
