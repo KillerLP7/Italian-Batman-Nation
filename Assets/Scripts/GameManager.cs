@@ -426,7 +426,7 @@ public class GameManager : MonoBehaviour
                     bossHP++;
                     
                     bossHPCooldown = 0;
-                    bossHPCounter -= 0.5f;
+                    bossHPCounter -= 1f;
                 }
                 bossHPCooldown += Time.deltaTime;
             }

@@ -333,7 +333,7 @@ public class Player : MonoBehaviour
             if (lvl3)
             {
                 anime.SetBool("Batman1", true);
-                GameManager.Instance.Armor(5);
+                GameManager.Instance.Armor(10);
                 lvl3 = false;
             }
         }
@@ -343,7 +343,7 @@ public class Player : MonoBehaviour
             if (lvlBoss)
             {
                 anime.SetBool("Batman2", true);
-                GameManager.Instance.Armor(15);
+                GameManager.Instance.Armor(20);
                 lvlBoss = false;
             }
         }
