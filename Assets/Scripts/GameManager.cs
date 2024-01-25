@@ -339,7 +339,7 @@ public class GameManager : MonoBehaviour
         allowSpawn = false;
         
         print(activeEnemies);
-        if (hp >= 0)
+        if (hp > -1)
         {
             playerHealth.text = hp.ToString();
         }
@@ -378,7 +378,7 @@ public class GameManager : MonoBehaviour
             wave.text = "BOSS";
             bossUI.enabled = true;
             bossHealth.enabled = true;
-            if (bossHP >= 0)
+            if (bossHP > -1)
             {
                 bossHealth.text = bossHP.ToString();
             }
@@ -399,14 +399,16 @@ public class GameManager : MonoBehaviour
         }
         if (hp <= 0)
         {
+            hp = 0;
             print("GAME OVER");
             gameOver.SetActive(true);
             Time.timeScale = 0;
             //SceneManager.LoadScene(0);
         }
 
-        if (bossHP == 0 && bossCanDie)
+        if (bossHP <= 0 && bossCanDie)
         {
+            bossHP = 0;
             waveNumber = 0;
             bossHP = 30;
             SceneManager.LoadScene(5);
