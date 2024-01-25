@@ -1023,16 +1023,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 275588575}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 603.8871}
+  m_LocalScale: {x: 0.06212831, y: 0.06212831, z: 0.06212831}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 80146154}
+  m_Father: {fileID: 782877344}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -772, y: -412}
+  m_AnchoredPosition: {x: 1.3572998, y: 0.93341064}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &282506688
@@ -2465,7 +2465,8 @@ Transform:
   m_LocalPosition: {x: -1.16, y: -15.56, z: 0.000030451047}
   m_LocalScale: {x: 0.2970846, y: 0.2970846, z: 0.2970846}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 275588578}
   m_Father: {fileID: 1669233630}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810847149
@@ -5801,9 +5802,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 970909987}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: uiBoss
+      value: 
+      objectReference: {fileID: 488385024}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: gameOver
       value: 
       objectReference: {fileID: 1251376461}
+    - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
+      propertyPath: uiBoomer
+      value: 
+      objectReference: {fileID: 782877342}
     - target: {fileID: 883499839261203579, guid: 55f3c61cd050b3943b35623d14ee2a12, type: 3}
       propertyPath: waveText
       value: 
@@ -6353,9 +6362,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6378004206314469624, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       insertIndex: 3
       addedObject: {fileID: 1956085758}
-    - targetCorrespondingSourceObject: {fileID: 6378004206314469624, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 275588578}
     - targetCorrespondingSourceObject: {fileID: 6378004206314469624, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1669233630}

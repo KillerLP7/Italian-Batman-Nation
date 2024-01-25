@@ -319,10 +319,10 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Level 2"))
         {
-            pressSpacebar.enabled = true;
             print("Lets switch to Level 2!");
             if (!unlocked)
             {
+                pressSpacebar.enabled = true;
                 unlocked = true;
                 Time.timeScale = 0;
             }

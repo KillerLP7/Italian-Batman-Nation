@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public GameObject toxicBall;
     public GameObject gameOver;
     public GameObject ui;
+    public GameObject uiBoss;
+    public GameObject uiBoomer;
     public TextMeshProUGUI playerHealth;
     public TextMeshProUGUI wave;
     public TextMeshProUGUI bossHealth;
@@ -89,6 +91,8 @@ public class GameManager : MonoBehaviour
         }
         activeEnemies = 0;
         bossCanDie = false;
+        uiBoss.SetActive(false);
+        uiBoomer.SetActive(false);
         playerHealth.enabled = true;
         wave.enabled = true;
         playerHealthText.enabled = true;
@@ -335,7 +339,10 @@ public class GameManager : MonoBehaviour
         allowSpawn = false;
         
         print(activeEnemies);
-        playerHealth.text = hp.ToString();
+        if (hp >= 0)
+        {
+            playerHealth.text = hp.ToString();
+        }
         wave.text = waveNumber.ToString();
         print($"Die Werte: Allow Spawn?: {allowSpawn} Boss spawn? {spawnBoss}");
 
@@ -617,6 +624,7 @@ public class GameManager : MonoBehaviour
         if (collision.CompareTag("Level 2"))
         {
             print("Lets switch to Level 2!");
+            uiBoomer.SetActive(true);
             allowSpawn = true;
         }
         if (collision.CompareTag("Level 3"))
@@ -627,6 +635,7 @@ public class GameManager : MonoBehaviour
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
+            uiBoss.SetActive(true);
             bossLevel = true;
             allowSpawn = true;
             bossHP = 30;
