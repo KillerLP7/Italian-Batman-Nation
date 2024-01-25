@@ -241,7 +241,7 @@ public class Player : MonoBehaviour
                         Time.timeScale = 2;
                         break;
                 }
-                pressSpacebar.enabled = false;
+                //pressSpacebar.enabled = false;
                 if (boomerang)
                 {
                     boomerang = false;
@@ -323,7 +323,7 @@ public class Player : MonoBehaviour
             if (!unlocked)
             {
                 unlocked = true;
-                pressSpacebar.enabled = true;
+                //pressSpacebar.enabled = true;
                 Time.timeScale = 0;
             }
         }
