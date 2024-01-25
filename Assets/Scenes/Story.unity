@@ -1456,7 +1456,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 110
+  m_SortingOrder: 99
   m_Sprite: {fileID: 21300000, guid: 69ccfbe6e58a2ae41a840ffec760c97b, type: 3}
   m_Color: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 1}
   m_FlipX: 0
@@ -1477,7 +1477,7 @@ Transform:
   m_GameObject: {fileID: 488385024}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.05, y: -0.41, z: 0.000030451047}
+  m_LocalPosition: {x: 29.73, y: -0.41, z: 0.000030451047}
   m_LocalScale: {x: 1.3394232, y: 1.0146815, z: 3.6381555}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6106,7 +6106,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115796108141797718, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_text
-      value: 'Boss          HP:'
+      value: 'Boss   HP:'
       objectReference: {fileID: 0}
     - target: {fileID: 4115796108141797718, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontSize
@@ -6154,7 +6154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4629843720938761114, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 832.4
+      value: 816
       objectReference: {fileID: 0}
     - target: {fileID: 4629843720938761114, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6302,7 +6302,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6680434780430730288, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 822.2
+      value: 810
       objectReference: {fileID: 0}
     - target: {fileID: 6680434780430730288, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
