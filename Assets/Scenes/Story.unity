@@ -444,7 +444,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: c23de5cc73a2fc54aa3ccf509ad58df1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -2675,7 +2675,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 53b2c0d21a7844941928efef8f5d590f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -5582,7 +5582,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cb773bf47fdee2b49afbd90088b2f3d2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5603,8 +5603,8 @@ Transform:
   m_GameObject: {fileID: 2087350193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4, y: 2.86, z: 0}
-  m_LocalScale: {x: 0.43862966, y: 0.37755716, z: 1}
+  m_LocalPosition: {x: 0.21, y: 2.86, z: 0}
+  m_LocalScale: {x: 0.41669816, y: 0.37755716, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1170214062}
@@ -6030,7 +6030,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557407572983402944, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -71
+      value: -92
       objectReference: {fileID: 0}
     - target: {fileID: 2557407572983402944, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6154,7 +6154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744784301492786980, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 156
+      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 4744784301492786980, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
