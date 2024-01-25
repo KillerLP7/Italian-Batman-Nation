@@ -6010,11 +6010,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.9963192
       objectReference: {fileID: 0}
     - target: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_sharedMaterial
@@ -6022,7 +6022,7 @@ PrefabInstance:
       objectReference: {fileID: -5957453644660638556, guid: 5d1b37abc7b931e4dab9f8e48a44340e, type: 2}
     - target: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190335
+      value: 4278255614
       objectReference: {fileID: 0}
     - target: {fileID: 963889341564494722, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6030,11 +6030,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2557407572983402944, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -92
+      value: -54
       objectReference: {fileID: 0}
     - target: {fileID: 2557407572983402944, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 479
+      value: 490
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
+      propertyPath: m_margin.z
+      value: -5.4877243
       objectReference: {fileID: 0}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontAsset
@@ -6042,15 +6046,15 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5d1b37abc7b931e4dab9f8e48a44340e, type: 2}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 0.06666667
       objectReference: {fileID: 0}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 0.91372555
       objectReference: {fileID: 0}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor.r
-      value: 1
+      value: 0.91372555
       objectReference: {fileID: 0}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_sharedMaterial
@@ -6058,7 +6062,11 @@ PrefabInstance:
       objectReference: {fileID: -5957453644660638556, guid: 5d1b37abc7b931e4dab9f8e48a44340e, type: 2}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190335
+      value: 4279364073
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3958157056978987473, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_hasFontAssetChanged
@@ -6154,11 +6162,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744784301492786980, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 130
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4744784301492786980, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 479
+      value: 454.99997
       objectReference: {fileID: 0}
     - target: {fileID: 6239864093762743911, guid: 0e91492eb7c48b4458a82cce19802c81, type: 3}
       propertyPath: m_text
