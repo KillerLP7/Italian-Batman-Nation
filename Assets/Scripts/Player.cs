@@ -34,15 +34,17 @@ public class Player : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
-    static public bool unlocked;
-    static public bool lvl3;
-    static public bool lvlBoss;
+    private int time;
+    public static bool tutorial = true;
+    
+    public static bool unlocked;
+    public  static bool lvl3;
+    public static bool lvlBoss;
     //static public bool tutorial;
     //static public bool tutorialWASD;
-    static public bool tutorialP;
-    static public bool tutorialK;
-    static public bool tutorialBoomer;
-    private int time;
+    public static bool tutorialP;
+    public static bool tutorialK;
+    public static bool tutorialBoomer;
     
     //static public bool tutorialSpacebar;
 
@@ -62,11 +64,21 @@ public class Player : MonoBehaviour
         lvlBoss = true;
         if (currentSceneIndex < 1)
         {
-            tutorialP = true;
-            tutorialK = true;
-            pressP.enabled = true;
-            pressK.enabled = false;
-            pressWASD.enabled = false;
+            if (tutorial)
+            {
+                tutorialP = true;
+                tutorialK = true;
+                pressP.enabled = true;
+                pressK.enabled = false;
+                pressWASD.enabled = false;
+                tutorial = false;
+            }
+            else
+            {
+                pressP.enabled = false;
+                pressK.enabled = false;
+                pressWASD.enabled = false;
+            }
         }
         else
         {
