@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
@@ -8,7 +9,13 @@ using Random = UnityEngine.Random;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
+    public static bool endlessMode;
+    
+    public const string endlessModeKey = "Endless";
+    private static int endlessModeBinary;
 
+    [SerializeField] private Upgrade upgradeScreen;
+    
     public GameObject[] enemys;
     public GameObject toxicBall;
     public GameObject gameOver;
@@ -66,6 +73,8 @@ public class GameManager : MonoBehaviour
         {
             binary[i] = false;
         }
+        
+        endlessMode = PlayerPrefs.GetInt(endlessModeKey, 0) == 1;
 
         bossUI.enabled = false;
         bossHealth.enabled = false;
@@ -126,7 +135,7 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 2;
                 break;
         }
-        inMenu = SceneManager.GetActiveScene().buildIndex != 1;
+        inMenu = !(SceneManager.GetActiveScene().buildIndex == 1 || SceneManager.GetActiveScene().buildIndex == 2);
     }
 
     // Update is called once per frame
@@ -150,7 +159,8 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.I))
         {
             print("I");
-            Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+            //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+            waveNumber = 16;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -411,8 +421,18 @@ public class GameManager : MonoBehaviour
             bossHP = 0;
             waveNumber = 0;
             bossHP = 30;
-            SceneManager.LoadScene(5);
-            
+
+            if (!endlessMode)
+            {
+                print("EndlessMode UNLOCKED");
+                endlessMode = true;
+                PlayerPrefs.SetInt(endlessModeKey, endlessMode ? 1 : 0);
+                SceneManager.LoadScene(5);
+            } 
+            else if (endlessMode)
+            {
+                upgradeScreen.OpenScreen();
+            }
         }
 
         if (!bossCanDie)
@@ -647,5 +667,24 @@ public class GameManager : MonoBehaviour
     public void Armor(int armor)
     {
         hp += armor;
+    }
+
+    public void PowerUps(Upgrade.PowerUpType item)
+    {
+        switch (item)
+        {
+            case Upgrade.PowerUpType.Health:
+                break;
+            case Upgrade.PowerUpType.BCooldown:
+                break;
+            case Upgrade.PowerUpType.BDamage:
+                break;
+            case Upgrade.PowerUpType.Regeneration:
+                break;
+            case Upgrade.PowerUpType.Points:
+                break;
+            case Upgrade.PowerUpType.Attack:
+                break;
+        }
     }
 }
