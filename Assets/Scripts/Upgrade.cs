@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(CanvasGroup))]
@@ -24,7 +25,7 @@ public class Upgrade : MonoBehaviour
 
     public void OpenScreen()
     {
-        Time.timeScale = 0f;
+        Time.timeScale = 0;
         group.alpha = 1f;
         group.interactable = group.blocksRaycasts = true;
         List<int> numbers = new List<int> {0, 1, 2, 3, 4, 5};
@@ -40,6 +41,7 @@ public class Upgrade : MonoBehaviour
     public void SlotOnePressed()
     {
         GameManager.Instance.PowerUps(slots[0]);
+        
         CloseScreen();
     }
     
@@ -57,6 +59,8 @@ public class Upgrade : MonoBehaviour
     
     private void CloseScreen()
     {
+        GameManager.Instance.SaveHP();
+        SceneManager.LoadScene(2);
         Time.timeScale = PlayerPrefs.GetFloat(Options.speedKey, 1f);
         group.alpha = 0f;
         group.interactable = group.blocksRaycasts = false;

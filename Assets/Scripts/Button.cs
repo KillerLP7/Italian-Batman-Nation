@@ -15,7 +15,7 @@ public class Button : MonoBehaviour
 
     public void Back()
     {
-        if (currentSceneIndex != 1)
+        if (!(currentSceneIndex == 1 || currentSceneIndex == 2))
         {
             Options.OnExit();
         }
@@ -24,7 +24,7 @@ public class Button : MonoBehaviour
 
     public void MainMenu()
     {
-        if (currentSceneIndex != 1)
+        if (!(currentSceneIndex == 1 || currentSceneIndex == 2))
         {
             Options.OnExit();
         }

@@ -264,7 +264,7 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject);
             }
             rnd = Random.Range(30, 60);
-            print("Cat rnd:" + rnd);
+            //print("Cat rnd:" + rnd);
             if (bombCooldown > rnd)
             {
                 health--;

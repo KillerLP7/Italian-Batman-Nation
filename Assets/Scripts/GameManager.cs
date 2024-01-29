@@ -51,6 +51,8 @@ public class GameManager : MonoBehaviour
     private bool bossLevel;
     private int currentDiff;
     private int time;
+    private bool isOpen;
+    private int endlessWave;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -93,16 +95,18 @@ public class GameManager : MonoBehaviour
 
     private void Refresh(Scene s, LoadSceneMode m)
     {
-        lastHp = 5;
         if (lastHp <= 0)
         {
             lastHp = 5;
         }
         activeEnemies = 0;
+        isOpen = false;
         bossCanDie = false;
         uiBoss.SetActive(false);
         uiBoomer.SetActive(false);
         playerHealth.enabled = true;
+        bossUI.enabled = false;
+        bossHealth.enabled = false;
         wave.enabled = true;
         playerHealthText.enabled = true;
         waveText.enabled = true;
@@ -114,6 +118,7 @@ public class GameManager : MonoBehaviour
         ui.SetActive(true);
         lastWaveNumber = 1;
         waveNumber = lastWaveNumber;
+        endlessWave++;
         hp = lastHp;
         allowSpawn = true;
         time = PlayerPrefs.GetInt(Options.speedKey, 2);
@@ -141,9 +146,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("Whats the time?" + Time.timeScale);
+        //print("Whats the time?" + Time.timeScale);
+        print("Current EndlessWave:" + endlessWave);
         if (inMenu)
         {
+            endlessWave = 0;
             playerHealth.enabled = false;
             wave.enabled = false;
             playerHealthText.enabled = false;
@@ -166,7 +173,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             lastWaveNumber = waveNumber;
-            lastHp = hp;
+            //lastHp = hp;
             SceneManager.LoadScene(3);
         }
 
@@ -348,13 +355,13 @@ public class GameManager : MonoBehaviour
 
         allowSpawn = false;
         
-        print(activeEnemies);
+        //print(activeEnemies);
         if (hp > -1)
         {
             playerHealth.text = hp.ToString();
         }
         wave.text = waveNumber.ToString();
-        print($"Die Werte: Allow Spawn?: {allowSpawn} Boss spawn? {spawnBoss}");
+        //print($"Die Werte: Allow Spawn?: {allowSpawn} Boss spawn? {spawnBoss}");
 
         if (activeEnemies == 0 && !endOfWave)
         {
@@ -386,8 +393,6 @@ public class GameManager : MonoBehaviour
         if (waveNumber > 15)
         {
             wave.text = "BOSS";
-            bossUI.enabled = true;
-            bossHealth.enabled = true;
             if (bossHP > -1)
             {
                 bossHealth.text = bossHP.ToString();
@@ -418,9 +423,11 @@ public class GameManager : MonoBehaviour
 
         if (bossHP <= 0 && bossCanDie)
         {
+            bossCanDie = false;
             bossHP = 0;
             waveNumber = 0;
-            bossHP = 30;
+            //bossHP = 30;
+            Time.timeScale = 0;
 
             if (!endlessMode)
             {
@@ -431,7 +438,11 @@ public class GameManager : MonoBehaviour
             } 
             else if (endlessMode)
             {
-                upgradeScreen.OpenScreen();
+                if (!isOpen)
+                {
+                    upgradeScreen.OpenScreen();
+                    isOpen = true;
+                }
             }
         }
 
@@ -520,7 +531,7 @@ public class GameManager : MonoBehaviour
                 //Toxicball
                 if (BossAllowSpawn)
                 {
-                    print("???");
+                    //print("???");
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                 }
@@ -657,10 +668,12 @@ public class GameManager : MonoBehaviour
         if (collision.CompareTag("Level Boss"))
         {
             print("Lets switch to Level Boss!");
+            bossHP = 30;
             uiBoss.SetActive(true);
+            bossUI.enabled = true;
+            bossHealth.enabled = true;
             bossLevel = true;
             allowSpawn = true;
-            bossHP = 30;
         }
     }
 
@@ -673,18 +686,29 @@ public class GameManager : MonoBehaviour
     {
         switch (item)
         {
+            case Upgrade.PowerUpType.Attack:
+                hp += 5 * endlessWave;
+                break;
             case Upgrade.PowerUpType.Health:
+                hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.BCooldown:
+                hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.BDamage:
+                hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.Regeneration:
+                hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.Points:
-                break;
-            case Upgrade.PowerUpType.Attack:
+                hp += 5 * endlessWave;
                 break;
         }
+    }
+
+    public void SaveHP()
+    {
+        lastHp = hp;
     }
 }

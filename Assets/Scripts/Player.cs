@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
 
     private void FindText(Scene arg0, LoadSceneMode arg1)
     {
-        if (currentSceneIndex == 1)
+        if (currentSceneIndex == 1 || currentSceneIndex == 2)
         {
             pressSpacebar = GameObject.FindGameObjectWithTag("SpaceTutorial").GetComponent<TextMeshProUGUI>();
         }
