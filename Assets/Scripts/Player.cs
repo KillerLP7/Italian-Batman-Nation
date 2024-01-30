@@ -237,6 +237,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
                 pressSpacebar.enabled = false;
+                //uiBoomer.SetActive(false);
                 switch (time)
                 {
                     case 0:
@@ -335,7 +336,7 @@ public class Player : MonoBehaviour
             print("Lets switch to Level 2!");
             if (!unlocked)
             {
-                uiBoomer.SetActive(true);
+                //uiBoomer.SetActive(true);
                 pressSpacebar.enabled = true;
                 unlocked = true;
                 Time.timeScale = 0;
