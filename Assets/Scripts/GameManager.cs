@@ -100,6 +100,7 @@ public class GameManager : MonoBehaviour
             lastHp = 5;
         }
         activeEnemies = 0;
+        bossHP = 30;
         isOpen = false;
         bossCanDie = false;
         uiBoss.SetActive(false);
@@ -168,6 +169,7 @@ public class GameManager : MonoBehaviour
             print("I");
             //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
             waveNumber = 16;
+            hp = 99999;
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))

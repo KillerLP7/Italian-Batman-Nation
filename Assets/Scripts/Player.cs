@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject attack;
     [SerializeField] private GameObject attackBR;
     [SerializeField] private bool player;
+    public GameObject uiBoomer;
     public TextMeshProUGUI pressP;
     public TextMeshProUGUI pressK;
     public TextMeshProUGUI pressWASD;
@@ -334,6 +335,7 @@ public class Player : MonoBehaviour
             print("Lets switch to Level 2!");
             if (!unlocked)
             {
+                uiBoomer.SetActive(true);
                 pressSpacebar.enabled = true;
                 unlocked = true;
                 Time.timeScale = 0;

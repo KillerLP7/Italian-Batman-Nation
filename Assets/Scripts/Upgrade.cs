@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -10,12 +11,21 @@ public class Upgrade : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] slotTexts;
     private CanvasGroup group;
     private PowerUpType[] slots;
+    private int time;
+    private bool isOpen;
 
     public enum PowerUpType
     {
         Attack, Health, BCooldown, BDamage, Regeneration, Points
     }
 
+    private void Update()
+    {
+        if (isOpen)
+        {
+            Time.timeScale = 0;
+        }
+    }
 
     private void Awake()
     {
@@ -25,6 +35,7 @@ public class Upgrade : MonoBehaviour
 
     public void OpenScreen()
     {
+        isOpen = true;
         Time.timeScale = 0;
         group.alpha = 1f;
         group.interactable = group.blocksRaycasts = true;
@@ -41,7 +52,6 @@ public class Upgrade : MonoBehaviour
     public void SlotOnePressed()
     {
         GameManager.Instance.PowerUps(slots[0]);
-        
         CloseScreen();
     }
     
@@ -59,6 +69,7 @@ public class Upgrade : MonoBehaviour
     
     private void CloseScreen()
     {
+        isOpen = false;
         GameManager.Instance.SaveHP();
         SceneManager.LoadScene(2);
         Time.timeScale = PlayerPrefs.GetFloat(Options.speedKey, 1f);
