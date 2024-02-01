@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     private bool bossCanDie;
     private float bossHPCounter;
     private float bossHPCooldown;
-    private float bossMaxHP;
+    private float bossMaxHP = 300;
     private bool bossReachedMaxHealth;
     private bool bossLevel;
     private int currentDiff;
@@ -156,6 +156,7 @@ public class GameManager : MonoBehaviour
         print("CurrentBoomerDMG:" + increaseBDMG);
         //print("Whats the time?" + Time.timeScale);
         print("Current EndlessWave:" + endlessWave);
+        print("BossHP:" + bossHP + "BossMaxHP:" + bossMaxHP);
         if (inMenu)
         {
             endlessWave = 0;
@@ -697,6 +698,7 @@ public class GameManager : MonoBehaviour
         {
             print("Lets switch to Level Boss!");
             bossHP = 30;
+            bossCanDie = false;
             uiBoss.SetActive(true);
             bossUI.enabled = true;
             bossHealth.enabled = true;
