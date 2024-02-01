@@ -455,10 +455,17 @@ public class GameManager : MonoBehaviour
             } 
             else if (endlessMode)
             {
+                if (SceneManager.GetActiveScene().buildIndex == 1)
+                {
+                    SceneManager.LoadScene(5);
+                }
                 if (!isOpen)
                 {
-                    upgradeScreen.OpenScreen();
-                    isOpen = true;
+                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    {
+                        upgradeScreen.OpenScreen();
+                        isOpen = true;
+                    }
                 }
             }
         }

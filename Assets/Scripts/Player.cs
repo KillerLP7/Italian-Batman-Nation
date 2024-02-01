@@ -115,7 +115,7 @@ public class Player : MonoBehaviour
         {
             endlessWave = 1;
         }
-        else
+        else if(currentSceneIndex == 2)
         {
             endlessWave = GameManager.Instance.GetEndlessNumber();
         }
