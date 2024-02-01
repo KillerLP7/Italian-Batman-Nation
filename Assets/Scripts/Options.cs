@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,19 +15,26 @@ public class Options : MonoBehaviour
     [SerializeField] private TextMeshProUGUI percent;
     [SerializeField] private TextMeshProUGUI diff;
     [SerializeField] private TextMeshProUGUI speed;
+    public AudioSource src;
     private static int difficulty;
     private static int timeScale;
     private static float audioValue;
 
     private void Awake()
     {
+        src.volume = PlayerPrefs.GetFloat(Options.audioKey, 1) / 2;
         audioValue =  PlayerPrefs.GetFloat(audioKey, 1);
         difficulty =  PlayerPrefs.GetInt(diffKey, 0);
         timeScale =  PlayerPrefs.GetInt(speedKey, 2);
         ASlider.value = audioValue;
         DSlider.value = difficulty;
         SSlider.value = timeScale;
-    }   
+    }
+
+    private void Update()
+    {
+        src.volume = ASlider.value / 2;
+    }
 
     public void Audio()
     {
