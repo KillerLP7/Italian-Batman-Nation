@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
     private bool startCooldown;
     private bool hit;
     private float hitCooldown;
+    private int endlessWave;
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     private int time;
     public static bool tutorial = true;
@@ -110,6 +111,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (currentSceneIndex == 1)
+        {
+            endlessWave = 1;
+        }
+        else
+        {
+            endlessWave = GameManager.Instance.GetEndlessNumber();
+        }
         time = PlayerPrefs.GetInt(Options.speedKey, 2);
         if (player)
         {
@@ -294,7 +303,7 @@ public class Player : MonoBehaviour
                 {
                     GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
                 }
-                if (boomerangCooldown <= 0.1f)
+                if (boomerangCooldown <= 0.1f * endlessWave)
                 {
                     boomerang = true;
                     startCooldown = false;

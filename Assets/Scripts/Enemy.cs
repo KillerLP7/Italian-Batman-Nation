@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.XR;
+using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
@@ -38,6 +41,9 @@ public class Enemy : MonoBehaviour
     private bool hit;
     private float hitCooldown;
     private bool allowWalking;
+    private int boomerDMG;
+    private int playerDMG;
+    private int increaseHealth = 0;
 
     private int currentPhase;
     private bool ZeroOnlyOnce;
@@ -54,6 +60,11 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
         anime = GetComponent<Animator>();
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            increaseHealth = GameManager.Instance.GetEndlessNumber();
+            increaseHealth--;
+        }
         for (int i = 0; i < enemys.Length; i++)
         {
             //print(i);
@@ -61,19 +72,19 @@ public class Enemy : MonoBehaviour
         }
         if (firstEnemy)
         {
-            health = 1;
+            health = 1 + increaseHealth;
         }
         if (secondEnemy)
         {
-            health = 2;
+            health = 2 + increaseHealth;
         }
         if (catGunEnemy)
         {
-            health = 8;
+            health = 8 + increaseHealth;
         }
         if (fourthEnemy)
         {
-            health = 4;
+            health = 4 + increaseHealth;
         }
 
         if (catBombEnemy)
@@ -101,6 +112,23 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //print("Health:" + health);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            playerDMG = 1;
+            boomerDMG = 1;
+            increaseHealth = 0;
+        }
+        else
+        {
+            playerDMG = GameManager.Instance.GetDMG();
+            boomerDMG = GameManager.Instance.GetBDMG();
+            increaseHealth = GameManager.Instance.GetEndlessNumber();
+            if (health > 1)
+            {
+                increaseHealth--;
+            }
+        }
        
         if (hit)
         {
@@ -223,7 +251,7 @@ public class Enemy : MonoBehaviour
         }
         if (boss)
         {
-            print("Boss: " + health);
+            //print("Boss: " + health);
             bossCanDie = GameManager.Instance.GetBossCanDie();
             health = GameManager.Instance.GetBossHP;
             GameManager.Instance.BossPhase();
@@ -290,14 +318,35 @@ public class Enemy : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            boomerDMG = GameManager.Instance.GetBDMG();
+            playerDMG = GameManager.Instance.GetDMG();
+        }
+        else
+        {
+            boomerDMG = 1;
+            playerDMG = 1;
+        }
         if (!boss && !catBombEnemy)
         {
-            if (collision.gameObject.CompareTag("Attack"))
+            if (collision.gameObject.CompareTag("BoomerAttack"))
             {
-                health--;
+                health -= boomerDMG;
                 sr.color = hitColor;
                 hit = true;
-                if (health == 0)
+                if (health <= 0)
+                {
+                    GameManager.Instance.ActiveEnemiesRemove();
+                    Destroy(gameObject);
+                }
+            }
+            else if (collision.gameObject.CompareTag("Attack"))
+            {
+                health -= playerDMG;
+                sr.color = hitColor;
+                hit = true;
+                if (health <= 0)
                 {
                     GameManager.Instance.ActiveEnemiesRemove();
                     Destroy(gameObject);
@@ -308,10 +357,19 @@ public class Enemy : MonoBehaviour
 
         if (boss)
         {
-            if (collision.gameObject.CompareTag("Attack"))
+            if (collision.gameObject.CompareTag("Attack") || collision.gameObject.CompareTag("BoomerAttack"))
             {
-                print("Did I got him?");
-                health--;
+                //print("Did I got him?");
+                if (collision.gameObject.CompareTag("Attack"))
+                {
+                    health -= playerDMG;
+                    GameManager.Instance.BossGotHit(playerDMG);
+                }
+                else
+                {
+                    health -= boomerDMG;
+                    GameManager.Instance.BossGotHit(boomerDMG);
+                }
                 
                 switch (health)
                 {
@@ -334,8 +392,7 @@ public class Enemy : MonoBehaviour
                 
                 sr.color = hitColor;
                 hit = true;
-                GameManager.Instance.BossGotHit();
-                if (health == 0 && bossCanDie)
+                if (health <= 0 && bossCanDie)
                 {
                     Destroy(gameObject);
                 }

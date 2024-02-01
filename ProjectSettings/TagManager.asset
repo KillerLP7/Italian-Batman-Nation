@@ -16,6 +16,7 @@ TagManager:
   - GameManager
   - Bullet
   - SpaceTutorial
+  - BoomerAttack
   layers:
   - Default
   - TransparentFX

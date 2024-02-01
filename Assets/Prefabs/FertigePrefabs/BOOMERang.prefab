@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e63081e0bcef2c4aab780d136b12d8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAttack: {fileID: 7631787988376871254, guid: 95fb1312d28e3664099eaea1ef6378ab, type: 3}
+  playerAttack: {fileID: 2021864609425167741, guid: 883af19d228dd724cb59bdaf3f8cea2d, type: 3}
   enemyAttack: {fileID: 1333311967959955449, guid: e6e001dd4838a0048ab333c332dede19, type: 3}
   gun: 0
 --- !u!61 &4825508896043858709

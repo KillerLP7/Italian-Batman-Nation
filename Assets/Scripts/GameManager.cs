@@ -47,12 +47,17 @@ public class GameManager : MonoBehaviour
     private bool bossCanDie;
     private float bossHPCounter;
     private float bossHPCooldown;
-    private bool bossMaxHealth;
+    private float bossMaxHP;
+    private bool bossReachedMaxHealth;
     private bool bossLevel;
     private int currentDiff;
     private int time;
     private bool isOpen;
     private int endlessWave;
+    private bool resetBCD;
+    private int increaseBDMG = 1;
+    private int increaseDMG = 1;
+    private int healthPerKill = 1;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -112,7 +117,7 @@ public class GameManager : MonoBehaviour
         playerHealthText.enabled = true;
         waveText.enabled = true;
         bossHPCounter = 5;
-        bossMaxHealth = false;
+        bossReachedMaxHealth = false;
         cooldownText.enabled = true;
         cooldownNumber.enabled = true;
         gameOver.SetActive(false);
@@ -147,6 +152,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("CurrentDMG:" + increaseDMG);
+        print("CurrentBoomerDMG:" + increaseBDMG);
         //print("Whats the time?" + Time.timeScale);
         print("Current EndlessWave:" + endlessWave);
         if (inMenu)
@@ -384,6 +391,14 @@ public class GameManager : MonoBehaviour
 
         if (boss)
         {
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+            {
+                bossMaxHP = 300;
+            }
+            else
+            {
+                bossMaxHP = 300 * endlessWave;
+            }
             BossAllowSpawn = false;
             if (spawnCooldown > 15)
             {
@@ -404,7 +419,7 @@ public class GameManager : MonoBehaviour
 
         if (bossLevel)
         {
-            print("Did I spawn?");
+            //print("Did I spawn?");
             Instantiate(enemys[4], new Vector3(15f, 0, 0), quaternion.identity);
             spawnBoss = false;
             bossLevel = false;
@@ -450,9 +465,9 @@ public class GameManager : MonoBehaviour
 
         if (!bossCanDie)
         {
-            if (bossHP <= 0 || bossMaxHealth)
+            if (bossHP <= 0 || bossReachedMaxHealth)
             {
-                bossMaxHealth = true;
+                bossReachedMaxHealth = true;
                 if (bossHPCooldown > bossHPCounter)
                 {
                     // if (bossHP % 100 == 99) bossHP += 2;
@@ -467,10 +482,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        if (bossHP >= 300)
+        if (bossHP >= bossMaxHP)
         {
             bossCanDie = true;
-            bossMaxHealth = false;
+            bossReachedMaxHealth = false;
 
         }
     }
@@ -487,7 +502,7 @@ public class GameManager : MonoBehaviour
     public void PlayerGotHit()
     {
         //print($"Player got hit!");
-        hp--;
+        hp -= endlessWave;
     }
 
     public void ActiveEnemiesAdd()
@@ -498,7 +513,7 @@ public class GameManager : MonoBehaviour
     public void ActiveEnemiesRemove()
     {
         activeEnemies--;
-        hp++;
+        hp += healthPerKill;
     }
 
     public int GetWaveNumber()
@@ -516,9 +531,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void BossGotHit()
+    public void BossGotHit(int playerStrength)
     {
-        bossHP--;
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            playerStrength = 1;
+        }
+        bossHP -= playerStrength;
     }
 
     public void BossPhase()
@@ -528,7 +547,7 @@ public class GameManager : MonoBehaviour
 
         if (bossCanDie)
         {
-            if (bossHP <= 100)
+            if (bossHP <= bossMaxHP / 3)
             {
                 //Toxicball
                 if (BossAllowSpawn)
@@ -538,7 +557,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(toxicBall, new Vector3(15f, Random.Range(1, -4), 0), Quaternion.identity);
                 }
             }
-            if (bossHP <= 200)
+            if (bossHP <= bossMaxHP / 2)
             {
                 //Bombcats
                 if (BossAllowSpawn)
@@ -585,7 +604,7 @@ public class GameManager : MonoBehaviour
                     Instantiate(enemys[5], new Vector3(spawn, Random.Range(-1, -4), 0), Quaternion.identity);
                 }
             }
-            if (bossHP <= 300)
+            if (bossHP <= bossMaxHP)
             {
                 if (BossAllowSpawn)
                 {
@@ -689,28 +708,68 @@ public class GameManager : MonoBehaviour
         switch (item)
         {
             case Upgrade.PowerUpType.Attack:
-                hp += 5 * endlessWave;
+                //it works
+                increaseDMG++;
                 break;
             case Upgrade.PowerUpType.Health:
+                //it works
                 hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.BCooldown:
-                hp += 5 * endlessWave;
+                resetBCD = true;
                 break;
             case Upgrade.PowerUpType.BDamage:
-                hp += 5 * endlessWave;
+                //it works
+                increaseBDMG++;
                 break;
             case Upgrade.PowerUpType.Regeneration:
-                hp += 5 * endlessWave;
+                //it works
+                healthPerKill++;    
                 break;
-            case Upgrade.PowerUpType.Points:
-                hp += 5 * endlessWave;
-                break;
+            // case Upgrade.PowerUpType.Points:
+            //     hp += 5 * endlessWave;
+            //     break;
         }
     }
 
     public void SaveHP()
     {
         lastHp = hp;
+    }
+
+    public int GetEndlessNumber()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            return 1;
+        }
+        // if (increaseBDMG)
+        // {
+        //     increaseBDMG = false;
+        //     return endlessWave++;
+        // }
+        if (resetBCD)
+        {
+            resetBCD = false;
+            return 1;
+        }
+        return endlessWave;
+    }
+
+    public int GetBDMG()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            return 1;
+        }
+        return increaseBDMG;
+    }
+    public int GetDMG()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            return 1;
+        }
+        return increaseDMG;
     }
 }

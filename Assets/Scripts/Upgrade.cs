@@ -16,7 +16,7 @@ public class Upgrade : MonoBehaviour
 
     public enum PowerUpType
     {
-        Attack, Health, BCooldown, BDamage, Regeneration, Points
+        Attack, Health, BCooldown, BDamage, Regeneration
     }
 
     private void Update()
@@ -39,13 +39,16 @@ public class Upgrade : MonoBehaviour
         Time.timeScale = 0;
         group.alpha = 1f;
         group.interactable = group.blocksRaycasts = true;
-        List<int> numbers = new List<int> {0, 1, 2, 3, 4, 5};
+        List<int> numbers = new List<int> {0, 1, 2, 3, 4};
+        List<string> text = new List<string> {"ATK+", "HP+", "BCD-", "BDMG+", "HPPK+"};
         for (int i = 0; i < 3; i++)
         {
             int index = Random.Range(0, numbers.Count);
             slots[i] = (PowerUpType)numbers[index]; 
-            slotTexts[i].text = numbers[index].ToString();
+            //slotTexts[i].text = numbers[index].ToString();
+            slotTexts[i].text = text[index];
             numbers.RemoveAt(index);
+            text.RemoveAt(index);
         }
     }
 
