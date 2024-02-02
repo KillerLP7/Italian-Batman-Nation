@@ -324,7 +324,14 @@ public class Player : MonoBehaviour
                 {
                     boomerang = true;
                     startCooldown = false;
-                    boomerangCooldown = endlessWave;
+                    if (SceneManager.GetActiveScene().buildIndex == 2)
+                    {
+                        boomerangCooldown = endlessWave;
+                    }
+                    if (SceneManager.GetActiveScene().buildIndex == 1)
+                    {
+                        boomerangCooldown = 0;
+                    }
                 }
                 boomerangCooldown -= Time.deltaTime;
             }

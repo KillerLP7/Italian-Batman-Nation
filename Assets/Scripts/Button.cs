@@ -15,11 +15,9 @@ public class Button : MonoBehaviour
 
     public void Back()
     {
-        if (!(currentSceneIndex == 1 || currentSceneIndex == 2))
-        {
-            Options.OnExit();
-        }
+        print("I am a button");
 
+        print(currentSceneIndex);
         if (currentSceneIndex == 1)
         {
             SceneManager.LoadScene(4);
@@ -29,6 +27,12 @@ public class Button : MonoBehaviour
         {
             GameManager.Instance.ResetEndlessWave();
             SceneManager.LoadScene(2);
+        }
+        
+        if (!(currentSceneIndex == 1 || currentSceneIndex == 2))
+        {
+            print("I just got here");
+            Options.OnExit();
         }
     }
 

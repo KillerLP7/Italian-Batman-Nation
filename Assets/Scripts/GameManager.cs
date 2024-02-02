@@ -179,13 +179,13 @@ public class GameManager : MonoBehaviour
             return;
         } 
         
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            print("I");
-            //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
-            waveNumber = 16;
-            hp = 99999;
-        }
+        // if (Input.GetKeyDown(KeyCode.I))
+        // {
+        //     print("I");
+        //     //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+        //     waveNumber = 16;
+        //     hp = 99999;
+        // }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
