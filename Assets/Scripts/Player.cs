@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     private Color hitColor = new Color(1f, 100f / 255f, 100 / 255f, 1f);
     private int time;
     public static bool tutorial = true;
+    private int endlessNumber;
     
     public static bool unlocked;
     public  static bool lvl3;
@@ -47,6 +48,7 @@ public class Player : MonoBehaviour
     public static bool tutorialP;
     public static bool tutorialK;
     public static bool tutorialBoomer;
+    public static bool resetBCD;
     
     //static public bool tutorialSpacebar;
 
@@ -111,13 +113,27 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        print("BCD: " + boomerangCooldown);
         if (currentSceneIndex == 1)
         {
             endlessWave = 1;
+            //endlessNumber = 1;
         }
         else if(currentSceneIndex == 2)
         {
-            endlessWave = GameManager.Instance.GetEndlessNumber();
+            //resetBCD = GameManager.Instance.GetBCD();
+            // if (!resetBCD)
+            // {
+            //     endlessNumber = GameManager.Instance.GetEndlessNumber();
+            //     endlessWave--;
+            // }
+            //
+            // if (resetBCD)
+            // {
+            //     endlessWave = 0;
+            // }
+            endlessWave = GameManager.Instance.GetBCD();
+            endlessWave--;
         }
         time = PlayerPrefs.GetInt(Options.speedKey, 2);
         if (player)
@@ -246,6 +262,7 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space) && unlocked)
             {
                 pressSpacebar.enabled = false;
+                resetBCD = true;
                 //uiBoomer.SetActive(false);
                 switch (time)
                 {
@@ -303,11 +320,11 @@ public class Player : MonoBehaviour
                 {
                     GameManager.Instance.GiveBoomerCooldown(boomerangCooldown);
                 }
-                if (boomerangCooldown <= 0.1f * endlessWave)
+                if (boomerangCooldown <= 0.1f)
                 {
                     boomerang = true;
                     startCooldown = false;
-                    boomerangCooldown = 0;
+                    boomerangCooldown = endlessWave;
                 }
                 boomerangCooldown -= Time.deltaTime;
             }

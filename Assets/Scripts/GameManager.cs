@@ -54,10 +54,12 @@ public class GameManager : MonoBehaviour
     private int time;
     private bool isOpen;
     private int endlessWave;
+    private int endlessWaveBCD;
     private bool resetBCD;
     private int increaseBDMG = 1;
     private int increaseDMG = 1;
     private int healthPerKill = 1;
+    private int bCD = 1;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -125,6 +127,7 @@ public class GameManager : MonoBehaviour
         lastWaveNumber = 1;
         waveNumber = lastWaveNumber;
         endlessWave++;
+        endlessWaveBCD++;
         hp = lastHp;
         allowSpawn = true;
         time = PlayerPrefs.GetInt(Options.speedKey, 2);
@@ -725,7 +728,10 @@ public class GameManager : MonoBehaviour
                 hp += 5 * endlessWave;
                 break;
             case Upgrade.PowerUpType.BCooldown:
+                //it works HOLY SHIT THIS WAS HARD
+                endlessWaveBCD = 0;
                 resetBCD = true;
+                bCD = 1;
                 break;
             case Upgrade.PowerUpType.BDamage:
                 //it works
@@ -780,5 +786,20 @@ public class GameManager : MonoBehaviour
             return 1;
         }
         return increaseDMG;
+    }
+
+    public int GetBCD()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            return 0;
+        }
+        
+        return endlessWaveBCD;
+    }
+
+    public void GiveBCD()
+    {
+        resetBCD = false;
     }
 }
