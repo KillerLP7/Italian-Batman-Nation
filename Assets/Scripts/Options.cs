@@ -70,12 +70,12 @@ public class Options : MonoBehaviour
                 Time.timeScale = 0.5f;
                 break;
             case 1:
-                speed.text = "0.75";
-                Time.timeScale = 0.75f;
+                speed.text = "1";
+                Time.timeScale = 0f;
                 break;
             case 2:
-                speed.text = "1";
-                Time.timeScale = 1;
+                speed.text = "2";
+                Time.timeScale = 2;
                 break;
             case 3:
                 speed.text = "1.5";
