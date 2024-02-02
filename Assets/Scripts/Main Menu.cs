@@ -21,6 +21,11 @@ public class MainMenu : MonoBehaviour
    [SerializeField] private bool outro;
    private int unlockEndless;
 
+   private void Awake()
+   {
+      Time.timeScale = PlayerPrefs.GetInt(Options.speedKey, 2);
+   }
+
    private void Update()
    {
       if (intro || outro)

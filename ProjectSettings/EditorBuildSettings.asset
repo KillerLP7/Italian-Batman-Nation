@@ -23,7 +23,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Outro.unity
     guid: 71c8ec1c26b3311409621629a964c867
-  - enabled: 1
-    path: Assets/Scenes/Invisible.unity
-    guid: 4bb1c343cb2e506489f33a014c3b26df
   m_configObjects: {}

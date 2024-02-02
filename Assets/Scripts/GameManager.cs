@@ -159,14 +159,15 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("CurrentDMG:" + increaseDMG);
-        print("CurrentBoomerDMG:" + increaseBDMG);
+        //print("CurrentDMG:" + increaseDMG);
+        //print("CurrentBoomerDMG:" + increaseBDMG);
         //print("Whats the time?" + Time.timeScale);
-        print("Current EndlessWave:" + endlessWave);
-        print("BossHP:" + bossHP + "BossMaxHP:" + bossMaxHP);
+        //print("Current EndlessWave:" + endlessWave);
+        //print("BossHP:" + bossHP + "BossMaxHP:" + bossMaxHP);
         if (inMenu)
         {
             endlessWave = 0;
+            endlessWaveBCD = 0;
             playerHealth.enabled = false;
             wave.enabled = false;
             playerHealthText.enabled = false;
@@ -179,13 +180,13 @@ public class GameManager : MonoBehaviour
             return;
         } 
         
-        if (Input.GetKeyDown(KeyCode.I))
-        {
-            print("I");
-            //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
-            waveNumber = 16;
-            hp = 99999;
-        }
+        // if (Input.GetKeyDown(KeyCode.I))
+        // {
+        //     print("I");
+        //     //Instantiate(enemys[0], new Vector3(10f,Random.Range(-5f, 1f),0), Quaternion.identity);
+        //     waveNumber = 16;
+        //     hp = 99999;
+        // }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -448,7 +449,7 @@ public class GameManager : MonoBehaviour
         if (hp <= 0)
         {
             hp = 0;
-            print("GAME OVER");
+            //print("GAME OVER");
             Time.timeScale = 0;
             gameOver.SetActive(true);
             if (SceneManager.GetActiveScene().buildIndex == 2)
@@ -473,7 +474,7 @@ public class GameManager : MonoBehaviour
 
             if (!endlessMode)
             {
-                print("EndlessMode UNLOCKED");
+                //print("EndlessMode UNLOCKED");
                 endlessMode = true;
                 PlayerPrefs.SetInt(endlessModeKey, endlessMode ? 1 : 0);
                 SceneManager.LoadScene(5);
@@ -709,18 +710,18 @@ public class GameManager : MonoBehaviour
     {
         if (collision.CompareTag("Level 2"))
         {
-            print("Lets switch to Level 2!");
+            //print("Lets switch to Level 2!");
             uiBoomer.SetActive(true);
             allowSpawn = true;
         }
         if (collision.CompareTag("Level 3"))
         {
-            print("Lets switch to Level 3!");
+            //print("Lets switch to Level 3!");
             allowSpawn = true;
         }
         if (collision.CompareTag("Level Boss"))
         {
-            print("Lets switch to Level Boss!");
+            //print("Lets switch to Level Boss!");
             bossHP = 30;
             bossCanDie = false;
             uiBoss.SetActive(true);
