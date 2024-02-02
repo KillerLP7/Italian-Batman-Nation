@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //print("BCD: " + boomerangCooldown);
+        print("BCD: " + boomerangCooldown);
         if (currentSceneIndex == 1)
         {
             endlessWave = 1;
@@ -324,14 +324,7 @@ public class Player : MonoBehaviour
                 {
                     boomerang = true;
                     startCooldown = false;
-                    if (SceneManager.GetActiveScene().buildIndex == 2)
-                    {
-                        boomerangCooldown = endlessWave;
-                    }
-                    else if (SceneManager.GetActiveScene().buildIndex == 1)
-                    {
-                        boomerangCooldown = 0; 
-                    }
+                    boomerangCooldown = endlessWave;
                 }
                 boomerangCooldown -= Time.deltaTime;
             }
@@ -366,7 +359,7 @@ public class Player : MonoBehaviour
 
         if (collision.CompareTag("Level 2"))
         {
-            //print("Lets switch to Level 2!");
+            print("Lets switch to Level 2!");
             if (!unlocked)
             {
                 //uiBoomer.SetActive(true);
@@ -377,7 +370,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("Level 3"))
         {
-            //print("Lets switch to Level 3!");
+            print("Lets switch to Level 3!");
             if (lvl3)
             {
                 anime.SetBool("Batman1", true);
@@ -387,7 +380,7 @@ public class Player : MonoBehaviour
         }
         if (collision.CompareTag("Level Boss"))
         {
-            //print("Lets switch to Level Boss!");
+            print("Lets switch to Level Boss!");
             if (lvlBoss)
             {
                 anime.SetBool("Batman2", true);

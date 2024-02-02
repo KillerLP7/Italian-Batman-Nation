@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.XR;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
@@ -280,7 +282,7 @@ public class Enemy : MonoBehaviour
 
         if (catBombEnemy)
         {
-            //print("Cat rnd:" + rnd);
+            print("Cat rnd:" + rnd);
             if (health == 0)
             {
                 explosionArea = transform.position;
