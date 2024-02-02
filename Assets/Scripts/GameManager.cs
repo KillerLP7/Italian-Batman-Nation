@@ -4,6 +4,7 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using Random = UnityEngine.Random;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
     public static bool endlessMode;
     
     public const string endlessModeKey = "Endless";
+    public const string highscoreKey = "Highscore";
     private static int endlessModeBinary;
 
     [SerializeField] private Upgrade upgradeScreen;
@@ -19,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemys;
     public GameObject toxicBall;
     public GameObject gameOver;
+    public TextMeshProUGUI highscore;
     public GameObject ui;
     public GameObject uiBoss;
     public GameObject uiBoomer;
@@ -60,6 +63,7 @@ public class GameManager : MonoBehaviour
     private int increaseDMG = 1;
     private int healthPerKill = 1;
     private int bCD = 1;
+    private static int score;
 
     private bool inMenu;
     private bool allowSpawn;
@@ -373,7 +377,15 @@ public class GameManager : MonoBehaviour
         {
             playerHealth.text = hp.ToString();
         }
-        wave.text = waveNumber.ToString();
+
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            wave.text = waveNumber.ToString();
+        }
+        else if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            wave.text = endlessWave.ToString();
+        }
         //print($"Die Werte: Allow Spawn?: {allowSpawn} Boss spawn? {spawnBoss}");
 
         if (activeEnemies == 0 && !endOfWave)
@@ -437,8 +449,17 @@ public class GameManager : MonoBehaviour
         {
             hp = 0;
             print("GAME OVER");
-            gameOver.SetActive(true);
             Time.timeScale = 0;
+            gameOver.SetActive(true);
+            if (SceneManager.GetActiveScene().buildIndex == 2)
+            {
+                score = endlessWave;
+                if (score >= PlayerPrefs.GetInt(highscoreKey, 0))
+                {
+                    PlayerPrefs.SetInt(highscoreKey, score);
+                }
+                highscore.text = PlayerPrefs.GetInt(highscoreKey, 0).ToString();
+            }
             //SceneManager.LoadScene(0);
         }
 
@@ -712,7 +733,7 @@ public class GameManager : MonoBehaviour
 
     public void Armor(int armor)
     {
-        hp += armor;
+        hp += armor + endlessWave;
     }
 
     public void PowerUps(Upgrade.PowerUpType item)
@@ -798,8 +819,9 @@ public class GameManager : MonoBehaviour
         return endlessWaveBCD;
     }
 
-    public void GiveBCD()
+    public void ResetEndlessWave()
     {
-        resetBCD = false;
+        endlessWave = 0;
+        endlessWaveBCD = 0;
     }
 }

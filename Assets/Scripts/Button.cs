@@ -19,7 +19,17 @@ public class Button : MonoBehaviour
         {
             Options.OnExit();
         }
-        SceneManager.LoadScene(4);
+
+        if (currentSceneIndex == 1)
+        {
+            SceneManager.LoadScene(4);
+        }
+
+        if (currentSceneIndex == 2)
+        {
+            GameManager.Instance.ResetEndlessWave();
+            SceneManager.LoadScene(2);
+        }
     }
 
     public void MainMenu()
