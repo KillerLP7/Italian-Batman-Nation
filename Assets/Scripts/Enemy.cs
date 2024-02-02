@@ -2,8 +2,6 @@ using System;
 using System.Collections;
 using UnityEngine;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor.XR;
 using UnityEngine.SceneManagement;
 using Random = UnityEngine.Random;
 
