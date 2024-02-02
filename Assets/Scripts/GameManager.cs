@@ -159,11 +159,11 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("CurrentDMG:" + increaseDMG);
-        print("CurrentBoomerDMG:" + increaseBDMG);
+        //print("CurrentDMG:" + increaseDMG);
+        //print("CurrentBoomerDMG:" + increaseBDMG);
         //print("Whats the time?" + Time.timeScale);
-        print("Current EndlessWave:" + endlessWave);
-        print("BossHP:" + bossHP + "BossMaxHP:" + bossMaxHP);
+        //print("Current EndlessWave:" + endlessWave);
+        //print("BossHP:" + bossHP + "BossMaxHP:" + bossMaxHP);
         if (inMenu)
         {
             endlessWave = 0;
@@ -709,18 +709,18 @@ public class GameManager : MonoBehaviour
     {
         if (collision.CompareTag("Level 2"))
         {
-            print("Lets switch to Level 2!");
+            //print("Lets switch to Level 2!");
             uiBoomer.SetActive(true);
             allowSpawn = true;
         }
         if (collision.CompareTag("Level 3"))
         {
-            print("Lets switch to Level 3!");
+            //print("Lets switch to Level 3!");
             allowSpawn = true;
         }
         if (collision.CompareTag("Level Boss"))
         {
-            print("Lets switch to Level Boss!");
+            //print("Lets switch to Level Boss!");
             bossHP = 30;
             bossCanDie = false;
             uiBoss.SetActive(true);

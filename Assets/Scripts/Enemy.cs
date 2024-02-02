@@ -282,7 +282,7 @@ public class Enemy : MonoBehaviour
 
         if (catBombEnemy)
         {
-            print("Cat rnd:" + rnd);
+            //print("Cat rnd:" + rnd);
             if (health == 0)
             {
                 explosionArea = transform.position;
