@@ -8,10 +8,12 @@ public class Options : MonoBehaviour
     public const string diffKey = "Difficulty";
     public const string audioKey = "Audio";
     public const string speedKey = "Speed";
+    public const string endlessModeKey = "Endless";
     
     [SerializeField] private Slider ASlider;
     [SerializeField] private Slider DSlider;
     [SerializeField] private Slider SSlider;
+    [SerializeField] private GameObject endlessButton;
     [SerializeField] private TextMeshProUGUI percent;
     [SerializeField] private TextMeshProUGUI diff;
     [SerializeField] private TextMeshProUGUI speed;
@@ -19,6 +21,7 @@ public class Options : MonoBehaviour
     private static int difficulty;
     private static int timeScale;
     private static float audioValue;
+    private static int endless;
 
     private void Awake()
     {
@@ -26,6 +29,15 @@ public class Options : MonoBehaviour
         audioValue =  PlayerPrefs.GetFloat(audioKey, 1);
         difficulty =  PlayerPrefs.GetInt(diffKey, 0);
         timeScale =  PlayerPrefs.GetInt(speedKey, 2);
+        endless = PlayerPrefs.GetInt(endlessModeKey, 0);
+        if (endless == 0)
+        {
+            endlessButton.SetActive(false);
+        }
+        else if (endless == 1)
+        {
+            endlessButton.SetActive(true);
+        }
         ASlider.value = audioValue;
         DSlider.value = difficulty;
         SSlider.value = timeScale;

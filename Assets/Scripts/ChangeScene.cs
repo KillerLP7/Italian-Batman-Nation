@@ -9,4 +9,9 @@ public class ChangeScene : MonoBehaviour
     {
         SceneManager.LoadScene(4);
     }
+
+    public void GoEndless()
+    {
+        SceneManager.LoadScene(2);
+    }
 }
