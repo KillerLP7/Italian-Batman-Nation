@@ -125,7 +125,11 @@ public class GameManager : MonoBehaviour
         bossHPCounter = 5;
         bossReachedMaxHealth = false;
         cooldownText.enabled = true;
-        cooldownNumber.enabled = true;
+        cooldownNumber.enabled = false;
+        if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            cooldownNumber.enabled = true;
+        }
         gameOver.SetActive(false);
         ui.SetActive(true);
         lastWaveNumber = 1;

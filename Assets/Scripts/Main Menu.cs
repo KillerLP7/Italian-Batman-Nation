@@ -88,6 +88,7 @@ public class MainMenu : MonoBehaviour
       }
       if (endless && collision.CompareTag("Player"))
       {
+         GameManager.Instance.ResetEndlessWave();
          SceneManager.LoadScene(2);
       }
       if (options && collision.CompareTag("Player"))

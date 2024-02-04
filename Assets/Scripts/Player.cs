@@ -114,7 +114,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         //print("BCD: " + boomerangCooldown);
-        if (currentSceneIndex == 1)
+        if (currentSceneIndex == 0)
+        {
+            endlessWave = 0;
+        }
+        else if (currentSceneIndex == 1)
         {
             endlessWave = 1;
             //endlessNumber = 1;
